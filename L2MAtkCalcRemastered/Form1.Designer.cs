@@ -33,8 +33,10 @@
             this.OwnMAttack = new System.Windows.Forms.TextBox();
             this.ApoCasterResult = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
+            this.ApocalypseCaster = new System.Windows.Forms.Label();
             this.IsApoCasterBlessed = new System.Windows.Forms.CheckBox();
+            this.HavingSigil = new System.Windows.Forms.RadioButton();
+            this.NotHavingSigil = new System.Windows.Forms.RadioButton();
             this.SuspendLayout();
             // 
             // ApoCaster
@@ -77,14 +79,14 @@
             this.label1.TabIndex = 3;
             this.label1.Text = "Result: ";
             // 
-            // label2
+            // ApocalypseCaster
             // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(100, 81);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(95, 13);
-            this.label2.TabIndex = 4;
-            this.label2.Text = "Apocalypse Caster";
+            this.ApocalypseCaster.AutoSize = true;
+            this.ApocalypseCaster.Location = new System.Drawing.Point(100, 81);
+            this.ApocalypseCaster.Name = "ApocalypseCaster";
+            this.ApocalypseCaster.Size = new System.Drawing.Size(95, 13);
+            this.ApocalypseCaster.TabIndex = 4;
+            this.ApocalypseCaster.Text = "Apocalypse Caster";
             // 
             // IsApoCasterBlessed
             // 
@@ -95,6 +97,30 @@
             this.IsApoCasterBlessed.TabIndex = 5;
             this.IsApoCasterBlessed.Text = "Blessed";
             this.IsApoCasterBlessed.UseVisualStyleBackColor = true;
+            this.IsApoCasterBlessed.CheckedChanged += new System.EventHandler(this.IsApoCasterBlessed_CheckedChanged);
+            // 
+            // HavingSigil
+            // 
+            this.HavingSigil.Location = new System.Drawing.Point(910, 835);
+            this.HavingSigil.Name = "HavingSigil";
+            this.HavingSigil.Size = new System.Drawing.Size(100, 20);
+            this.HavingSigil.TabIndex = 6;
+            this.HavingSigil.Text = "I have a sigil";
+            this.HavingSigil.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.HavingSigil.UseVisualStyleBackColor = true;
+            this.HavingSigil.CheckedChanged += new System.EventHandler(this.HavingSigil_CheckedChanged);
+            // 
+            // NotHavingSigil
+            // 
+            this.NotHavingSigil.Checked = true;
+            this.NotHavingSigil.Location = new System.Drawing.Point(900, 870);
+            this.NotHavingSigil.Name = "NotHavingSigil";
+            this.NotHavingSigil.Size = new System.Drawing.Size(120, 20);
+            this.NotHavingSigil.TabIndex = 7;
+            this.NotHavingSigil.TabStop = true;
+            this.NotHavingSigil.Text = "I dont\' have a sigil";
+            this.NotHavingSigil.UseVisualStyleBackColor = true;
+            this.NotHavingSigil.CheckedChanged += new System.EventHandler(this.NotHavingSigil_CheckedChanged);
             // 
             // Form1
             // 
@@ -102,8 +128,10 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = global::L2MAtkCalcRemastered.Properties.Resources.Shot00113;
             this.ClientSize = new System.Drawing.Size(1904, 962);
+            this.Controls.Add(this.NotHavingSigil);
+            this.Controls.Add(this.HavingSigil);
             this.Controls.Add(this.IsApoCasterBlessed);
-            this.Controls.Add(this.label2);
+            this.Controls.Add(this.ApocalypseCaster);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.ApoCasterResult);
             this.Controls.Add(this.OwnMAttack);
@@ -123,8 +151,10 @@
         private System.Windows.Forms.TextBox OwnMAttack;
         private System.Windows.Forms.Label ApoCasterResult;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label ApocalypseCaster;
         private System.Windows.Forms.CheckBox IsApoCasterBlessed;
+        private System.Windows.Forms.RadioButton HavingSigil;
+        private System.Windows.Forms.RadioButton NotHavingSigil;
     }
 }
 

@@ -17,13 +17,37 @@ namespace L2MAtkCalcRemastered
         public Form1()
         {
             InitializeComponent();
+            MessageBox.Show("Please be sure to first insert your own magic attack at bottom of app screen.", "Information");            
         }
 
         readonly decimal factor = 31.47M;
 
-        private decimal CalculateMAtk(decimal OwnAttack, decimal weaponAttack)
+        private decimal CalculateMAtk(decimal OwnAttack, decimal weaponAttack, string weaponName)
         {
-            return OwnAttack + weaponAttack * factor;
+            decimal blessed_factor = 1.29M;
+
+            if (IsBlessed())
+            {
+                if (DoesSigilMatter(weaponName))
+                {
+                    return (OwnAttack + (weaponAttack * blessed_factor) * factor) * 1.04M;
+                }
+                else
+                {
+                    return (OwnAttack + (weaponAttack * blessed_factor) * factor);
+                }
+            }
+            else
+            {
+                if (DoesSigilMatter(weaponName))
+                {
+                    return (OwnAttack + weaponAttack * factor) * 1.04M;
+                }
+                else
+                {
+                    return (OwnAttack + weaponAttack * factor);
+                }
+            }
         }
 
         private decimal ConvertOwnAttack()
@@ -39,7 +63,7 @@ namespace L2MAtkCalcRemastered
                 }
                 return result;
             }
-            catch(FormatException ex)
+            catch(FormatException)
             {
                 MessageBox.Show($"Field {nameof(OwnMAttack)} cannot be empty and can only contain numbers!", "Error!");
                 return 0;
@@ -51,8 +75,8 @@ namespace L2MAtkCalcRemastered
             }
             catch(Exception)
             {
-                MessageBox.Show(@"Unexpected exception! Please report that issue on github: ", "Error!");
-                
+                MessageBox.Show(@"Unexpected exception! Please report that issue on github: https://github.com/issues . My nickname is: Quanthis", "Error!");
+                return 0;
             }
         }
 
@@ -61,11 +85,80 @@ namespace L2MAtkCalcRemastered
             string result = sentValue.ToString();
             return result;
         }
+
+        private bool IsBlessed()
+        {
+            if (IsApoCasterBlessed.Checked)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
         
+        private void Sender(decimal weaponAttack, Label whereToSend, string weapName)
+        {
+            whereToSend.Text = ConvertToSendableForm(CalculateMAtk(ConvertOwnAttack(), weaponAttack, weapName));
+        }
+
+        private bool HaveSigil()
+        {
+            if (HavingSigil.Checked)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+
+        private bool DoesSigilMatter(string weaponName)
+        {
+            if (HaveSigil())
+            {
+                if (weaponName.Contains("Rettributer"))
+                {
+                    return false;
+                }
+                else
+                {
+                    return false;
+                }
+            }
+            else
+            {
+                return true;
+            }
+        }
+
+        private void RefreshCalculations()
+        {
+            ApoCaster.PerformClick();
+        }
+
         private void button1_Click(object sender, EventArgs e)
         {
             decimal weaponAttack = 293;
-            ApoCasterResult.Text = ConvertToSendableForm(CalculateMAtk(ConvertOwnAttack(), weaponAttack));
+            Sender(weaponAttack, ApoCasterResult, ApocalypseCaster.Name);
+        }
+
+        private void IsApoCasterBlessed_CheckedChanged(object sender, EventArgs e)
+        {
+            decimal weaponAttack = 293;
+            Sender(weaponAttack, ApoCasterResult, ApocalypseCaster.Name);
+        }
+
+        private void HavingSigil_CheckedChanged(object sender, EventArgs e)
+        {
+            RefreshCalculations();
+        }
+
+        private void NotHavingSigil_CheckedChanged(object sender, EventArgs e)
+        {
+            RefreshCalculations();
         }
     }
 }
