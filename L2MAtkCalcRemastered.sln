@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.28307.1000
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "L2MAtkCalcRemastered", "L2MAtkCalcRemastered\L2MAtkCalcRemastered.csproj", "{C8ED1F46-F85F-4FDB-A559-EA5125083687}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{C8ED1F46-F85F-4FDB-A559-EA5125083687}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C8ED1F46-F85F-4FDB-A559-EA5125083687}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C8ED1F46-F85F-4FDB-A559-EA5125083687}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C8ED1F46-F85F-4FDB-A559-EA5125083687}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {10EDF9E2-FBD4-460C-96B0-9A3080555461}
+	EndGlobalSection
+EndGlobal
