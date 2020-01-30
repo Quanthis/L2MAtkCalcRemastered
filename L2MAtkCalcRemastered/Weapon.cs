@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Diagnostics;
-using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using static System.Convert;
@@ -19,31 +15,24 @@ namespace L2MAtkCalcRemastered
         decimal weaponAttack;
         string weaponName;
         string OwnMAttack2;
+        bool sigilOn;
+        bool isBlessed;
 
-        internal Weapon(decimal weapAttack, string weapName, string OwnAttack)
+        internal Weapon(decimal weapAttack, string weapName, string OwnAttack, bool sigil, bool blessed)
         {
             weaponAttack = weapAttack;
             weaponName = weapName;
             OwnMAttack2 = OwnAttack;
+            sigilOn = sigil;
+            isBlessed = blessed;
         }
         #endregion
 
         #region ClassMethods
-        private bool HaveSigil()
-        {
-            if (HavingSigil.Checked)
-            {
-                return true;
-            }
-            else
-            {
-                return false;
-            }
-        }
 
         private bool DoesSigilMatter(string weaponName)
         {
-            if (HaveSigil())
+            if (sigilOn)
             {
                 if (weaponName.Contains("Rettributer"))
                 {
@@ -51,18 +40,18 @@ namespace L2MAtkCalcRemastered
                 }
                 else
                 {
-                    return false;
+                    return true;
                 }
             }
             else
             {
-                return true;
+                return false;
             }
         }
 
 
 
-        private bool IsBlessed()
+        /*private bool IsBlessed()
         {
             if (IsApoCasterBlessed.Checked)
             {
@@ -72,7 +61,7 @@ namespace L2MAtkCalcRemastered
             {
                 return false;
             }
-        }
+        }*/
 
 
         private decimal ConvertOwnAttack()
@@ -86,7 +75,6 @@ namespace L2MAtkCalcRemastered
                 {
                     MessageBox.Show("I don't think you attack is so low, try inserting it again :)", "Warning");
                 }
-                Debug.WriteLine(result);
                 return result;
             }
             catch (FormatException)
@@ -110,7 +98,7 @@ namespace L2MAtkCalcRemastered
         private decimal CalculateMAtk(decimal OwnAttack, decimal weaponAttack, string weaponName)
         {
 
-            if (IsBlessed())
+            if (isBlessed)
             {
                 if (DoesSigilMatter(weaponName))
                 {

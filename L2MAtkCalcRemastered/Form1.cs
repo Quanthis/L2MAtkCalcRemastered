@@ -1,11 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Threading;
 using static System.Convert;
@@ -17,81 +10,10 @@ namespace L2MAtkCalcRemastered
         public Form1()
         {
             InitializeComponent();
-            //MessageBox.Show("Please be sure to first insert your own magic attack at bottom of app screen.", "Information");            
         }
 
-        private void Form1_Shown(object sender, EventArgs e)
-        {
-            MessageBox.Show("Hello");
-        }
 
-        //readonly decimal factor = 31.47M;
-
-        /*private decimal CalculateMAtk(decimal OwnAttack, decimal weaponAttack, string weaponName)
-        {
-            decimal blessed_factor = 1.29M;
-
-            if (IsBlessed())
-            {
-                if (DoesSigilMatter(weaponName))
-                {
-                    return (OwnAttack + (weaponAttack * blessed_factor) * factor) * 1.04M;
-                }
-                else
-                {
-                    return (OwnAttack + (weaponAttack * blessed_factor) * factor);
-                }
-            }
-            else
-            {
-                if (DoesSigilMatter(weaponName))
-                {
-                    return (OwnAttack + weaponAttack * factor) * 1.04M;
-                }
-                else
-                {
-                    return (OwnAttack + weaponAttack * factor);
-                }
-            }
-        }*/
-
-        /*private decimal ConvertOwnAttack()
-        {
-            decimal result;
-
-            try
-            {
-                result = ToDecimal(OwnMAttack.Text);
-                if (result == 0)
-                {
-                    MessageBox.Show("I don't think you attack is so low, try inserting it again :)", "Warning");
-                }
-                return result;
-            }
-            catch(FormatException)
-            {
-                MessageBox.Show($"Field {nameof(OwnMAttack)} cannot be empty and can only contain numbers!", "Error!");
-                return 0;
-            }
-            catch(OverflowException)
-            {
-                MessageBox.Show("Have you really become a god among races?", "Error - unexpectedly high value");
-                return 0;
-            }
-            catch(Exception)
-            {
-                MessageBox.Show(@"Unexpected exception! Please report that issue on github: https://github.com/issues . My nickname is: Quanthis, repository: 'L2MAtkCalcRemastered'", "Error!");
-                return 0;
-            }
-        }*/
-
-        /*private string ConvertToSendableForm(decimal sentValue)
-        {
-            string result = sentValue.ToString();
-            return result;
-        }*/
-
-        /*private bool IsBlessed()
+        private bool IsBlessed()
         {
             if (IsApoCasterBlessed.Checked)
             {
@@ -101,19 +23,17 @@ namespace L2MAtkCalcRemastered
             {
                 return false;
             }
-        }*/
+        }
 
         private void Sender(decimal weaponAttack, Label whereToSend, string weapName)
         {
             string OwnAtak = OwnMAttack.Text;
-            var wp = new Weapon(weaponAttack, weapName, OwnAtak);
+            var wp = new Weapon(weaponAttack, weapName, OwnAtak, HaveSigil(), IsBlessed());
             whereToSend.Text = wp.ConvertToSendableForm();
             wp.Dispose();
-            
-            //whereToSend.Text = ConvertToSendableForm(CalculateMAtk(ConvertOwnAttack(), weaponAttack, weapName));
         }
 
-        /*private bool HaveSigil()
+        private bool HaveSigil()
         {
             if (HavingSigil.Checked)
             {
@@ -123,26 +43,8 @@ namespace L2MAtkCalcRemastered
             {
                 return false;
             }
-        }*/
+        }
 
-        /*private bool DoesSigilMatter(string weaponName)
-        {
-            if (HaveSigil())
-            {
-                if (weaponName.Contains("Rettributer"))
-                {
-                    return false;
-                }
-                else
-                {
-                    return false;
-                }
-            }
-            else
-            {
-                return true;
-            }
-        }*/
 
         private void RefreshCalculations()
         {
@@ -169,6 +71,11 @@ namespace L2MAtkCalcRemastered
         private void NotHavingSigil_CheckedChanged(object sender, EventArgs e)
         {
             RefreshCalculations();
+        }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+            MessageBox.Show("Please be sure to first insert your own magic attack at bottom of app screen.", "Information");  
         }
     }
 }

@@ -164,6 +164,7 @@
             this.MaximumSize = new System.Drawing.Size(1920, 1080);
             this.Name = "Form1";
             this.Text = "L2MAtkCalc 2.0";
+            this.Load += new System.EventHandler(this.Form1_Load);
             this.toolStrip1.ResumeLayout(false);
             this.toolStrip1.PerformLayout();
             this.ResumeLayout(false);
@@ -182,7 +183,7 @@
         protected System.Windows.Forms.RadioButton HavingSigil;
         protected System.Windows.Forms.RadioButton NotHavingSigil;
         protected System.Windows.Forms.CheckBox IsApoCasterBlessed;
-        public System.Windows.Forms.TextBox OwnMAttack;
+        protected internal System.Windows.Forms.TextBox OwnMAttack;
     }
 }
 
