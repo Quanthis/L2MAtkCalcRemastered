@@ -83,6 +83,16 @@ namespace L2MAtkCalcRemastered.Properties {
         /// <summary>
         ///   Wyszukuje zlokalizowany zasób typu System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap ApoRetri {
+            get {
+                object obj = ResourceManager.GetObject("ApoRetri", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Wyszukuje zlokalizowany zasób typu System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Shot00008 {
             get {
                 object obj = ResourceManager.GetObject("Shot00008", resourceCulture);
@@ -96,6 +106,26 @@ namespace L2MAtkCalcRemastered.Properties {
         internal static System.Drawing.Bitmap Shot00113 {
             get {
                 object obj = ResourceManager.GetObject("Shot00113", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Wyszukuje zlokalizowany zasób typu System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap SpecterCaster1 {
+            get {
+                object obj = ResourceManager.GetObject("SpecterCaster1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Wyszukuje zlokalizowany zasób typu System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap SpecterRetri {
+            get {
+                object obj = ResourceManager.GetObject("SpecterRetri", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

@@ -33,6 +33,7 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Microsoft.VisualBasic" />
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -94,6 +95,15 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\ApoCaster.PNG" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ApoRetri.PNG" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\SpecterCaster1.PNG" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\SpecterRetri.PNG" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -2,6 +2,7 @@
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using static System.Convert;
+using System.Threading;
 
 namespace L2MAtkCalcRemastered
 {
@@ -50,22 +51,8 @@ namespace L2MAtkCalcRemastered
         }
 
 
-
-        /*private bool IsBlessed()
-        {
-            if (IsApoCasterBlessed.Checked)
-            {
-                return true;
-            }
-            else
-            {
-                return false;
-            }
-        }*/
-
-
         private decimal ConvertOwnAttack()
-        {
+        {           
             decimal result;
 
             try
@@ -131,9 +118,6 @@ namespace L2MAtkCalcRemastered
             string result = sentValue.ToString();
             return result;
         }
-
-
-
 
         #endregion
     }
