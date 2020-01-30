@@ -37,6 +37,9 @@
             this.IsApoCasterBlessed = new System.Windows.Forms.CheckBox();
             this.HavingSigil = new System.Windows.Forms.RadioButton();
             this.NotHavingSigil = new System.Windows.Forms.RadioButton();
+            this.toolStrip1 = new System.Windows.Forms.ToolStrip();
+            this.toolStripButton1 = new System.Windows.Forms.ToolStripButton();
+            this.toolStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // ApoCaster
@@ -57,6 +60,7 @@
             this.OwnMAttack.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.OwnMAttack.ForeColor = System.Drawing.Color.Black;
             this.OwnMAttack.Location = new System.Drawing.Point(910, 800);
+            this.OwnMAttack.MaxLength = 15;
             this.OwnMAttack.Name = "OwnMAttack";
             this.OwnMAttack.Size = new System.Drawing.Size(100, 20);
             this.OwnMAttack.TabIndex = 1;
@@ -122,12 +126,32 @@
             this.NotHavingSigil.UseVisualStyleBackColor = true;
             this.NotHavingSigil.CheckedChanged += new System.EventHandler(this.NotHavingSigil_CheckedChanged);
             // 
+            // toolStrip1
+            // 
+            this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStripButton1});
+            this.toolStrip1.Location = new System.Drawing.Point(0, 0);
+            this.toolStrip1.Name = "toolStrip1";
+            this.toolStrip1.Size = new System.Drawing.Size(1904, 25);
+            this.toolStrip1.TabIndex = 8;
+            this.toolStrip1.Text = "toolStrip1";
+            // 
+            // toolStripButton1
+            // 
+            this.toolStripButton1.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.toolStripButton1.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton1.Image")));
+            this.toolStripButton1.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripButton1.Name = "toolStripButton1";
+            this.toolStripButton1.Size = new System.Drawing.Size(23, 22);
+            this.toolStripButton1.Text = "Save";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = global::L2MAtkCalcRemastered.Properties.Resources.Shot00113;
             this.ClientSize = new System.Drawing.Size(1904, 962);
+            this.Controls.Add(this.toolStrip1);
             this.Controls.Add(this.NotHavingSigil);
             this.Controls.Add(this.HavingSigil);
             this.Controls.Add(this.IsApoCasterBlessed);
@@ -140,6 +164,8 @@
             this.MaximumSize = new System.Drawing.Size(1920, 1080);
             this.Name = "Form1";
             this.Text = "L2MAtkCalc 2.0";
+            this.toolStrip1.ResumeLayout(false);
+            this.toolStrip1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -148,13 +174,15 @@
         #endregion
 
         private System.Windows.Forms.Button ApoCaster;
-        private System.Windows.Forms.TextBox OwnMAttack;
         private System.Windows.Forms.Label ApoCasterResult;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label ApocalypseCaster;
-        private System.Windows.Forms.CheckBox IsApoCasterBlessed;
-        private System.Windows.Forms.RadioButton HavingSigil;
-        private System.Windows.Forms.RadioButton NotHavingSigil;
+        private System.Windows.Forms.ToolStrip toolStrip1;
+        private System.Windows.Forms.ToolStripButton toolStripButton1;
+        protected System.Windows.Forms.RadioButton HavingSigil;
+        protected System.Windows.Forms.RadioButton NotHavingSigil;
+        protected System.Windows.Forms.CheckBox IsApoCasterBlessed;
+        public System.Windows.Forms.TextBox OwnMAttack;
     }
 }
 

@@ -17,12 +17,17 @@ namespace L2MAtkCalcRemastered
         public Form1()
         {
             InitializeComponent();
-            MessageBox.Show("Please be sure to first insert your own magic attack at bottom of app screen.", "Information");            
+            //MessageBox.Show("Please be sure to first insert your own magic attack at bottom of app screen.", "Information");            
         }
 
-        readonly decimal factor = 31.47M;
+        private void Form1_Shown(object sender, EventArgs e)
+        {
+            MessageBox.Show("Hello");
+        }
 
-        private decimal CalculateMAtk(decimal OwnAttack, decimal weaponAttack, string weaponName)
+        //readonly decimal factor = 31.47M;
+
+        /*private decimal CalculateMAtk(decimal OwnAttack, decimal weaponAttack, string weaponName)
         {
             decimal blessed_factor = 1.29M;
 
@@ -48,9 +53,9 @@ namespace L2MAtkCalcRemastered
                     return (OwnAttack + weaponAttack * factor);
                 }
             }
-        }
+        }*/
 
-        private decimal ConvertOwnAttack()
+        /*private decimal ConvertOwnAttack()
         {
             decimal result;
 
@@ -75,18 +80,18 @@ namespace L2MAtkCalcRemastered
             }
             catch(Exception)
             {
-                MessageBox.Show(@"Unexpected exception! Please report that issue on github: https://github.com/issues . My nickname is: Quanthis", "Error!");
+                MessageBox.Show(@"Unexpected exception! Please report that issue on github: https://github.com/issues . My nickname is: Quanthis, repository: 'L2MAtkCalcRemastered'", "Error!");
                 return 0;
             }
-        }
+        }*/
 
-        private string ConvertToSendableForm(decimal sentValue)
+        /*private string ConvertToSendableForm(decimal sentValue)
         {
             string result = sentValue.ToString();
             return result;
-        }
+        }*/
 
-        private bool IsBlessed()
+        /*private bool IsBlessed()
         {
             if (IsApoCasterBlessed.Checked)
             {
@@ -96,14 +101,19 @@ namespace L2MAtkCalcRemastered
             {
                 return false;
             }
-        }
-        
+        }*/
+
         private void Sender(decimal weaponAttack, Label whereToSend, string weapName)
         {
-            whereToSend.Text = ConvertToSendableForm(CalculateMAtk(ConvertOwnAttack(), weaponAttack, weapName));
+            string OwnAtak = OwnMAttack.Text;
+            var wp = new Weapon(weaponAttack, weapName, OwnAtak);
+            whereToSend.Text = wp.ConvertToSendableForm();
+            wp.Dispose();
+            
+            //whereToSend.Text = ConvertToSendableForm(CalculateMAtk(ConvertOwnAttack(), weaponAttack, weapName));
         }
 
-        private bool HaveSigil()
+        /*private bool HaveSigil()
         {
             if (HavingSigil.Checked)
             {
@@ -113,9 +123,9 @@ namespace L2MAtkCalcRemastered
             {
                 return false;
             }
-        }
+        }*/
 
-        private bool DoesSigilMatter(string weaponName)
+        /*private bool DoesSigilMatter(string weaponName)
         {
             if (HaveSigil())
             {
@@ -132,7 +142,7 @@ namespace L2MAtkCalcRemastered
             {
                 return true;
             }
-        }
+        }*/
 
         private void RefreshCalculations()
         {
