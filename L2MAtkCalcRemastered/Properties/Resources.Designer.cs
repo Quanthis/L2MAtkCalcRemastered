@@ -73,6 +73,26 @@ namespace L2MAtkCalcRemastered.Properties {
         /// <summary>
         ///   Wyszukuje zlokalizowany zasób typu System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap AmaranthineCaster {
+            get {
+                object obj = ResourceManager.GetObject("AmaranthineCaster", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Wyszukuje zlokalizowany zasób typu System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap AmaranthineRetributer {
+            get {
+                object obj = ResourceManager.GetObject("AmaranthineRetributer", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Wyszukuje zlokalizowany zasób typu System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap ApoCaster {
             get {
                 object obj = ResourceManager.GetObject("ApoCaster", resourceCulture);

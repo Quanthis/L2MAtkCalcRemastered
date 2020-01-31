@@ -4,6 +4,9 @@ using System.Threading;
 using static System.Convert;
 using System.Threading.Tasks;
 using System.ComponentModel;
+using System.IO;
+using System.Text;
+using System.Diagnostics;
 
 namespace L2MAtkCalcRemastered
 {
@@ -49,7 +52,11 @@ namespace L2MAtkCalcRemastered
             ApoCaster.PerformClick();
             ApoRettributer.PerformClick();
             SpCaster.PerformClick();
-            SpRettriButer.PerformClick();                               //statements below throw some unpleasant exceptions
+            SpRettriButer.PerformClick();
+            AmaCaster.PerformClick();
+            AmaRettributer.PerformClick();
+            
+            //statements below throw some unpleasant exceptions
 
 
             //Parallel.Invoke(() => ApoCaster.PerformClick(), ()=> ApoRettributer.PerformClick(), ()=> SpCaster.PerformClick(), ()=> SpRettriButer.PerformClick());*/
@@ -69,20 +76,7 @@ namespace L2MAtkCalcRemastered
         }
 
 
-        #region ApoCaster
 
-        private void button1_Click(object sender, EventArgs e)
-        {
-            decimal weaponAttack = 293M;
-            Sender(weaponAttack, ApoCasterResult, ApocalypseCaster.Name, IsApocalypseCasterBlessed);
-        }
-
-        private void IsApoCasterBlessed_CheckedChanged(object sender, EventArgs e)
-        {
-            decimal weaponAttack = 293M;
-            Sender(weaponAttack, ApoCasterResult, ApocalypseCaster.Name, IsApocalypseCasterBlessed);
-        }
-        #endregion
 
 
 
@@ -115,15 +109,57 @@ namespace L2MAtkCalcRemastered
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            OwnMAttack.Text = Microsoft.VisualBasic.Interaction.InputBox("What's your magic attack?", "Need informations from user to proceed...");
-            while(OwnMAttack.Text.Length == 0)
+            try
             {
-                OwnMAttack.Text = Microsoft.VisualBasic.Interaction.InputBox("What's your magic attack?", "This field cannot be empty!");
+                Debug.WriteLine("Inside try");
+                using (FileStream fs = new FileStream(@"ConfigurationFiles\OwnMAttack.txt", FileMode.Open))
+                {
+                    using (StreamReader sr = new StreamReader(fs, Encoding.Unicode))
+                    {
+                        string s = "";
+                        s = sr.ReadToEnd();
+                        OwnMAttack.Text = s;
+                    }
+                }
             }
-            RefreshCalculations();
+            catch
+            {
+                Debug.WriteLine("Inside catch");
+                
+                using (FileStream fs = new FileStream(@"ConfigurationFiles\OwnMAttack.txt", FileMode.Create))
+                {
+                    using (StreamWriter sw = new StreamWriter(fs, Encoding.Unicode))
+                    {
+                        string toSave = OwnMAttack.Text = Microsoft.VisualBasic.Interaction.InputBox("What's your magic attack?", "Need informations from user to proceed...");
+                        sw.WriteLine(toSave);
+
+                        while (OwnMAttack.Text.Length == 0)
+                        {                            
+                            sw.WriteLine(OwnMAttack.Text = Microsoft.VisualBasic.Interaction.InputBox("What's your magic attack?", "This field cannot be empty!"));
+                        }
+                    }
+                }
+                RefreshCalculations();
+            }
         }
 
 
+        #region Weapons
+
+        #region ApoCaster
+
+        private void ApoCaster_Click(object sender, EventArgs e)
+        {
+            decimal weaponAttack = 293M;
+            Sender(weaponAttack, ApoCasterResult, ApocalypseCaster.Name, IsApocalypseCasterBlessed);
+        }
+
+        private void IsApoCasterBlessed_CheckedChanged(object sender, EventArgs e)
+        {
+            decimal weaponAttack = 293M;
+            Sender(weaponAttack, ApoCasterResult, ApocalypseCaster.Name, IsApocalypseCasterBlessed);
+        }
+        #endregion
 
         #region ApoRetri
 
@@ -158,6 +194,8 @@ namespace L2MAtkCalcRemastered
 
         #endregion
 
+        #region SpecterRettributer
+
         private void button1_Click_1(object sender, EventArgs e)
         {
             decimal weaponAttack = 373M;
@@ -169,5 +207,40 @@ namespace L2MAtkCalcRemastered
             decimal weaponAttack = 373M;
             Sender(weaponAttack, SpecterRettributerResult, SpecterRettributer.Name, IsSpecterRettributerBlessed);
         }
+
+        #endregion
+
+        #region AmaranthineCaster
+
+        private void AmaCaster_Click(object sender, EventArgs e)
+        {
+            decimal weaponAttack = 371M;
+            Sender(weaponAttack, AmaranthineCasterResult, AmaranthineCaster.Name, IsAmaranthineCasterBlessed);
+        }
+
+        private void IsAmaranthineCasterBlessed_CheckedChanged(object sender, EventArgs e)
+        {
+            decimal weaponAttack = 371M;
+            Sender(weaponAttack, AmaranthineCasterResult, AmaranthineCaster.Name, IsAmaranthineCasterBlessed);
+        }
+
+        #endregion
+
+        #region AmaranthineRettributer
+
+        private void AmaRettributer_Click(object sender, EventArgs e)
+        {
+            decimal weaponAttack = 408;
+            Sender(weaponAttack, AmaranthineRettributerResult, AmaranthineRettributer.Name, IsAmaranthineRettributerBlessed);
+        }
+
+        private void IsAmaranthineRettributerBlessed_CheckedChanged(object sender, EventArgs e)
+        {
+            decimal weaponAttack = 408;
+            Sender(weaponAttack, AmaranthineRettributerResult, AmaranthineRettributer.Name, IsAmaranthineRettributerBlessed);
+        }
+        #endregion
+
+        #endregion
     }
 }

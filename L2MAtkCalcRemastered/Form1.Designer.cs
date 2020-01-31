@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.ApoCaster = new System.Windows.Forms.Button();
             this.OwnMAttack = new System.Windows.Forms.TextBox();
@@ -54,6 +55,18 @@
             this.SpecterRettributer = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.SpecterRettributerResult = new System.Windows.Forms.Label();
+            this.AmaCaster = new System.Windows.Forms.Button();
+            this.AmaranthineCaster = new System.Windows.Forms.Label();
+            this.IsAmaranthineCasterBlessed = new System.Windows.Forms.CheckBox();
+            this.label5 = new System.Windows.Forms.Label();
+            this.AmaranthineCasterResult = new System.Windows.Forms.Label();
+            this.AmaRettributer = new System.Windows.Forms.Button();
+            this.AmaranthineRettributer = new System.Windows.Forms.Label();
+            this.IsAmaranthineRettributerBlessed = new System.Windows.Forms.CheckBox();
+            this.label6 = new System.Windows.Forms.Label();
+            this.AmaranthineRettributerResult = new System.Windows.Forms.Label();
+            this.WhereToInsertMAttack = new System.Windows.Forms.ToolTip(this.components);
+            this.WhereToClickForCalcs = new System.Windows.Forms.ToolTip(this.components);
             this.toolStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -67,8 +80,9 @@
             this.ApoCaster.Name = "ApoCaster";
             this.ApoCaster.Size = new System.Drawing.Size(77, 77);
             this.ApoCaster.TabIndex = 0;
+            this.WhereToClickForCalcs.SetToolTip(this.ApoCaster, "Apocalypse Caster");
             this.ApoCaster.UseVisualStyleBackColor = true;
-            this.ApoCaster.Click += new System.EventHandler(this.button1_Click);
+            this.ApoCaster.Click += new System.EventHandler(this.ApoCaster_Click);
             // 
             // OwnMAttack
             // 
@@ -81,6 +95,7 @@
             this.OwnMAttack.TabIndex = 1;
             this.OwnMAttack.Text = "0";
             this.OwnMAttack.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.WhereToInsertMAttack.SetToolTip(this.OwnMAttack, "I need this information to provide you with actual truth");
             // 
             // ApoCasterResult
             // 
@@ -170,6 +185,7 @@
             this.ApoRettributer.Name = "ApoRettributer";
             this.ApoRettributer.Size = new System.Drawing.Size(80, 80);
             this.ApoRettributer.TabIndex = 9;
+            this.WhereToClickForCalcs.SetToolTip(this.ApoRettributer, "Apocalypse Rettributer");
             this.ApoRettributer.UseVisualStyleBackColor = true;
             this.ApoRettributer.Click += new System.EventHandler(this.ApoRettributer_Click);
             // 
@@ -219,6 +235,7 @@
             this.SpCaster.Name = "SpCaster";
             this.SpCaster.Size = new System.Drawing.Size(77, 77);
             this.SpCaster.TabIndex = 14;
+            this.WhereToClickForCalcs.SetToolTip(this.SpCaster, "Specter Caster");
             this.SpCaster.UseVisualStyleBackColor = true;
             this.SpCaster.Click += new System.EventHandler(this.SpCaster_Click);
             // 
@@ -268,6 +285,7 @@
             this.SpRettriButer.Name = "SpRettriButer";
             this.SpRettriButer.Size = new System.Drawing.Size(73, 76);
             this.SpRettriButer.TabIndex = 19;
+            this.WhereToClickForCalcs.SetToolTip(this.SpRettriButer, "Specter Rettributer");
             this.SpRettriButer.UseVisualStyleBackColor = true;
             this.SpRettriButer.Click += new System.EventHandler(this.button1_Click_1);
             // 
@@ -307,12 +325,139 @@
             this.SpecterRettributerResult.Size = new System.Drawing.Size(77, 20);
             this.SpecterRettributerResult.TabIndex = 23;
             // 
+            // AmaCaster
+            // 
+            this.AmaCaster.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.AmaCaster.BackgroundImage = global::L2MAtkCalcRemastered.Properties.Resources.AmaranthineCaster;
+            this.AmaCaster.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.AmaCaster.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.AmaCaster.Location = new System.Drawing.Point(700, 100);
+            this.AmaCaster.Name = "AmaCaster";
+            this.AmaCaster.Size = new System.Drawing.Size(71, 74);
+            this.AmaCaster.TabIndex = 24;
+            this.WhereToClickForCalcs.SetToolTip(this.AmaCaster, "Amaranthine Caster");
+            this.AmaCaster.UseVisualStyleBackColor = true;
+            this.AmaCaster.Click += new System.EventHandler(this.AmaCaster_Click);
+            // 
+            // AmaranthineCaster
+            // 
+            this.AmaranthineCaster.AutoSize = true;
+            this.AmaranthineCaster.Location = new System.Drawing.Point(700, 81);
+            this.AmaranthineCaster.Name = "AmaranthineCaster";
+            this.AmaranthineCaster.Size = new System.Drawing.Size(99, 13);
+            this.AmaranthineCaster.TabIndex = 25;
+            this.AmaranthineCaster.Text = "Amaranthine Caster";
+            // 
+            // IsAmaranthineCasterBlessed
+            // 
+            this.IsAmaranthineCasterBlessed.AutoSize = true;
+            this.IsAmaranthineCasterBlessed.Location = new System.Drawing.Point(700, 61);
+            this.IsAmaranthineCasterBlessed.Name = "IsAmaranthineCasterBlessed";
+            this.IsAmaranthineCasterBlessed.Size = new System.Drawing.Size(63, 17);
+            this.IsAmaranthineCasterBlessed.TabIndex = 26;
+            this.IsAmaranthineCasterBlessed.Text = "Blessed";
+            this.IsAmaranthineCasterBlessed.UseVisualStyleBackColor = true;
+            this.IsAmaranthineCasterBlessed.CheckedChanged += new System.EventHandler(this.IsAmaranthineCasterBlessed_CheckedChanged);
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(700, 184);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(43, 13);
+            this.label5.TabIndex = 27;
+            this.label5.Text = "Result: ";
+            // 
+            // AmaranthineCasterResult
+            // 
+            this.AmaranthineCasterResult.Location = new System.Drawing.Point(700, 200);
+            this.AmaranthineCasterResult.Name = "AmaranthineCasterResult";
+            this.AmaranthineCasterResult.Size = new System.Drawing.Size(77, 20);
+            this.AmaranthineCasterResult.TabIndex = 28;
+            // 
+            // AmaRettributer
+            // 
+            this.AmaRettributer.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.AmaRettributer.BackgroundImage = global::L2MAtkCalcRemastered.Properties.Resources.AmaranthineRetributer;
+            this.AmaRettributer.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.AmaRettributer.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.AmaRettributer.Location = new System.Drawing.Point(850, 100);
+            this.AmaRettributer.Name = "AmaRettributer";
+            this.AmaRettributer.Size = new System.Drawing.Size(72, 72);
+            this.AmaRettributer.TabIndex = 29;
+            this.WhereToClickForCalcs.SetToolTip(this.AmaRettributer, "Amaranthine Rettributer");
+            this.AmaRettributer.UseVisualStyleBackColor = true;
+            this.AmaRettributer.Click += new System.EventHandler(this.AmaRettributer_Click);
+            // 
+            // AmaranthineRettributer
+            // 
+            this.AmaranthineRettributer.AutoSize = true;
+            this.AmaranthineRettributer.Location = new System.Drawing.Point(850, 81);
+            this.AmaranthineRettributer.Name = "AmaranthineRettributer";
+            this.AmaranthineRettributer.Size = new System.Drawing.Size(118, 13);
+            this.AmaranthineRettributer.TabIndex = 30;
+            this.AmaranthineRettributer.Text = "Amaranthine Rettributer";
+            // 
+            // IsAmaranthineRettributerBlessed
+            // 
+            this.IsAmaranthineRettributerBlessed.AutoSize = true;
+            this.IsAmaranthineRettributerBlessed.Location = new System.Drawing.Point(850, 61);
+            this.IsAmaranthineRettributerBlessed.Name = "IsAmaranthineRettributerBlessed";
+            this.IsAmaranthineRettributerBlessed.Size = new System.Drawing.Size(63, 17);
+            this.IsAmaranthineRettributerBlessed.TabIndex = 31;
+            this.IsAmaranthineRettributerBlessed.Text = "Blessed";
+            this.IsAmaranthineRettributerBlessed.UseVisualStyleBackColor = true;
+            this.IsAmaranthineRettributerBlessed.CheckedChanged += new System.EventHandler(this.IsAmaranthineRettributerBlessed_CheckedChanged);
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(850, 184);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(43, 13);
+            this.label6.TabIndex = 32;
+            this.label6.Text = "Result: ";
+            // 
+            // AmaranthineRettributerResult
+            // 
+            this.AmaranthineRettributerResult.Location = new System.Drawing.Point(850, 200);
+            this.AmaranthineRettributerResult.Name = "AmaranthineRettributerResult";
+            this.AmaranthineRettributerResult.Size = new System.Drawing.Size(77, 20);
+            this.AmaranthineRettributerResult.TabIndex = 33;
+            // 
+            // WhereToInsertMAttack
+            // 
+            this.WhereToInsertMAttack.AutoPopDelay = 5000;
+            this.WhereToInsertMAttack.InitialDelay = 1000;
+            this.WhereToInsertMAttack.IsBalloon = true;
+            this.WhereToInsertMAttack.ReshowDelay = 100;
+            this.WhereToInsertMAttack.ToolTipTitle = "Insert your magical attack here";
+            // 
+            // WhereToClickForCalcs
+            // 
+            this.WhereToClickForCalcs.AutomaticDelay = 1000;
+            this.WhereToClickForCalcs.AutoPopDelay = 1000;
+            this.WhereToClickForCalcs.InitialDelay = 1000;
+            this.WhereToClickForCalcs.IsBalloon = true;
+            this.WhereToClickForCalcs.ReshowDelay = 200;
+            this.WhereToClickForCalcs.ToolTipTitle = "Click here to perform calculations for this item: ";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = global::L2MAtkCalcRemastered.Properties.Resources.Shot00113;
             this.ClientSize = new System.Drawing.Size(1904, 962);
+            this.Controls.Add(this.AmaranthineRettributerResult);
+            this.Controls.Add(this.label6);
+            this.Controls.Add(this.IsAmaranthineRettributerBlessed);
+            this.Controls.Add(this.AmaranthineRettributer);
+            this.Controls.Add(this.AmaRettributer);
+            this.Controls.Add(this.AmaranthineCasterResult);
+            this.Controls.Add(this.label5);
+            this.Controls.Add(this.IsAmaranthineCasterBlessed);
+            this.Controls.Add(this.AmaranthineCaster);
+            this.Controls.Add(this.AmaCaster);
             this.Controls.Add(this.SpecterRettributerResult);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.SpecterRettributer);
@@ -376,6 +521,18 @@
         private System.Windows.Forms.Label SpecterRettributer;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label SpecterRettributerResult;
+        private System.Windows.Forms.Button AmaCaster;
+        private System.Windows.Forms.Label AmaranthineCaster;
+        private System.Windows.Forms.CheckBox IsAmaranthineCasterBlessed;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label AmaranthineCasterResult;
+        private System.Windows.Forms.Button AmaRettributer;
+        private System.Windows.Forms.Label AmaranthineRettributer;
+        private System.Windows.Forms.CheckBox IsAmaranthineRettributerBlessed;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Label AmaranthineRettributerResult;
+        private System.Windows.Forms.ToolTip WhereToInsertMAttack;
+        private System.Windows.Forms.ToolTip WhereToClickForCalcs;
     }
 }
 
