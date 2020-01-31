@@ -7,6 +7,7 @@ using System.ComponentModel;
 using System.IO;
 using System.Text;
 using System.Diagnostics;
+using System.Linq;
 
 namespace L2MAtkCalcRemastered
 {
@@ -46,7 +47,6 @@ namespace L2MAtkCalcRemastered
 
 
 
-
         private void RefreshCalculations()
         {
             ApoCaster.PerformClick();
@@ -74,8 +74,6 @@ namespace L2MAtkCalcRemastered
             t4.Join();*/
 
         }
-
-
 
 
 
@@ -109,9 +107,10 @@ namespace L2MAtkCalcRemastered
 
         private void Form1_Load(object sender, EventArgs e)
         {
+            Saving.CopyCSS();
+
             try
             {
-                Debug.WriteLine("Inside try");
                 using (FileStream fs = new FileStream(@"ConfigurationFiles\OwnMAttack.txt", FileMode.Open))
                 {
                     using (StreamReader sr = new StreamReader(fs, Encoding.Unicode))
@@ -124,8 +123,6 @@ namespace L2MAtkCalcRemastered
             }
             catch
             {
-                Debug.WriteLine("Inside catch");
-                
                 using (FileStream fs = new FileStream(@"ConfigurationFiles\OwnMAttack.txt", FileMode.Create))
                 {
                     using (StreamWriter sw = new StreamWriter(fs, Encoding.Unicode))
@@ -240,6 +237,69 @@ namespace L2MAtkCalcRemastered
             Sender(weaponAttack, AmaranthineRettributerResult, AmaranthineRettributer.Name, IsAmaranthineRettributerBlessed);
         }
         #endregion
+
+        #endregion
+
+
+        #region ToolStripsButtons                
+               
+        public int CalculateButtons()
+        {
+            int result = 0;
+            foreach (Button b in Controls.OfType<Button>())
+            {
+                result++;
+            }
+            return result;
+        }
+
+        private int CalculateResultLabels()
+        {
+            int result = 0;
+            foreach(Label l in Controls.OfType<Label>())
+            {
+                if(l.Name.Contains("Result"))
+                {
+                    result++;
+                }
+            }
+            return result;
+        }
+
+        private string[] GetWeaponNames()
+        {
+            string[] result = new string[CalculateResultLabels()];
+            int i = 0;
+
+            foreach (Label l in Controls.OfType<Label>())
+            {
+                if ((l.Name.Contains("Rettributer") || (l.Name.Contains("Caster"))) && (!l.Name.Contains("Result")))
+                {
+                    result[i] = l.Name;
+                    i++;
+                }
+            }
+            Debug.WriteLine(result[0]);
+            return result;
+        }
+
+        /*private decimal[] GetResults(string[] weaponNames)                        //I'll finish that tommorrow 
+        {
+            decimal [] result = new decimal[CalculateResultLabels()];
+            for (int i = 0; i < result.Length; i++)
+            {
+                if(weaponNames[i] == )
+                result[i] = 
+            }
+        }*/
+
+
+        private void Save_Click(object sender, EventArgs e)
+        {
+            var s = new Saving(CalculateButtons(), CalculateResultLabels(), GetWeaponNames());
+            s.SaveToHtml();
+        }
+        
 
         #endregion
     }

@@ -39,7 +39,7 @@
             this.HavingSigil = new System.Windows.Forms.RadioButton();
             this.NotHavingSigil = new System.Windows.Forms.RadioButton();
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
-            this.toolStripButton1 = new System.Windows.Forms.ToolStripButton();
+            this.Save = new System.Windows.Forms.ToolStripButton();
             this.ApoRettributer = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
             this.ApoRettributerResult = new System.Windows.Forms.Label();
@@ -159,21 +159,23 @@
             // toolStrip1
             // 
             this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.toolStripButton1});
+            this.Save});
             this.toolStrip1.Location = new System.Drawing.Point(0, 0);
             this.toolStrip1.Name = "toolStrip1";
             this.toolStrip1.Size = new System.Drawing.Size(1904, 25);
             this.toolStrip1.TabIndex = 8;
             this.toolStrip1.Text = "toolStrip1";
             // 
-            // toolStripButton1
+            // Save
             // 
-            this.toolStripButton1.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.toolStripButton1.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton1.Image")));
-            this.toolStripButton1.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripButton1.Name = "toolStripButton1";
-            this.toolStripButton1.Size = new System.Drawing.Size(23, 22);
-            this.toolStripButton1.Text = "Save";
+            this.Save.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
+            this.Save.Image = ((System.Drawing.Image)(resources.GetObject("Save.Image")));
+            this.Save.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.Save.Name = "Save";
+            this.Save.Size = new System.Drawing.Size(35, 22);
+            this.Save.Text = "Save";
+            this.Save.ToolTipText = "Saves to HTML File and opens it";
+            this.Save.Click += new System.EventHandler(this.Save_Click);
             // 
             // ApoRettributer
             // 
@@ -245,7 +247,7 @@
             this.IsSpecterCasterBlessed.Location = new System.Drawing.Point(400, 61);
             this.IsSpecterCasterBlessed.Name = "IsSpecterCasterBlessed";
             this.IsSpecterCasterBlessed.Size = new System.Drawing.Size(63, 17);
-            this.IsSpecterCasterBlessed.TabIndex = 15;
+            this.IsSpecterCasterBlessed.TabIndex = 16;
             this.IsSpecterCasterBlessed.Text = "Blessed";
             this.IsSpecterCasterBlessed.UseVisualStyleBackColor = true;
             this.IsSpecterCasterBlessed.CheckedChanged += new System.EventHandler(this.IsSpecterCasterBlessed_CheckedChanged);
@@ -256,7 +258,7 @@
             this.SpecterCaster.Location = new System.Drawing.Point(400, 81);
             this.SpecterCaster.Name = "SpecterCaster";
             this.SpecterCaster.Size = new System.Drawing.Size(77, 13);
-            this.SpecterCaster.TabIndex = 16;
+            this.SpecterCaster.TabIndex = 15;
             this.SpecterCaster.Text = "Specter Caster";
             // 
             // label3
@@ -295,7 +297,7 @@
             this.IsSpecterRettributerBlessed.Location = new System.Drawing.Point(550, 61);
             this.IsSpecterRettributerBlessed.Name = "IsSpecterRettributerBlessed";
             this.IsSpecterRettributerBlessed.Size = new System.Drawing.Size(63, 17);
-            this.IsSpecterRettributerBlessed.TabIndex = 20;
+            this.IsSpecterRettributerBlessed.TabIndex = 21;
             this.IsSpecterRettributerBlessed.Text = "Blessed";
             this.IsSpecterRettributerBlessed.UseVisualStyleBackColor = true;
             this.IsSpecterRettributerBlessed.CheckedChanged += new System.EventHandler(this.IsSpecterRettributerBlessed_CheckedChanged);
@@ -306,7 +308,7 @@
             this.SpecterRettributer.Location = new System.Drawing.Point(550, 81);
             this.SpecterRettributer.Name = "SpecterRettributer";
             this.SpecterRettributer.Size = new System.Drawing.Size(93, 13);
-            this.SpecterRettributer.TabIndex = 21;
+            this.SpecterRettributer.TabIndex = 20;
             this.SpecterRettributer.Text = "SpecterRettributer";
             // 
             // label4
@@ -501,7 +503,7 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label ApocalypseCaster;
         private System.Windows.Forms.ToolStrip toolStrip1;
-        private System.Windows.Forms.ToolStripButton toolStripButton1;
+        private System.Windows.Forms.ToolStripButton Save;
         protected System.Windows.Forms.RadioButton HavingSigil;
         protected System.Windows.Forms.RadioButton NotHavingSigil;
         protected internal System.Windows.Forms.TextBox OwnMAttack;
