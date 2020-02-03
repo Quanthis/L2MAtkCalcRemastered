@@ -12,12 +12,14 @@ namespace L2MAtkCalcRemastered
         private int buttons;
         private int labels;
         private string[] weaponNames;
+        private decimal[] results;
 
-        public Saving(int Buttons, int Labels, string[] WNames)
+        public Saving(int Buttons, int Labels, string[] WNames, decimal[] Results)
         {
             buttons = Buttons;
             labels = Labels;
             weaponNames = WNames;
+            results = Results;
         }
 
 

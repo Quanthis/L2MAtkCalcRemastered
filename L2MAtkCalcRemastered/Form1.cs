@@ -148,13 +148,13 @@ namespace L2MAtkCalcRemastered
         private void ApoCaster_Click(object sender, EventArgs e)
         {
             decimal weaponAttack = 293M;
-            Sender(weaponAttack, ApoCasterResult, ApocalypseCaster.Name, IsApocalypseCasterBlessed);
+            Sender(weaponAttack, ApocalypseCasterResult, ApocalypseCaster.Name, IsApocalypseCasterBlessed);
         }
 
         private void IsApoCasterBlessed_CheckedChanged(object sender, EventArgs e)
         {
             decimal weaponAttack = 293M;
-            Sender(weaponAttack, ApoCasterResult, ApocalypseCaster.Name, IsApocalypseCasterBlessed);
+            Sender(weaponAttack, ApocalypseCasterResult, ApocalypseCaster.Name, IsApocalypseCasterBlessed);
         }
         #endregion
 
@@ -163,14 +163,14 @@ namespace L2MAtkCalcRemastered
         private void ApoRettributer_Click(object sender, EventArgs e)
         {
             decimal weaponAttack = 322M;
-            Sender(weaponAttack, ApoRettributerResult, ApocalypseRettributer.Name, IsApocalypseRettributerBlessed);
+            Sender(weaponAttack, ApocalypseRettributerResult, ApocalypseRettributer.Name, IsApocalypseRettributerBlessed);
         }
 
                
         private void IsApocalypseRettributerBlessed_CheckedChanged(object sender, EventArgs e)
         {
             decimal weaponAttack = 322M;
-            Sender(weaponAttack, ApoRettributerResult, ApocalypseRettributer.Name, IsApocalypseRettributerBlessed);
+            Sender(weaponAttack, ApocalypseRettributerResult, ApocalypseRettributer.Name, IsApocalypseRettributerBlessed);
         }
 
         #endregion
@@ -180,13 +180,13 @@ namespace L2MAtkCalcRemastered
         private void SpCaster_Click(object sender, EventArgs e)
         {
             decimal weaponAttack = 339M;
-            Sender(weaponAttack, SpectCasterResult, SpecterCaster.Name, IsSpecterCasterBlessed);
+            Sender(weaponAttack, SpecterCasterResult, SpecterCaster.Name, IsSpecterCasterBlessed);
         }
 
         private void IsSpecterCasterBlessed_CheckedChanged(object sender, EventArgs e)
         {
             decimal weaponAttack = 339M;
-            Sender(weaponAttack, SpectCasterResult, SpecterCaster.Name, IsSpecterCasterBlessed);
+            Sender(weaponAttack, SpecterCasterResult, SpecterCaster.Name, IsSpecterCasterBlessed);
         }
 
         #endregion
@@ -279,24 +279,46 @@ namespace L2MAtkCalcRemastered
                     i++;
                 }
             }
-            Debug.WriteLine(result[0]);
             return result;
         }
 
-        /*private decimal[] GetResults(string[] weaponNames)                        //I'll finish that tommorrow 
+        private string[] GetResultsLabels()
         {
+            int i = 0;
+            string[] result = new string[CalculateResultLabels()];
+            foreach (Label l in Controls.OfType<Label>())
+            {
+                if (l.Name.Contains("Result"))
+                {
+                    result[i] = l.Name;
+                    Debug.WriteLine(result[i]);
+                }
+            }
+            return result;
+        }
+
+        private decimal[] GetResults(string[] weaponNames)                        //returns pairs result and their name
+        {
+            string[] resultFieldsNames = GetResultsLabels();
+            //Debug.WriteLine(resultFieldsNames[1]);
+
             decimal [] result = new decimal[CalculateResultLabels()];
             for (int i = 0; i < result.Length; i++)
             {
-                if(weaponNames[i] == )
-                result[i] = 
+                if (resultFieldsNames[i].Contains(weaponNames[i]))
+                {
+                    result[i] = ToDecimal(ApocalypseCasterResult.Text);
+                    //Debug.WriteLine(result[i] + " z " + resultFieldsNames[i] + " z " + weaponNames[i]);
+                }
             }
-        }*/
+            return result;
+        }
+
 
 
         private void Save_Click(object sender, EventArgs e)
         {
-            var s = new Saving(CalculateButtons(), CalculateResultLabels(), GetWeaponNames());
+            var s = new Saving(CalculateButtons(), CalculateResultLabels(), GetWeaponNames(), GetResults(GetWeaponNames()));
             s.SaveToHtml();
         }
         

@@ -32,7 +32,7 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.ApoCaster = new System.Windows.Forms.Button();
             this.OwnMAttack = new System.Windows.Forms.TextBox();
-            this.ApoCasterResult = new System.Windows.Forms.Label();
+            this.ApocalypseCasterResult = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.ApocalypseCaster = new System.Windows.Forms.Label();
             this.IsApocalypseCasterBlessed = new System.Windows.Forms.CheckBox();
@@ -42,14 +42,14 @@
             this.Save = new System.Windows.Forms.ToolStripButton();
             this.ApoRettributer = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
-            this.ApoRettributerResult = new System.Windows.Forms.Label();
+            this.ApocalypseRettributerResult = new System.Windows.Forms.Label();
             this.ApocalypseRettributer = new System.Windows.Forms.Label();
             this.IsApocalypseRettributerBlessed = new System.Windows.Forms.CheckBox();
             this.SpCaster = new System.Windows.Forms.Button();
             this.IsSpecterCasterBlessed = new System.Windows.Forms.CheckBox();
             this.SpecterCaster = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
-            this.SpectCasterResult = new System.Windows.Forms.Label();
+            this.SpecterCasterResult = new System.Windows.Forms.Label();
             this.SpRettriButer = new System.Windows.Forms.Button();
             this.IsSpecterRettributerBlessed = new System.Windows.Forms.CheckBox();
             this.SpecterRettributer = new System.Windows.Forms.Label();
@@ -97,12 +97,12 @@
             this.OwnMAttack.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.WhereToInsertMAttack.SetToolTip(this.OwnMAttack, "I need this information to provide you with actual truth");
             // 
-            // ApoCasterResult
+            // ApocalypseCasterResult
             // 
-            this.ApoCasterResult.Location = new System.Drawing.Point(100, 200);
-            this.ApoCasterResult.Name = "ApoCasterResult";
-            this.ApoCasterResult.Size = new System.Drawing.Size(77, 20);
-            this.ApoCasterResult.TabIndex = 2;
+            this.ApocalypseCasterResult.Location = new System.Drawing.Point(100, 200);
+            this.ApocalypseCasterResult.Name = "ApocalypseCasterResult";
+            this.ApocalypseCasterResult.Size = new System.Drawing.Size(77, 20);
+            this.ApocalypseCasterResult.TabIndex = 2;
             // 
             // label1
             // 
@@ -200,12 +200,12 @@
             this.label2.TabIndex = 10;
             this.label2.Text = "Result: ";
             // 
-            // ApoRettributerResult
+            // ApocalypseRettributerResult
             // 
-            this.ApoRettributerResult.Location = new System.Drawing.Point(250, 200);
-            this.ApoRettributerResult.Name = "ApoRettributerResult";
-            this.ApoRettributerResult.Size = new System.Drawing.Size(77, 20);
-            this.ApoRettributerResult.TabIndex = 11;
+            this.ApocalypseRettributerResult.Location = new System.Drawing.Point(250, 200);
+            this.ApocalypseRettributerResult.Name = "ApocalypseRettributerResult";
+            this.ApocalypseRettributerResult.Size = new System.Drawing.Size(77, 20);
+            this.ApocalypseRettributerResult.TabIndex = 11;
             // 
             // ApocalypseRettributer
             // 
@@ -270,12 +270,12 @@
             this.label3.TabIndex = 17;
             this.label3.Text = "Result: ";
             // 
-            // SpectCasterResult
+            // SpecterCasterResult
             // 
-            this.SpectCasterResult.Location = new System.Drawing.Point(400, 200);
-            this.SpectCasterResult.Name = "SpectCasterResult";
-            this.SpectCasterResult.Size = new System.Drawing.Size(77, 20);
-            this.SpectCasterResult.TabIndex = 18;
+            this.SpecterCasterResult.Location = new System.Drawing.Point(400, 200);
+            this.SpecterCasterResult.Name = "SpecterCasterResult";
+            this.SpecterCasterResult.Size = new System.Drawing.Size(77, 20);
+            this.SpecterCasterResult.TabIndex = 18;
             // 
             // SpRettriButer
             // 
@@ -465,14 +465,14 @@
             this.Controls.Add(this.SpecterRettributer);
             this.Controls.Add(this.IsSpecterRettributerBlessed);
             this.Controls.Add(this.SpRettriButer);
-            this.Controls.Add(this.SpectCasterResult);
+            this.Controls.Add(this.SpecterCasterResult);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.SpecterCaster);
             this.Controls.Add(this.IsSpecterCasterBlessed);
             this.Controls.Add(this.SpCaster);
             this.Controls.Add(this.IsApocalypseRettributerBlessed);
             this.Controls.Add(this.ApocalypseRettributer);
-            this.Controls.Add(this.ApoRettributerResult);
+            this.Controls.Add(this.ApocalypseRettributerResult);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.ApoRettributer);
             this.Controls.Add(this.toolStrip1);
@@ -481,7 +481,7 @@
             this.Controls.Add(this.IsApocalypseCasterBlessed);
             this.Controls.Add(this.ApocalypseCaster);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.ApoCasterResult);
+            this.Controls.Add(this.ApocalypseCasterResult);
             this.Controls.Add(this.OwnMAttack);
             this.Controls.Add(this.ApoCaster);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
@@ -499,7 +499,7 @@
         #endregion
 
         private System.Windows.Forms.Button ApoCaster;
-        private System.Windows.Forms.Label ApoCasterResult;
+        private System.Windows.Forms.Label ApocalypseCasterResult;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label ApocalypseCaster;
         private System.Windows.Forms.ToolStrip toolStrip1;
@@ -509,14 +509,14 @@
         protected internal System.Windows.Forms.TextBox OwnMAttack;
         private System.Windows.Forms.Button ApoRettributer;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label ApoRettributerResult;
+        private System.Windows.Forms.Label ApocalypseRettributerResult;
         private System.Windows.Forms.Label ApocalypseRettributer;
         private System.Windows.Forms.Button SpCaster;
         private System.Windows.Forms.CheckBox IsApocalypseCasterBlessed;
         private System.Windows.Forms.CheckBox IsSpecterCasterBlessed;
         private System.Windows.Forms.Label SpecterCaster;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label SpectCasterResult;
+        private System.Windows.Forms.Label SpecterCasterResult;
         private System.Windows.Forms.CheckBox IsApocalypseRettributerBlessed;
         private System.Windows.Forms.Button SpRettriButer;
         private System.Windows.Forms.CheckBox IsSpecterRettributerBlessed;
