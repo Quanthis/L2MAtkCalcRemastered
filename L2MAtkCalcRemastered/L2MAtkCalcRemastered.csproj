@@ -61,6 +61,9 @@
     <Compile Include="Weapon.cs">
       <SubType>Form</SubType>
     </Compile>
+    <EmbeddedResource Include="Form1.en-001.resx">
+      <DependentUpon>Form1.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>

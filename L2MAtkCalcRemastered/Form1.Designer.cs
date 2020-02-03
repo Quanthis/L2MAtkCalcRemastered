@@ -72,360 +72,295 @@
             // 
             // ApoCaster
             // 
-            this.ApoCaster.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            resources.ApplyResources(this.ApoCaster, "ApoCaster");
             this.ApoCaster.BackgroundImage = global::L2MAtkCalcRemastered.Properties.Resources.ApoCaster;
             this.ApoCaster.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.ApoCaster.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.ApoCaster.Location = new System.Drawing.Point(100, 100);
             this.ApoCaster.Name = "ApoCaster";
-            this.ApoCaster.Size = new System.Drawing.Size(77, 77);
-            this.ApoCaster.TabIndex = 0;
-            this.WhereToClickForCalcs.SetToolTip(this.ApoCaster, "Apocalypse Caster");
+            this.WhereToInsertMAttack.SetToolTip(this.ApoCaster, resources.GetString("ApoCaster.ToolTip"));
+            this.WhereToClickForCalcs.SetToolTip(this.ApoCaster, resources.GetString("ApoCaster.ToolTip1"));
             this.ApoCaster.UseVisualStyleBackColor = true;
             this.ApoCaster.Click += new System.EventHandler(this.ApoCaster_Click);
             // 
             // OwnMAttack
             // 
+            resources.ApplyResources(this.OwnMAttack, "OwnMAttack");
             this.OwnMAttack.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.OwnMAttack.ForeColor = System.Drawing.Color.Black;
-            this.OwnMAttack.Location = new System.Drawing.Point(910, 800);
-            this.OwnMAttack.MaxLength = 15;
             this.OwnMAttack.Name = "OwnMAttack";
-            this.OwnMAttack.Size = new System.Drawing.Size(100, 20);
-            this.OwnMAttack.TabIndex = 1;
-            this.OwnMAttack.Text = "0";
-            this.OwnMAttack.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.WhereToInsertMAttack.SetToolTip(this.OwnMAttack, "I need this information to provide you with actual truth");
+            this.WhereToClickForCalcs.SetToolTip(this.OwnMAttack, resources.GetString("OwnMAttack.ToolTip"));
+            this.WhereToInsertMAttack.SetToolTip(this.OwnMAttack, resources.GetString("OwnMAttack.ToolTip1"));
             // 
             // ApocalypseCasterResult
             // 
-            this.ApocalypseCasterResult.Location = new System.Drawing.Point(100, 200);
+            resources.ApplyResources(this.ApocalypseCasterResult, "ApocalypseCasterResult");
             this.ApocalypseCasterResult.Name = "ApocalypseCasterResult";
-            this.ApocalypseCasterResult.Size = new System.Drawing.Size(77, 20);
-            this.ApocalypseCasterResult.TabIndex = 2;
+            this.WhereToInsertMAttack.SetToolTip(this.ApocalypseCasterResult, resources.GetString("ApocalypseCasterResult.ToolTip"));
+            this.WhereToClickForCalcs.SetToolTip(this.ApocalypseCasterResult, resources.GetString("ApocalypseCasterResult.ToolTip1"));
             // 
             // label1
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(100, 184);
+            resources.ApplyResources(this.label1, "label1");
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(43, 13);
-            this.label1.TabIndex = 3;
-            this.label1.Text = "Result: ";
+            this.WhereToInsertMAttack.SetToolTip(this.label1, resources.GetString("label1.ToolTip"));
+            this.WhereToClickForCalcs.SetToolTip(this.label1, resources.GetString("label1.ToolTip1"));
             // 
             // ApocalypseCaster
             // 
-            this.ApocalypseCaster.AutoSize = true;
-            this.ApocalypseCaster.Location = new System.Drawing.Point(100, 81);
+            resources.ApplyResources(this.ApocalypseCaster, "ApocalypseCaster");
             this.ApocalypseCaster.Name = "ApocalypseCaster";
-            this.ApocalypseCaster.Size = new System.Drawing.Size(95, 13);
-            this.ApocalypseCaster.TabIndex = 4;
-            this.ApocalypseCaster.Text = "Apocalypse Caster";
+            this.WhereToInsertMAttack.SetToolTip(this.ApocalypseCaster, resources.GetString("ApocalypseCaster.ToolTip"));
+            this.WhereToClickForCalcs.SetToolTip(this.ApocalypseCaster, resources.GetString("ApocalypseCaster.ToolTip1"));
             // 
             // IsApocalypseCasterBlessed
             // 
-            this.IsApocalypseCasterBlessed.AutoSize = true;
-            this.IsApocalypseCasterBlessed.Location = new System.Drawing.Point(100, 61);
+            resources.ApplyResources(this.IsApocalypseCasterBlessed, "IsApocalypseCasterBlessed");
             this.IsApocalypseCasterBlessed.Name = "IsApocalypseCasterBlessed";
-            this.IsApocalypseCasterBlessed.Size = new System.Drawing.Size(63, 17);
-            this.IsApocalypseCasterBlessed.TabIndex = 5;
-            this.IsApocalypseCasterBlessed.Text = "Blessed";
+            this.WhereToInsertMAttack.SetToolTip(this.IsApocalypseCasterBlessed, resources.GetString("IsApocalypseCasterBlessed.ToolTip"));
+            this.WhereToClickForCalcs.SetToolTip(this.IsApocalypseCasterBlessed, resources.GetString("IsApocalypseCasterBlessed.ToolTip1"));
             this.IsApocalypseCasterBlessed.UseVisualStyleBackColor = true;
             this.IsApocalypseCasterBlessed.CheckedChanged += new System.EventHandler(this.IsApoCasterBlessed_CheckedChanged);
             // 
             // HavingSigil
             // 
-            this.HavingSigil.Location = new System.Drawing.Point(910, 835);
+            resources.ApplyResources(this.HavingSigil, "HavingSigil");
             this.HavingSigil.Name = "HavingSigil";
-            this.HavingSigil.Size = new System.Drawing.Size(100, 20);
-            this.HavingSigil.TabIndex = 6;
-            this.HavingSigil.Text = "I have a sigil";
-            this.HavingSigil.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.WhereToInsertMAttack.SetToolTip(this.HavingSigil, resources.GetString("HavingSigil.ToolTip"));
+            this.WhereToClickForCalcs.SetToolTip(this.HavingSigil, resources.GetString("HavingSigil.ToolTip1"));
             this.HavingSigil.UseVisualStyleBackColor = true;
             this.HavingSigil.CheckedChanged += new System.EventHandler(this.HavingSigil_CheckedChanged);
             // 
             // NotHavingSigil
             // 
+            resources.ApplyResources(this.NotHavingSigil, "NotHavingSigil");
             this.NotHavingSigil.Checked = true;
-            this.NotHavingSigil.Location = new System.Drawing.Point(900, 870);
             this.NotHavingSigil.Name = "NotHavingSigil";
-            this.NotHavingSigil.Size = new System.Drawing.Size(120, 20);
-            this.NotHavingSigil.TabIndex = 7;
             this.NotHavingSigil.TabStop = true;
-            this.NotHavingSigil.Text = "I dont\' have a sigil";
+            this.WhereToInsertMAttack.SetToolTip(this.NotHavingSigil, resources.GetString("NotHavingSigil.ToolTip"));
+            this.WhereToClickForCalcs.SetToolTip(this.NotHavingSigil, resources.GetString("NotHavingSigil.ToolTip1"));
             this.NotHavingSigil.UseVisualStyleBackColor = true;
             this.NotHavingSigil.CheckedChanged += new System.EventHandler(this.NotHavingSigil_CheckedChanged);
             // 
             // toolStrip1
             // 
+            resources.ApplyResources(this.toolStrip1, "toolStrip1");
+            this.toolStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.Save});
-            this.toolStrip1.Location = new System.Drawing.Point(0, 0);
             this.toolStrip1.Name = "toolStrip1";
-            this.toolStrip1.Size = new System.Drawing.Size(1904, 25);
-            this.toolStrip1.TabIndex = 8;
-            this.toolStrip1.Text = "toolStrip1";
+            this.WhereToClickForCalcs.SetToolTip(this.toolStrip1, resources.GetString("toolStrip1.ToolTip"));
+            this.WhereToInsertMAttack.SetToolTip(this.toolStrip1, resources.GetString("toolStrip1.ToolTip1"));
             // 
             // Save
             // 
+            resources.ApplyResources(this.Save, "Save");
             this.Save.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
-            this.Save.Image = ((System.Drawing.Image)(resources.GetObject("Save.Image")));
-            this.Save.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.Save.Name = "Save";
-            this.Save.Size = new System.Drawing.Size(35, 22);
-            this.Save.Text = "Save";
-            this.Save.ToolTipText = "Saves to HTML File and opens it";
             this.Save.Click += new System.EventHandler(this.Save_Click);
             // 
             // ApoRettributer
             // 
-            this.ApoRettributer.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            resources.ApplyResources(this.ApoRettributer, "ApoRettributer");
             this.ApoRettributer.BackgroundImage = global::L2MAtkCalcRemastered.Properties.Resources.ApoRetri;
             this.ApoRettributer.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.ApoRettributer.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.ApoRettributer.Location = new System.Drawing.Point(250, 96);
             this.ApoRettributer.Name = "ApoRettributer";
-            this.ApoRettributer.Size = new System.Drawing.Size(80, 80);
-            this.ApoRettributer.TabIndex = 9;
-            this.WhereToClickForCalcs.SetToolTip(this.ApoRettributer, "Apocalypse Rettributer");
+            this.WhereToInsertMAttack.SetToolTip(this.ApoRettributer, resources.GetString("ApoRettributer.ToolTip"));
+            this.WhereToClickForCalcs.SetToolTip(this.ApoRettributer, resources.GetString("ApoRettributer.ToolTip1"));
             this.ApoRettributer.UseVisualStyleBackColor = true;
             this.ApoRettributer.Click += new System.EventHandler(this.ApoRettributer_Click);
             // 
             // label2
             // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(250, 184);
+            resources.ApplyResources(this.label2, "label2");
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(43, 13);
-            this.label2.TabIndex = 10;
-            this.label2.Text = "Result: ";
+            this.WhereToInsertMAttack.SetToolTip(this.label2, resources.GetString("label2.ToolTip"));
+            this.WhereToClickForCalcs.SetToolTip(this.label2, resources.GetString("label2.ToolTip1"));
             // 
             // ApocalypseRettributerResult
             // 
-            this.ApocalypseRettributerResult.Location = new System.Drawing.Point(250, 200);
+            resources.ApplyResources(this.ApocalypseRettributerResult, "ApocalypseRettributerResult");
             this.ApocalypseRettributerResult.Name = "ApocalypseRettributerResult";
-            this.ApocalypseRettributerResult.Size = new System.Drawing.Size(77, 20);
-            this.ApocalypseRettributerResult.TabIndex = 11;
+            this.WhereToInsertMAttack.SetToolTip(this.ApocalypseRettributerResult, resources.GetString("ApocalypseRettributerResult.ToolTip"));
+            this.WhereToClickForCalcs.SetToolTip(this.ApocalypseRettributerResult, resources.GetString("ApocalypseRettributerResult.ToolTip1"));
             // 
             // ApocalypseRettributer
             // 
-            this.ApocalypseRettributer.AutoSize = true;
-            this.ApocalypseRettributer.Location = new System.Drawing.Point(250, 81);
+            resources.ApplyResources(this.ApocalypseRettributer, "ApocalypseRettributer");
             this.ApocalypseRettributer.Name = "ApocalypseRettributer";
-            this.ApocalypseRettributer.Size = new System.Drawing.Size(114, 13);
-            this.ApocalypseRettributer.TabIndex = 12;
-            this.ApocalypseRettributer.Text = "Apocalypse Rettributer";
+            this.WhereToInsertMAttack.SetToolTip(this.ApocalypseRettributer, resources.GetString("ApocalypseRettributer.ToolTip"));
+            this.WhereToClickForCalcs.SetToolTip(this.ApocalypseRettributer, resources.GetString("ApocalypseRettributer.ToolTip1"));
             // 
             // IsApocalypseRettributerBlessed
             // 
-            this.IsApocalypseRettributerBlessed.AutoSize = true;
-            this.IsApocalypseRettributerBlessed.Location = new System.Drawing.Point(250, 61);
+            resources.ApplyResources(this.IsApocalypseRettributerBlessed, "IsApocalypseRettributerBlessed");
             this.IsApocalypseRettributerBlessed.Name = "IsApocalypseRettributerBlessed";
-            this.IsApocalypseRettributerBlessed.Size = new System.Drawing.Size(63, 17);
-            this.IsApocalypseRettributerBlessed.TabIndex = 13;
-            this.IsApocalypseRettributerBlessed.Text = "Blessed";
+            this.WhereToInsertMAttack.SetToolTip(this.IsApocalypseRettributerBlessed, resources.GetString("IsApocalypseRettributerBlessed.ToolTip"));
+            this.WhereToClickForCalcs.SetToolTip(this.IsApocalypseRettributerBlessed, resources.GetString("IsApocalypseRettributerBlessed.ToolTip1"));
             this.IsApocalypseRettributerBlessed.UseVisualStyleBackColor = true;
             this.IsApocalypseRettributerBlessed.CheckedChanged += new System.EventHandler(this.IsApocalypseRettributerBlessed_CheckedChanged);
             // 
             // SpCaster
             // 
-            this.SpCaster.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            resources.ApplyResources(this.SpCaster, "SpCaster");
             this.SpCaster.BackgroundImage = global::L2MAtkCalcRemastered.Properties.Resources.SpecterCaster1;
             this.SpCaster.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.SpCaster.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.SpCaster.Location = new System.Drawing.Point(400, 100);
             this.SpCaster.Name = "SpCaster";
-            this.SpCaster.Size = new System.Drawing.Size(77, 77);
-            this.SpCaster.TabIndex = 14;
-            this.WhereToClickForCalcs.SetToolTip(this.SpCaster, "Specter Caster");
+            this.WhereToInsertMAttack.SetToolTip(this.SpCaster, resources.GetString("SpCaster.ToolTip"));
+            this.WhereToClickForCalcs.SetToolTip(this.SpCaster, resources.GetString("SpCaster.ToolTip1"));
             this.SpCaster.UseVisualStyleBackColor = true;
             this.SpCaster.Click += new System.EventHandler(this.SpCaster_Click);
             // 
             // IsSpecterCasterBlessed
             // 
-            this.IsSpecterCasterBlessed.AutoSize = true;
-            this.IsSpecterCasterBlessed.Location = new System.Drawing.Point(400, 61);
+            resources.ApplyResources(this.IsSpecterCasterBlessed, "IsSpecterCasterBlessed");
             this.IsSpecterCasterBlessed.Name = "IsSpecterCasterBlessed";
-            this.IsSpecterCasterBlessed.Size = new System.Drawing.Size(63, 17);
-            this.IsSpecterCasterBlessed.TabIndex = 16;
-            this.IsSpecterCasterBlessed.Text = "Blessed";
+            this.WhereToInsertMAttack.SetToolTip(this.IsSpecterCasterBlessed, resources.GetString("IsSpecterCasterBlessed.ToolTip"));
+            this.WhereToClickForCalcs.SetToolTip(this.IsSpecterCasterBlessed, resources.GetString("IsSpecterCasterBlessed.ToolTip1"));
             this.IsSpecterCasterBlessed.UseVisualStyleBackColor = true;
             this.IsSpecterCasterBlessed.CheckedChanged += new System.EventHandler(this.IsSpecterCasterBlessed_CheckedChanged);
             // 
             // SpecterCaster
             // 
-            this.SpecterCaster.AutoSize = true;
-            this.SpecterCaster.Location = new System.Drawing.Point(400, 81);
+            resources.ApplyResources(this.SpecterCaster, "SpecterCaster");
             this.SpecterCaster.Name = "SpecterCaster";
-            this.SpecterCaster.Size = new System.Drawing.Size(77, 13);
-            this.SpecterCaster.TabIndex = 15;
-            this.SpecterCaster.Text = "Specter Caster";
+            this.WhereToInsertMAttack.SetToolTip(this.SpecterCaster, resources.GetString("SpecterCaster.ToolTip"));
+            this.WhereToClickForCalcs.SetToolTip(this.SpecterCaster, resources.GetString("SpecterCaster.ToolTip1"));
             // 
             // label3
             // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(400, 184);
+            resources.ApplyResources(this.label3, "label3");
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(43, 13);
-            this.label3.TabIndex = 17;
-            this.label3.Text = "Result: ";
+            this.WhereToInsertMAttack.SetToolTip(this.label3, resources.GetString("label3.ToolTip"));
+            this.WhereToClickForCalcs.SetToolTip(this.label3, resources.GetString("label3.ToolTip1"));
             // 
             // SpecterCasterResult
             // 
-            this.SpecterCasterResult.Location = new System.Drawing.Point(400, 200);
+            resources.ApplyResources(this.SpecterCasterResult, "SpecterCasterResult");
             this.SpecterCasterResult.Name = "SpecterCasterResult";
-            this.SpecterCasterResult.Size = new System.Drawing.Size(77, 20);
-            this.SpecterCasterResult.TabIndex = 18;
+            this.WhereToInsertMAttack.SetToolTip(this.SpecterCasterResult, resources.GetString("SpecterCasterResult.ToolTip"));
+            this.WhereToClickForCalcs.SetToolTip(this.SpecterCasterResult, resources.GetString("SpecterCasterResult.ToolTip1"));
             // 
             // SpRettriButer
             // 
-            this.SpRettriButer.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            resources.ApplyResources(this.SpRettriButer, "SpRettriButer");
             this.SpRettriButer.BackgroundImage = global::L2MAtkCalcRemastered.Properties.Resources.SpecterRetri;
             this.SpRettriButer.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.SpRettriButer.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.SpRettriButer.Location = new System.Drawing.Point(550, 100);
             this.SpRettriButer.Name = "SpRettriButer";
-            this.SpRettriButer.Size = new System.Drawing.Size(73, 76);
-            this.SpRettriButer.TabIndex = 19;
-            this.WhereToClickForCalcs.SetToolTip(this.SpRettriButer, "Specter Rettributer");
+            this.WhereToInsertMAttack.SetToolTip(this.SpRettriButer, resources.GetString("SpRettriButer.ToolTip"));
+            this.WhereToClickForCalcs.SetToolTip(this.SpRettriButer, resources.GetString("SpRettriButer.ToolTip1"));
             this.SpRettriButer.UseVisualStyleBackColor = true;
             this.SpRettriButer.Click += new System.EventHandler(this.button1_Click_1);
             // 
             // IsSpecterRettributerBlessed
             // 
-            this.IsSpecterRettributerBlessed.AutoSize = true;
-            this.IsSpecterRettributerBlessed.Location = new System.Drawing.Point(550, 61);
+            resources.ApplyResources(this.IsSpecterRettributerBlessed, "IsSpecterRettributerBlessed");
             this.IsSpecterRettributerBlessed.Name = "IsSpecterRettributerBlessed";
-            this.IsSpecterRettributerBlessed.Size = new System.Drawing.Size(63, 17);
-            this.IsSpecterRettributerBlessed.TabIndex = 21;
-            this.IsSpecterRettributerBlessed.Text = "Blessed";
+            this.WhereToInsertMAttack.SetToolTip(this.IsSpecterRettributerBlessed, resources.GetString("IsSpecterRettributerBlessed.ToolTip"));
+            this.WhereToClickForCalcs.SetToolTip(this.IsSpecterRettributerBlessed, resources.GetString("IsSpecterRettributerBlessed.ToolTip1"));
             this.IsSpecterRettributerBlessed.UseVisualStyleBackColor = true;
             this.IsSpecterRettributerBlessed.CheckedChanged += new System.EventHandler(this.IsSpecterRettributerBlessed_CheckedChanged);
             // 
             // SpecterRettributer
             // 
-            this.SpecterRettributer.AutoSize = true;
-            this.SpecterRettributer.Location = new System.Drawing.Point(550, 81);
+            resources.ApplyResources(this.SpecterRettributer, "SpecterRettributer");
             this.SpecterRettributer.Name = "SpecterRettributer";
-            this.SpecterRettributer.Size = new System.Drawing.Size(93, 13);
-            this.SpecterRettributer.TabIndex = 20;
-            this.SpecterRettributer.Text = "SpecterRettributer";
+            this.WhereToInsertMAttack.SetToolTip(this.SpecterRettributer, resources.GetString("SpecterRettributer.ToolTip"));
+            this.WhereToClickForCalcs.SetToolTip(this.SpecterRettributer, resources.GetString("SpecterRettributer.ToolTip1"));
             // 
             // label4
             // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(550, 184);
+            resources.ApplyResources(this.label4, "label4");
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(43, 13);
-            this.label4.TabIndex = 22;
-            this.label4.Text = "Result: ";
+            this.WhereToInsertMAttack.SetToolTip(this.label4, resources.GetString("label4.ToolTip"));
+            this.WhereToClickForCalcs.SetToolTip(this.label4, resources.GetString("label4.ToolTip1"));
             // 
             // SpecterRettributerResult
             // 
-            this.SpecterRettributerResult.Location = new System.Drawing.Point(550, 200);
+            resources.ApplyResources(this.SpecterRettributerResult, "SpecterRettributerResult");
             this.SpecterRettributerResult.Name = "SpecterRettributerResult";
-            this.SpecterRettributerResult.Size = new System.Drawing.Size(77, 20);
-            this.SpecterRettributerResult.TabIndex = 23;
+            this.WhereToInsertMAttack.SetToolTip(this.SpecterRettributerResult, resources.GetString("SpecterRettributerResult.ToolTip"));
+            this.WhereToClickForCalcs.SetToolTip(this.SpecterRettributerResult, resources.GetString("SpecterRettributerResult.ToolTip1"));
             // 
             // AmaCaster
             // 
-            this.AmaCaster.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            resources.ApplyResources(this.AmaCaster, "AmaCaster");
             this.AmaCaster.BackgroundImage = global::L2MAtkCalcRemastered.Properties.Resources.AmaranthineCaster;
             this.AmaCaster.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.AmaCaster.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.AmaCaster.Location = new System.Drawing.Point(700, 100);
             this.AmaCaster.Name = "AmaCaster";
-            this.AmaCaster.Size = new System.Drawing.Size(71, 74);
-            this.AmaCaster.TabIndex = 24;
-            this.WhereToClickForCalcs.SetToolTip(this.AmaCaster, "Amaranthine Caster");
+            this.WhereToInsertMAttack.SetToolTip(this.AmaCaster, resources.GetString("AmaCaster.ToolTip"));
+            this.WhereToClickForCalcs.SetToolTip(this.AmaCaster, resources.GetString("AmaCaster.ToolTip1"));
             this.AmaCaster.UseVisualStyleBackColor = true;
             this.AmaCaster.Click += new System.EventHandler(this.AmaCaster_Click);
             // 
             // AmaranthineCaster
             // 
-            this.AmaranthineCaster.AutoSize = true;
-            this.AmaranthineCaster.Location = new System.Drawing.Point(700, 81);
+            resources.ApplyResources(this.AmaranthineCaster, "AmaranthineCaster");
             this.AmaranthineCaster.Name = "AmaranthineCaster";
-            this.AmaranthineCaster.Size = new System.Drawing.Size(99, 13);
-            this.AmaranthineCaster.TabIndex = 25;
-            this.AmaranthineCaster.Text = "Amaranthine Caster";
+            this.WhereToInsertMAttack.SetToolTip(this.AmaranthineCaster, resources.GetString("AmaranthineCaster.ToolTip"));
+            this.WhereToClickForCalcs.SetToolTip(this.AmaranthineCaster, resources.GetString("AmaranthineCaster.ToolTip1"));
             // 
             // IsAmaranthineCasterBlessed
             // 
-            this.IsAmaranthineCasterBlessed.AutoSize = true;
-            this.IsAmaranthineCasterBlessed.Location = new System.Drawing.Point(700, 61);
+            resources.ApplyResources(this.IsAmaranthineCasterBlessed, "IsAmaranthineCasterBlessed");
             this.IsAmaranthineCasterBlessed.Name = "IsAmaranthineCasterBlessed";
-            this.IsAmaranthineCasterBlessed.Size = new System.Drawing.Size(63, 17);
-            this.IsAmaranthineCasterBlessed.TabIndex = 26;
-            this.IsAmaranthineCasterBlessed.Text = "Blessed";
+            this.WhereToInsertMAttack.SetToolTip(this.IsAmaranthineCasterBlessed, resources.GetString("IsAmaranthineCasterBlessed.ToolTip"));
+            this.WhereToClickForCalcs.SetToolTip(this.IsAmaranthineCasterBlessed, resources.GetString("IsAmaranthineCasterBlessed.ToolTip1"));
             this.IsAmaranthineCasterBlessed.UseVisualStyleBackColor = true;
             this.IsAmaranthineCasterBlessed.CheckedChanged += new System.EventHandler(this.IsAmaranthineCasterBlessed_CheckedChanged);
             // 
             // label5
             // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(700, 184);
+            resources.ApplyResources(this.label5, "label5");
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(43, 13);
-            this.label5.TabIndex = 27;
-            this.label5.Text = "Result: ";
+            this.WhereToInsertMAttack.SetToolTip(this.label5, resources.GetString("label5.ToolTip"));
+            this.WhereToClickForCalcs.SetToolTip(this.label5, resources.GetString("label5.ToolTip1"));
             // 
             // AmaranthineCasterResult
             // 
-            this.AmaranthineCasterResult.Location = new System.Drawing.Point(700, 200);
+            resources.ApplyResources(this.AmaranthineCasterResult, "AmaranthineCasterResult");
             this.AmaranthineCasterResult.Name = "AmaranthineCasterResult";
-            this.AmaranthineCasterResult.Size = new System.Drawing.Size(77, 20);
-            this.AmaranthineCasterResult.TabIndex = 28;
+            this.WhereToInsertMAttack.SetToolTip(this.AmaranthineCasterResult, resources.GetString("AmaranthineCasterResult.ToolTip"));
+            this.WhereToClickForCalcs.SetToolTip(this.AmaranthineCasterResult, resources.GetString("AmaranthineCasterResult.ToolTip1"));
             // 
             // AmaRettributer
             // 
-            this.AmaRettributer.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            resources.ApplyResources(this.AmaRettributer, "AmaRettributer");
             this.AmaRettributer.BackgroundImage = global::L2MAtkCalcRemastered.Properties.Resources.AmaranthineRetributer;
             this.AmaRettributer.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.AmaRettributer.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.AmaRettributer.Location = new System.Drawing.Point(850, 100);
             this.AmaRettributer.Name = "AmaRettributer";
-            this.AmaRettributer.Size = new System.Drawing.Size(72, 72);
-            this.AmaRettributer.TabIndex = 29;
-            this.WhereToClickForCalcs.SetToolTip(this.AmaRettributer, "Amaranthine Rettributer");
+            this.WhereToInsertMAttack.SetToolTip(this.AmaRettributer, resources.GetString("AmaRettributer.ToolTip"));
+            this.WhereToClickForCalcs.SetToolTip(this.AmaRettributer, resources.GetString("AmaRettributer.ToolTip1"));
             this.AmaRettributer.UseVisualStyleBackColor = true;
             this.AmaRettributer.Click += new System.EventHandler(this.AmaRettributer_Click);
             // 
             // AmaranthineRettributer
             // 
-            this.AmaranthineRettributer.AutoSize = true;
-            this.AmaranthineRettributer.Location = new System.Drawing.Point(850, 81);
+            resources.ApplyResources(this.AmaranthineRettributer, "AmaranthineRettributer");
             this.AmaranthineRettributer.Name = "AmaranthineRettributer";
-            this.AmaranthineRettributer.Size = new System.Drawing.Size(118, 13);
-            this.AmaranthineRettributer.TabIndex = 30;
-            this.AmaranthineRettributer.Text = "Amaranthine Rettributer";
+            this.WhereToInsertMAttack.SetToolTip(this.AmaranthineRettributer, resources.GetString("AmaranthineRettributer.ToolTip"));
+            this.WhereToClickForCalcs.SetToolTip(this.AmaranthineRettributer, resources.GetString("AmaranthineRettributer.ToolTip1"));
             // 
             // IsAmaranthineRettributerBlessed
             // 
-            this.IsAmaranthineRettributerBlessed.AutoSize = true;
-            this.IsAmaranthineRettributerBlessed.Location = new System.Drawing.Point(850, 61);
+            resources.ApplyResources(this.IsAmaranthineRettributerBlessed, "IsAmaranthineRettributerBlessed");
             this.IsAmaranthineRettributerBlessed.Name = "IsAmaranthineRettributerBlessed";
-            this.IsAmaranthineRettributerBlessed.Size = new System.Drawing.Size(63, 17);
-            this.IsAmaranthineRettributerBlessed.TabIndex = 31;
-            this.IsAmaranthineRettributerBlessed.Text = "Blessed";
+            this.WhereToInsertMAttack.SetToolTip(this.IsAmaranthineRettributerBlessed, resources.GetString("IsAmaranthineRettributerBlessed.ToolTip"));
+            this.WhereToClickForCalcs.SetToolTip(this.IsAmaranthineRettributerBlessed, resources.GetString("IsAmaranthineRettributerBlessed.ToolTip1"));
             this.IsAmaranthineRettributerBlessed.UseVisualStyleBackColor = true;
             this.IsAmaranthineRettributerBlessed.CheckedChanged += new System.EventHandler(this.IsAmaranthineRettributerBlessed_CheckedChanged);
             // 
             // label6
             // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(850, 184);
+            resources.ApplyResources(this.label6, "label6");
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(43, 13);
-            this.label6.TabIndex = 32;
-            this.label6.Text = "Result: ";
+            this.WhereToInsertMAttack.SetToolTip(this.label6, resources.GetString("label6.ToolTip"));
+            this.WhereToClickForCalcs.SetToolTip(this.label6, resources.GetString("label6.ToolTip1"));
             // 
             // AmaranthineRettributerResult
             // 
-            this.AmaranthineRettributerResult.Location = new System.Drawing.Point(850, 200);
+            resources.ApplyResources(this.AmaranthineRettributerResult, "AmaranthineRettributerResult");
             this.AmaranthineRettributerResult.Name = "AmaranthineRettributerResult";
-            this.AmaranthineRettributerResult.Size = new System.Drawing.Size(77, 20);
-            this.AmaranthineRettributerResult.TabIndex = 33;
+            this.WhereToInsertMAttack.SetToolTip(this.AmaranthineRettributerResult, resources.GetString("AmaranthineRettributerResult.ToolTip"));
+            this.WhereToClickForCalcs.SetToolTip(this.AmaranthineRettributerResult, resources.GetString("AmaranthineRettributerResult.ToolTip1"));
             // 
             // WhereToInsertMAttack
             // 
@@ -446,10 +381,9 @@
             // 
             // Form1
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            resources.ApplyResources(this, "$this");
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.BackgroundImage = global::L2MAtkCalcRemastered.Properties.Resources.Shot00113;
-            this.ClientSize = new System.Drawing.Size(1904, 962);
             this.Controls.Add(this.AmaranthineRettributerResult);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.IsAmaranthineRettributerBlessed);
@@ -484,10 +418,10 @@
             this.Controls.Add(this.ApocalypseCasterResult);
             this.Controls.Add(this.OwnMAttack);
             this.Controls.Add(this.ApoCaster);
-            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.MaximumSize = new System.Drawing.Size(1920, 1080);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
             this.Name = "Form1";
-            this.Text = "L2MAtkCalc 2.0";
+            this.WhereToClickForCalcs.SetToolTip(this, resources.GetString("$this.ToolTip"));
+            this.WhereToInsertMAttack.SetToolTip(this, resources.GetString("$this.ToolTip1"));
             this.Load += new System.EventHandler(this.Form1_Load);
             this.toolStrip1.ResumeLayout(false);
             this.toolStrip1.PerformLayout();

@@ -117,33 +117,614 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <metadata name="WhereToClickForCalcs.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>305, 14</value>
-  </metadata>
-  <metadata name="WhereToInsertMAttack.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>128, 14</value>
-  </metadata>
-  <metadata name="NotHavingSigil.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <metadata name="toolStrip1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>17, 17</value>
-  </metadata>
+  <data name="IsSpecterRettributerBlessed.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="&gt;&gt;WhereToClickForCalcs.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolTip, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;label4.ZOrder" xml:space="preserve">
+    <value>11</value>
+  </data>
+  <data name="&gt;&gt;label3.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;AmaRettributer.ZOrder" xml:space="preserve">
+    <value>4</value>
+  </data>
+  <data name="&gt;&gt;label6.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
-  <data name="Save.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
-        YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAIDSURBVDhPpZLrS5NhGMb3j4SWh0oRQVExD4gonkDpg4hG
-        YKxG6WBogkMZKgPNCEVJFBGdGETEvgwyO9DJE5syZw3PIlPEE9pgBCLZ5XvdMB8Ew8gXbl54nuf63dd9
-        0OGSnwCahxbPRNPAPMw9Xpg6ZmF46kZZ0xSKzJPIrhpDWsVnpBhGkKx3nAX8Pv7z1zg8OoY/cITdn4fw
-        bf/C0kYAN3Ma/w3gWfZL5kzTKBxjWyK2DftwI9tyMYCZKXbNHaD91bLYJrDXsYbrWfUKwJrPE9M2M1Oc
-        VzOOpHI7Jr376Hi9ogHqFIANO0/MmmmbmSmm9a8ze+I4MrNWAdjtoJgWcx+PSzg166yZZ8xM8XvXDix9
-        c4jIqFYAjoriBV9AhEPv1mH/sonogha0afbZMMZz+yreTGyhpusHwtNNCsA5U1zS4BLxzJIfg299qO32
-        Ir7UJtZfftyATqeT+8o2D8JSjQrAJblrncYL7ZJ2+bfaFnC/1S1NjL3diRat7qrO7wLRP3HjWsojBeCo
-        mDEo5mNjuweFGvjWg2EBhCbpkW78htSHHwRyNdmgAFzPEee2iFkzayy2OLXzT4gr6UdUnlXrullsxxQ+
-        kx0g8BTA3aZlButjSTyjODq/WcQcW/B/Je4OQhLvKQDnzN1mp0nnkvAhR8VuMzNrpm1mpjgkoVwB/v8D
-        TgDQASA1MVpwzwAAAABJRU5ErkJggg==
-</value>
+  <data name="ApocalypseRettributer.Size" type="System.Drawing.Size, System.Drawing">
+    <value>114, 13</value>
+  </data>
+  <data name="&gt;&gt;IsApocalypseCasterBlessed.Type" xml:space="preserve">
+    <value>System.Windows.Forms.CheckBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="SpecterRettributer.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="&gt;&gt;label5.ZOrder" xml:space="preserve">
+    <value>6</value>
+  </data>
+  <data name="IsApocalypseCasterBlessed.Text" xml:space="preserve">
+    <value>Blessed</value>
+  </data>
+  <data name="&gt;&gt;label3.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="$this.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="&gt;&gt;IsApocalypseCasterBlessed.ZOrder" xml:space="preserve">
+    <value>28</value>
+  </data>
+  <data name="IsAmaranthineCasterBlessed.Size" type="System.Drawing.Size, System.Drawing">
+    <value>63, 17</value>
+  </data>
+  <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="AmaranthineCaster.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="&gt;&gt;SpecterCaster.Name" xml:space="preserve">
+    <value>SpecterCaster</value>
+  </data>
+  <data name="ApocalypseCaster.ToolTip1" xml:space="preserve">
+    <value />
+  </data>
+  <data name="ApocalypseRettributerResult.Location" type="System.Drawing.Point, System.Drawing">
+    <value>250, 200</value>
+  </data>
+  <data name="SpecterCasterResult.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="&gt;&gt;SpecterRettributer.Name" xml:space="preserve">
+    <value>SpecterRettributer</value>
+  </data>
+  <data name="IsAmaranthineCasterBlessed.Text" xml:space="preserve">
+    <value>Blessed</value>
+  </data>
+  <data name="&gt;&gt;IsApocalypseCasterBlessed.Name" xml:space="preserve">
+    <value>IsApocalypseCasterBlessed</value>
+  </data>
+  <data name="AmaranthineCaster.Text" xml:space="preserve">
+    <value>Amaranthine Caster</value>
+  </data>
+  <data name="&gt;&gt;label4.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="SpecterCaster.Text" xml:space="preserve">
+    <value>Specter Caster</value>
+  </data>
+  <data name="AmaCaster.ToolTip1" xml:space="preserve">
+    <value>Amaranthine Caster</value>
+  </data>
+  <data name="&gt;&gt;ApocalypseCasterResult.Name" xml:space="preserve">
+    <value>ApocalypseCasterResult</value>
+  </data>
+  <data name="HavingSigil.ToolTip1" xml:space="preserve">
+    <value />
+  </data>
+  <data name="OwnMAttack.MaxLength" type="System.Int32, mscorlib">
+    <value>15</value>
+  </data>
+  <data name="AmaranthineCaster.TabIndex" type="System.Int32, mscorlib">
+    <value>25</value>
+  </data>
+  <data name="IsApocalypseRettributerBlessed.Size" type="System.Drawing.Size, System.Drawing">
+    <value>63, 17</value>
+  </data>
+  <data name="ApocalypseRettributerResult.TabIndex" type="System.Int32, mscorlib">
+    <value>11</value>
+  </data>
+  <data name="IsAmaranthineRettributerBlessed.Size" type="System.Drawing.Size, System.Drawing">
+    <value>63, 17</value>
+  </data>
+  <data name="ApocalypseCasterResult.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="OwnMAttack.TextAlign" type="System.Windows.Forms.HorizontalAlignment, System.Windows.Forms">
+    <value>Center</value>
+  </data>
+  <data name="&gt;&gt;label5.Name" xml:space="preserve">
+    <value>label5</value>
+  </data>
+  <data name="AmaranthineCasterResult.Location" type="System.Drawing.Point, System.Drawing">
+    <value>700, 200</value>
+  </data>
+  <data name="&gt;&gt;ApocalypseRettributerResult.Name" xml:space="preserve">
+    <value>ApocalypseRettributerResult</value>
+  </data>
+  <data name="label3.Location" type="System.Drawing.Point, System.Drawing">
+    <value>400, 184</value>
+  </data>
+  <data name="HavingSigil.Size" type="System.Drawing.Size, System.Drawing">
+    <value>100, 20</value>
+  </data>
+  <data name="SpRettriButer.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
+    <value>Flat</value>
+  </data>
+  <data name="label3.ToolTip1" xml:space="preserve">
+    <value />
+  </data>
+  <data name="&gt;&gt;label4.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;AmaRettributer.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="SpCaster.ToolTip" xml:space="preserve">
+    <value>Specter Caster</value>
+  </data>
+  <data name="label6.Location" type="System.Drawing.Point, System.Drawing">
+    <value>850, 184</value>
+  </data>
+  <data name="IsAmaranthineCasterBlessed.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="IsApocalypseCasterBlessed.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="ApocalypseRettributerResult.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="&gt;&gt;label5.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="AmaranthineCasterResult.ToolTip1" xml:space="preserve">
+    <value />
+  </data>
+  <data name="label2.Text" xml:space="preserve">
+    <value>Result: </value>
+  </data>
+  <data name="IsAmaranthineCasterBlessed.Location" type="System.Drawing.Point, System.Drawing">
+    <value>700, 61</value>
+  </data>
+  <data name="$this.Text" xml:space="preserve">
+    <value>L2MAtkCalc 2.0</value>
+  </data>
+  <data name="&gt;&gt;SpecterCaster.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;label4.Name" xml:space="preserve">
+    <value>label4</value>
+  </data>
+  <data name="AmaranthineRettributer.Text" xml:space="preserve">
+    <value>Amaranthine Rettributer</value>
+  </data>
+  <data name="toolStrip1.ToolTip1" xml:space="preserve">
+    <value />
+  </data>
+  <data name="AmaCaster.AutoSizeMode" type="System.Windows.Forms.AutoSizeMode, System.Windows.Forms">
+    <value>GrowAndShrink</value>
+  </data>
+  <data name="Save.Size" type="System.Drawing.Size, System.Drawing">
+    <value>35, 22</value>
+  </data>
+  <data name="&gt;&gt;ApocalypseRettributer.Name" xml:space="preserve">
+    <value>ApocalypseRettributer</value>
+  </data>
+  <data name="ApocalypseRettributer.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="&gt;&gt;IsSpecterRettributerBlessed.Name" xml:space="preserve">
+    <value>IsSpecterRettributerBlessed</value>
+  </data>
+  <data name="SpRettriButer.Size" type="System.Drawing.Size, System.Drawing">
+    <value>73, 76</value>
+  </data>
+  <data name="&gt;&gt;SpecterRettributerResult.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;NotHavingSigil.Name" xml:space="preserve">
+    <value>NotHavingSigil</value>
+  </data>
+  <data name="&gt;&gt;SpCaster.ZOrder" xml:space="preserve">
+    <value>19</value>
+  </data>
+  <data name="&gt;&gt;AmaranthineCaster.Name" xml:space="preserve">
+    <value>AmaranthineCaster</value>
+  </data>
+  <data name="&gt;&gt;IsAmaranthineCasterBlessed.Name" xml:space="preserve">
+    <value>IsAmaranthineCasterBlessed</value>
+  </data>
+  <data name="AmaranthineRettributer.Location" type="System.Drawing.Point, System.Drawing">
+    <value>850, 81</value>
+  </data>
+  <data name="AmaranthineCaster.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="IsSpecterRettributerBlessed.ToolTip1" xml:space="preserve">
+    <value />
+  </data>
+  <data name="SpecterCasterResult.TabIndex" type="System.Int32, mscorlib">
+    <value>18</value>
+  </data>
+  <data name="label1.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="&gt;&gt;IsSpecterCasterBlessed.Name" xml:space="preserve">
+    <value>IsSpecterCasterBlessed</value>
+  </data>
+  <data name="toolStrip1.Text" xml:space="preserve">
+    <value>toolStrip1</value>
+  </data>
+  <data name="&gt;&gt;label6.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;AmaranthineCasterResult.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="ApocalypseCaster.TabIndex" type="System.Int32, mscorlib">
+    <value>4</value>
+  </data>
+  <data name="&gt;&gt;ApoRettributer.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="ApoCaster.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;OwnMAttack.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;label2.ZOrder" xml:space="preserve">
+    <value>23</value>
+  </data>
+  <data name="SpecterRettributerResult.TabIndex" type="System.Int32, mscorlib">
+    <value>23</value>
+  </data>
+  <data name="&gt;&gt;toolStrip1.ZOrder" xml:space="preserve">
+    <value>25</value>
+  </data>
+  <data name="AmaRettributer.Location" type="System.Drawing.Point, System.Drawing">
+    <value>850, 100</value>
+  </data>
+  <data name="SpCaster.Size" type="System.Drawing.Size, System.Drawing">
+    <value>77, 77</value>
+  </data>
+  <data name="HavingSigil.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
+    <value>MiddleCenter</value>
+  </data>
+  <data name="&gt;&gt;label1.ZOrder" xml:space="preserve">
+    <value>30</value>
+  </data>
+  <data name="IsApocalypseRettributerBlessed.Text" xml:space="preserve">
+    <value>Blessed</value>
+  </data>
+  <data name="$this.AutoScaleDimensions" type="System.Drawing.SizeF, System.Drawing">
+    <value>8, 16</value>
+  </data>
+  <data name="SpCaster.Location" type="System.Drawing.Point, System.Drawing">
+    <value>400, 100</value>
+  </data>
+  <data name="SpecterCaster.ToolTip1" xml:space="preserve">
+    <value />
+  </data>
+  <data name="ApoRettributer.TabIndex" type="System.Int32, mscorlib">
+    <value>9</value>
+  </data>
+  <data name="&gt;&gt;NotHavingSigil.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="AmaranthineRettributer.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="&gt;&gt;HavingSigil.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="ApocalypseCaster.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="&gt;&gt;SpecterRettributerResult.ZOrder" xml:space="preserve">
+    <value>10</value>
+  </data>
+  <data name="toolStrip1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="&gt;&gt;WhereToInsertMAttack.Name" xml:space="preserve">
+    <value>WhereToInsertMAttack</value>
+  </data>
+  <data name="&gt;&gt;IsAmaranthineRettributerBlessed.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="label2.Location" type="System.Drawing.Point, System.Drawing">
+    <value>250, 184</value>
+  </data>
+  <data name="ApoRettributer.ToolTip" xml:space="preserve">
+    <value>Apocalypse Rettributer</value>
+  </data>
+  <data name="Save.Text" xml:space="preserve">
+    <value>Save</value>
+  </data>
+  <data name="IsAmaranthineCasterBlessed.ToolTip1" xml:space="preserve">
+    <value />
+  </data>
+  <data name="AmaranthineRettributerResult.Size" type="System.Drawing.Size, System.Drawing">
+    <value>77, 20</value>
+  </data>
+  <data name="label4.Size" type="System.Drawing.Size, System.Drawing">
+    <value>43, 13</value>
+  </data>
+  <data name="&gt;&gt;$this.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Form, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;SpecterCasterResult.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="SpecterRettributerResult.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="ApoCaster.ToolTip1" xml:space="preserve">
+    <value>Apocalypse Caster</value>
+  </data>
+  <data name="IsApocalypseRettributerBlessed.ToolTip1" xml:space="preserve">
+    <value />
+  </data>
+  <data name="NotHavingSigil.Location" type="System.Drawing.Point, System.Drawing">
+    <value>900, 870</value>
+  </data>
+  <data name="IsAmaranthineCasterBlessed.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="AmaRettributer.ToolTip" xml:space="preserve">
+    <value>Amaranthine Rettributer</value>
+  </data>
+  <data name="&gt;&gt;AmaRettributer.Name" xml:space="preserve">
+    <value>AmaRettributer</value>
+  </data>
+  <data name="&gt;&gt;Save.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripButton, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="IsAmaranthineRettributerBlessed.TabIndex" type="System.Int32, mscorlib">
+    <value>31</value>
+  </data>
+  <data name="&gt;&gt;AmaranthineRettributerResult.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="AmaranthineCasterResult.Size" type="System.Drawing.Size, System.Drawing">
+    <value>77, 20</value>
+  </data>
+  <data name="&gt;&gt;NotHavingSigil.ZOrder" xml:space="preserve">
+    <value>26</value>
+  </data>
+  <data name="label4.Text" xml:space="preserve">
+    <value>Result: </value>
+  </data>
+  <data name="ApocalypseRettributerResult.ToolTip1" xml:space="preserve">
+    <value />
+  </data>
+  <data name="SpecterCaster.Size" type="System.Drawing.Size, System.Drawing">
+    <value>77, 13</value>
+  </data>
+  <data name="AmaranthineCaster.Size" type="System.Drawing.Size, System.Drawing">
+    <value>99, 13</value>
+  </data>
+  <data name="AmaranthineCaster.Location" type="System.Drawing.Point, System.Drawing">
+    <value>700, 81</value>
+  </data>
+  <data name="&gt;&gt;SpecterCaster.ZOrder" xml:space="preserve">
+    <value>17</value>
+  </data>
+  <data name="IsSpecterCasterBlessed.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="NotHavingSigil.Size" type="System.Drawing.Size, System.Drawing">
+    <value>120, 20</value>
+  </data>
+  <data name="IsSpecterCasterBlessed.Size" type="System.Drawing.Size, System.Drawing">
+    <value>63, 17</value>
+  </data>
+  <data name="ApocalypseRettributer.ToolTip1" xml:space="preserve">
+    <value />
+  </data>
+  <data name="&gt;&gt;IsApocalypseRettributerBlessed.Name" xml:space="preserve">
+    <value>IsApocalypseRettributerBlessed</value>
+  </data>
+  <data name="$this.MinimumSize" type="System.Drawing.Size, System.Drawing">
+    <value>1534, 822</value>
+  </data>
+  <data name="&gt;&gt;AmaranthineRettributer.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="ApocalypseCasterResult.Location" type="System.Drawing.Point, System.Drawing">
+    <value>100, 200</value>
+  </data>
+  <data name="OwnMAttack.Text" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="label1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>43, 13</value>
+  </data>
+  <data name="&gt;&gt;AmaranthineRettributerResult.Name" xml:space="preserve">
+    <value>AmaranthineRettributerResult</value>
+  </data>
+  <data name="&gt;&gt;IsAmaranthineRettributerBlessed.Type" xml:space="preserve">
+    <value>System.Windows.Forms.CheckBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="OwnMAttack.ToolTip" xml:space="preserve">
+    <value>I need this information to provide you with actual truth</value>
+  </data>
+  <data name="label6.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="AmaCaster.ToolTip" xml:space="preserve">
+    <value>Amaranthine Caster</value>
+  </data>
+  <data name="$this.AutoSizeMode" type="System.Windows.Forms.AutoSizeMode, System.Windows.Forms">
+    <value>GrowAndShrink</value>
+  </data>
+  <data name="&gt;&gt;ApoRettributer.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;SpecterCasterResult.ZOrder" xml:space="preserve">
+    <value>15</value>
+  </data>
+  <data name="AmaRettributer.Size" type="System.Drawing.Size, System.Drawing">
+    <value>72, 72</value>
+  </data>
+  <data name="&gt;&gt;NotHavingSigil.Type" xml:space="preserve">
+    <value>System.Windows.Forms.RadioButton, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="ApocalypseCasterResult.TabIndex" type="System.Int32, mscorlib">
+    <value>2</value>
+  </data>
+  <data name="&gt;&gt;label1.Name" xml:space="preserve">
+    <value>label1</value>
+  </data>
+  <data name="SpecterCaster.TabIndex" type="System.Int32, mscorlib">
+    <value>15</value>
+  </data>
+  <data name="AmaRettributer.ToolTip1" xml:space="preserve">
+    <value>Amaranthine Rettributer</value>
+  </data>
+  <data name="IsApocalypseCasterBlessed.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="label5.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="&gt;&gt;AmaranthineRettributer.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;IsSpecterRettributerBlessed.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="ApoRettributer.AutoSizeMode" type="System.Windows.Forms.AutoSizeMode, System.Windows.Forms">
+    <value>GrowAndShrink</value>
+  </data>
+  <data name="&gt;&gt;OwnMAttack.ZOrder" xml:space="preserve">
+    <value>32</value>
+  </data>
+  <data name="&gt;&gt;AmaranthineRettributerResult.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="toolStrip1.TabIndex" type="System.Int32, mscorlib">
+    <value>8</value>
+  </data>
+  <data name="&gt;&gt;AmaCaster.Name" xml:space="preserve">
+    <value>AmaCaster</value>
+  </data>
+  <data name="label1.Text" xml:space="preserve">
+    <value>Result: </value>
+  </data>
+  <data name="&gt;&gt;HavingSigil.Name" xml:space="preserve">
+    <value>HavingSigil</value>
+  </data>
+  <data name="label6.Size" type="System.Drawing.Size, System.Drawing">
+    <value>43, 13</value>
+  </data>
+  <data name="&gt;&gt;HavingSigil.ZOrder" xml:space="preserve">
+    <value>27</value>
+  </data>
+  <data name="&gt;&gt;IsSpecterRettributerBlessed.Type" xml:space="preserve">
+    <value>System.Windows.Forms.CheckBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="HavingSigil.Text" xml:space="preserve">
+    <value>I have a sigil</value>
+  </data>
+  <data name="IsSpecterRettributerBlessed.Size" type="System.Drawing.Size, System.Drawing">
+    <value>63, 17</value>
+  </data>
+  <data name="&gt;&gt;HavingSigil.Type" xml:space="preserve">
+    <value>System.Windows.Forms.RadioButton, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="SpecterCasterResult.Location" type="System.Drawing.Point, System.Drawing">
+    <value>400, 200</value>
+  </data>
+  <data name="SpecterCaster.Location" type="System.Drawing.Point, System.Drawing">
+    <value>400, 81</value>
+  </data>
+  <data name="HavingSigil.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="SpCaster.AutoSizeMode" type="System.Windows.Forms.AutoSizeMode, System.Windows.Forms">
+    <value>GrowAndShrink</value>
+  </data>
+  <data name="IsSpecterCasterBlessed.TabIndex" type="System.Int32, mscorlib">
+    <value>16</value>
+  </data>
+  <data name="label2.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="&gt;&gt;IsAmaranthineCasterBlessed.ZOrder" xml:space="preserve">
+    <value>7</value>
+  </data>
+  <data name="label4.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="label4.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="&gt;&gt;SpecterRettributerResult.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="label3.Size" type="System.Drawing.Size, System.Drawing">
+    <value>43, 13</value>
+  </data>
+  <data name="label5.Location" type="System.Drawing.Point, System.Drawing">
+    <value>700, 184</value>
+  </data>
+  <data name="label4.TabIndex" type="System.Int32, mscorlib">
+    <value>22</value>
+  </data>
+  <data name="toolStrip1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>1523, 25</value>
+  </data>
+  <data name="&gt;&gt;SpecterRettributer.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;label2.Name" xml:space="preserve">
+    <value>label2</value>
+  </data>
+  <data name="&gt;&gt;SpecterCaster.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;SpCaster.Name" xml:space="preserve">
+    <value>SpCaster</value>
+  </data>
+  <data name="&gt;&gt;IsApocalypseCasterBlessed.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="label1.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="SpecterRettributer.ToolTip1" xml:space="preserve">
+    <value />
+  </data>
+  <data name="&gt;&gt;IsApocalypseRettributerBlessed.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;AmaRettributer.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="AmaRettributer.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
+    <value>Flat</value>
+  </data>
+  <data name="AmaRettributer.TabIndex" type="System.Int32, mscorlib">
+    <value>29</value>
+  </data>
+  <data name="AmaranthineCaster.ToolTip1" xml:space="preserve">
+    <value />
+  </data>
+  <data name="ApoCaster.AutoSizeMode" type="System.Windows.Forms.AutoSizeMode, System.Windows.Forms">
+    <value>GrowAndShrink</value>
+  </data>
+  <data name="SpecterRettributerResult.Size" type="System.Drawing.Size, System.Drawing">
+    <value>77, 20</value>
+  </data>
+  <data name="IsApocalypseRettributerBlessed.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="Save.ImageTransparentColor" type="System.Drawing.Color, System.Drawing">
+    <value>Magenta</value>
+  </data>
+  <data name="&gt;&gt;SpRettriButer.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;ApocalypseRettributer.ZOrder" xml:space="preserve">
+    <value>21</value>
   </data>
   <data name="$this.Icon" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
@@ -272,4 +853,580 @@
         AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=
 </value>
   </data>
+  <data name="IsSpecterCasterBlessed.Text" xml:space="preserve">
+    <value>Blessed</value>
+  </data>
+  <data name="&gt;&gt;ApocalypseRettributer.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;label2.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;IsSpecterRettributerBlessed.ZOrder" xml:space="preserve">
+    <value>13</value>
+  </data>
+  <data name="label3.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="AmaRettributer.AutoSizeMode" type="System.Windows.Forms.AutoSizeMode, System.Windows.Forms">
+    <value>GrowAndShrink</value>
+  </data>
+  <data name="ApocalypseCaster.Size" type="System.Drawing.Size, System.Drawing">
+    <value>95, 13</value>
+  </data>
+  <data name="label3.TabIndex" type="System.Int32, mscorlib">
+    <value>17</value>
+  </data>
+  <data name="NotHavingSigil.TabIndex" type="System.Int32, mscorlib">
+    <value>7</value>
+  </data>
+  <data name="AmaCaster.Location" type="System.Drawing.Point, System.Drawing">
+    <value>700, 100</value>
+  </data>
+  <data name="&gt;&gt;SpCaster.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="ApoCaster.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
+    <value>Flat</value>
+  </data>
+  <data name="ApocalypseRettributer.Text" xml:space="preserve">
+    <value>Apocalypse Rettributer</value>
+  </data>
+  <data name="&gt;&gt;ApocalypseCaster.Name" xml:space="preserve">
+    <value>ApocalypseCaster</value>
+  </data>
+  <data name="&gt;&gt;AmaranthineCasterResult.Name" xml:space="preserve">
+    <value>AmaranthineCasterResult</value>
+  </data>
+  <data name="SpRettriButer.AutoSizeMode" type="System.Windows.Forms.AutoSizeMode, System.Windows.Forms">
+    <value>GrowAndShrink</value>
+  </data>
+  <data name="&gt;&gt;AmaCaster.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="IsAmaranthineRettributerBlessed.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="&gt;&gt;ApoCaster.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;SpecterCasterResult.Name" xml:space="preserve">
+    <value>SpecterCasterResult</value>
+  </data>
+  <data name="&gt;&gt;label2.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;AmaranthineCaster.ZOrder" xml:space="preserve">
+    <value>8</value>
+  </data>
+  <data name="IsApocalypseCasterBlessed.TabIndex" type="System.Int32, mscorlib">
+    <value>5</value>
+  </data>
+  <data name="IsSpecterRettributerBlessed.Text" xml:space="preserve">
+    <value>Blessed</value>
+  </data>
+  <data name="AmaranthineRettributer.TabIndex" type="System.Int32, mscorlib">
+    <value>30</value>
+  </data>
+  <data name="label5.Size" type="System.Drawing.Size, System.Drawing">
+    <value>43, 13</value>
+  </data>
+  <data name="&gt;&gt;IsAmaranthineRettributerBlessed.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;AmaCaster.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="SpCaster.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
+    <value>Flat</value>
+  </data>
+  <data name="SpRettriButer.ToolTip" xml:space="preserve">
+    <value>Specter Rettributer</value>
+  </data>
+  <data name="IsApocalypseCasterBlessed.Size" type="System.Drawing.Size, System.Drawing">
+    <value>63, 17</value>
+  </data>
+  <data name="IsSpecterCasterBlessed.Location" type="System.Drawing.Point, System.Drawing">
+    <value>400, 61</value>
+  </data>
+  <data name="&gt;&gt;Save.Name" xml:space="preserve">
+    <value>Save</value>
+  </data>
+  <data name="&gt;&gt;AmaranthineCaster.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;SpRettriButer.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="label1.Location" type="System.Drawing.Point, System.Drawing">
+    <value>100, 184</value>
+  </data>
+  <data name="&gt;&gt;AmaCaster.ZOrder" xml:space="preserve">
+    <value>9</value>
+  </data>
+  <data name="label3.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="&gt;&gt;AmaranthineRettributer.ZOrder" xml:space="preserve">
+    <value>3</value>
+  </data>
+  <data name="AmaranthineRettributer.Size" type="System.Drawing.Size, System.Drawing">
+    <value>118, 13</value>
+  </data>
+  <data name="&gt;&gt;SpecterRettributerResult.Name" xml:space="preserve">
+    <value>SpecterRettributerResult</value>
+  </data>
+  <data name="&gt;&gt;IsAmaranthineCasterBlessed.Type" xml:space="preserve">
+    <value>System.Windows.Forms.CheckBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="AmaranthineRettributer.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="&gt;&gt;OwnMAttack.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="label5.Text" xml:space="preserve">
+    <value>Result: </value>
+  </data>
+  <data name="ApocalypseCaster.Location" type="System.Drawing.Point, System.Drawing">
+    <value>100, 81</value>
+  </data>
+  <data name="&gt;&gt;OwnMAttack.Name" xml:space="preserve">
+    <value>OwnMAttack</value>
+  </data>
+  <data name="&gt;&gt;$this.Name" xml:space="preserve">
+    <value>Form1</value>
+  </data>
+  <data name="&gt;&gt;ApocalypseRettributer.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;ApocalypseCaster.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="ApocalypseRettributer.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="toolStrip1.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 0</value>
+  </data>
+  <data name="IsSpecterRettributerBlessed.TabIndex" type="System.Int32, mscorlib">
+    <value>21</value>
+  </data>
+  <data name="&gt;&gt;SpecterRettributer.ZOrder" xml:space="preserve">
+    <value>12</value>
+  </data>
+  <data name="&gt;&gt;IsApocalypseRettributerBlessed.ZOrder" xml:space="preserve">
+    <value>20</value>
+  </data>
+  <data name="IsApocalypseCasterBlessed.Location" type="System.Drawing.Point, System.Drawing">
+    <value>100, 61</value>
+  </data>
+  <data name="IsSpecterRettributerBlessed.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="&gt;&gt;ApoCaster.Name" xml:space="preserve">
+    <value>ApoCaster</value>
+  </data>
+  <data name="SpRettriButer.Location" type="System.Drawing.Point, System.Drawing">
+    <value>550, 100</value>
+  </data>
+  <data name="&gt;&gt;ApocalypseCaster.ZOrder" xml:space="preserve">
+    <value>29</value>
+  </data>
+  <data name="label5.TabIndex" type="System.Int32, mscorlib">
+    <value>27</value>
+  </data>
+  <data name="&gt;&gt;IsSpecterCasterBlessed.ZOrder" xml:space="preserve">
+    <value>18</value>
+  </data>
+  <data name="AmaranthineRettributer.ToolTip1" xml:space="preserve">
+    <value />
+  </data>
+  <data name="OwnMAttack.Location" type="System.Drawing.Point, System.Drawing">
+    <value>910, 800</value>
+  </data>
+  <data name="&gt;&gt;AmaranthineCaster.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="label5.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="&gt;&gt;ApocalypseRettributerResult.ZOrder" xml:space="preserve">
+    <value>22</value>
+  </data>
+  <data name="OwnMAttack.Size" type="System.Drawing.Size, System.Drawing">
+    <value>100, 20</value>
+  </data>
+  <data name="IsAmaranthineRettributerBlessed.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="ApocalypseCaster.Text" xml:space="preserve">
+    <value>Apocalypse Caster</value>
+  </data>
+  <data name="&gt;&gt;IsApocalypseRettributerBlessed.Type" xml:space="preserve">
+    <value>System.Windows.Forms.CheckBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="label2.Size" type="System.Drawing.Size, System.Drawing">
+    <value>43, 13</value>
+  </data>
+  <data name="$this.AutoScroll" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="$this.ToolTip1" xml:space="preserve">
+    <value />
+  </data>
+  <data name="&gt;&gt;toolStrip1.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="IsApocalypseRettributerBlessed.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="IsAmaranthineRettributerBlessed.Text" xml:space="preserve">
+    <value>Blessed</value>
+  </data>
+  <data name="AmaranthineCasterResult.TabIndex" type="System.Int32, mscorlib">
+    <value>28</value>
+  </data>
+  <data name="&gt;&gt;WhereToClickForCalcs.Name" xml:space="preserve">
+    <value>WhereToClickForCalcs</value>
+  </data>
+  <data name="ApocalypseRettributer.Location" type="System.Drawing.Point, System.Drawing">
+    <value>250, 81</value>
+  </data>
+  <data name="Save.ToolTipText" xml:space="preserve">
+    <value>Saves to HTML File and opens it</value>
+  </data>
+  <data name="label6.Text" xml:space="preserve">
+    <value>Result: </value>
+  </data>
+  <data name="&gt;&gt;ApoRettributer.Name" xml:space="preserve">
+    <value>ApoRettributer</value>
+  </data>
+  <data name="IsSpecterRettributerBlessed.Location" type="System.Drawing.Point, System.Drawing">
+    <value>550, 61</value>
+  </data>
+  <data name="IsApocalypseRettributerBlessed.TabIndex" type="System.Int32, mscorlib">
+    <value>13</value>
+  </data>
+  <data name="AmaCaster.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
+    <value>Flat</value>
+  </data>
+  <data name="IsSpecterCasterBlessed.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="&gt;&gt;WhereToInsertMAttack.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolTip, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;IsAmaranthineCasterBlessed.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;AmaranthineCasterResult.ZOrder" xml:space="preserve">
+    <value>5</value>
+  </data>
+  <data name="IsAmaranthineRettributerBlessed.ToolTip1" xml:space="preserve">
+    <value />
+  </data>
+  <data name="&gt;&gt;SpecterRettributer.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="NotHavingSigil.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="&gt;&gt;ApocalypseCasterResult.ZOrder" xml:space="preserve">
+    <value>31</value>
+  </data>
+  <data name="label3.Text" xml:space="preserve">
+    <value>Result: </value>
+  </data>
+  <data name="ApoCaster.Size" type="System.Drawing.Size, System.Drawing">
+    <value>77, 77</value>
+  </data>
+  <data name="SpCaster.ToolTip1" xml:space="preserve">
+    <value>Specter Caster</value>
+  </data>
+  <data name="&gt;&gt;ApocalypseCasterResult.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;AmaranthineCasterResult.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="label2.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="SpCaster.TabIndex" type="System.Int32, mscorlib">
+    <value>14</value>
+  </data>
+  <data name="label1.TabIndex" type="System.Int32, mscorlib">
+    <value>3</value>
+  </data>
+  <data name="&gt;&gt;ApocalypseRettributerResult.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="HavingSigil.TabIndex" type="System.Int32, mscorlib">
+    <value>6</value>
+  </data>
+  <data name="ApocalypseRettributerResult.Size" type="System.Drawing.Size, System.Drawing">
+    <value>77, 20</value>
+  </data>
+  <data name="ApocalypseCasterResult.ToolTip1" xml:space="preserve">
+    <value />
+  </data>
+  <data name="SpecterRettributer.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="ApoRettributer.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
+    <value>Flat</value>
+  </data>
+  <data name="SpecterRettributer.Size" type="System.Drawing.Size, System.Drawing">
+    <value>93, 13</value>
+  </data>
+  <data name="IsApocalypseCasterBlessed.ToolTip1" xml:space="preserve">
+    <value />
+  </data>
+  <data name="OwnMAttack.TabIndex" type="System.Int32, mscorlib">
+    <value>1</value>
+  </data>
+  <data name="IsSpecterCasterBlessed.ToolTip1" xml:space="preserve">
+    <value />
+  </data>
+  <data name="label6.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="&gt;&gt;ApocalypseRettributerResult.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="IsApocalypseRettributerBlessed.Location" type="System.Drawing.Point, System.Drawing">
+    <value>250, 61</value>
+  </data>
+  <data name="ApocalypseCaster.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="&gt;&gt;SpRettriButer.Name" xml:space="preserve">
+    <value>SpRettriButer</value>
+  </data>
+  <data name="SpecterCaster.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="&gt;&gt;label1.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="label2.TabIndex" type="System.Int32, mscorlib">
+    <value>10</value>
+  </data>
+  <data name="SpRettriButer.ToolTip1" xml:space="preserve">
+    <value>Specter Rettributer</value>
+  </data>
+  <data name="&gt;&gt;toolStrip1.Name" xml:space="preserve">
+    <value>toolStrip1</value>
+  </data>
+  <data name="SpecterRettributerResult.Location" type="System.Drawing.Point, System.Drawing">
+    <value>550, 200</value>
+  </data>
+  <data name="&gt;&gt;label1.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="label6.ToolTip1" xml:space="preserve">
+    <value />
+  </data>
+  <data name="ApocalypseRettributer.TabIndex" type="System.Int32, mscorlib">
+    <value>12</value>
+  </data>
+  <data name="OwnMAttack.ToolTip1" xml:space="preserve">
+    <value>I need this information to provide you with actual truth</value>
+  </data>
+  <data name="&gt;&gt;SpecterCasterResult.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;ApocalypseCasterResult.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
+    <value>1540, 845</value>
+  </data>
+  <data name="ApocalypseCasterResult.Size" type="System.Drawing.Size, System.Drawing">
+    <value>77, 20</value>
+  </data>
+  <data name="ApoRettributer.ToolTip1" xml:space="preserve">
+    <value>Apocalypse Rettributer</value>
+  </data>
+  <data name="ApoRettributer.Location" type="System.Drawing.Point, System.Drawing">
+    <value>250, 96</value>
+  </data>
+  <data name="ApoCaster.Location" type="System.Drawing.Point, System.Drawing">
+    <value>100, 100</value>
+  </data>
+  <data name="NotHavingSigil.Text" xml:space="preserve">
+    <value>I dont' have a sigil</value>
+  </data>
+  <data name="AmaCaster.Size" type="System.Drawing.Size, System.Drawing">
+    <value>71, 74</value>
+  </data>
+  <data name="&gt;&gt;label6.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="label5.ToolTip1" xml:space="preserve">
+    <value />
+  </data>
+  <data name="SpecterCasterResult.Size" type="System.Drawing.Size, System.Drawing">
+    <value>77, 20</value>
+  </data>
+  <data name="AmaranthineRettributerResult.TabIndex" type="System.Int32, mscorlib">
+    <value>33</value>
+  </data>
+  <data name="&gt;&gt;SpRettriButer.ZOrder" xml:space="preserve">
+    <value>14</value>
+  </data>
+  <data name="SpecterRettributerResult.ToolTip1" xml:space="preserve">
+    <value />
+  </data>
+  <data name="IsAmaranthineRettributerBlessed.Location" type="System.Drawing.Point, System.Drawing">
+    <value>850, 61</value>
+  </data>
+  <data name="&gt;&gt;ApoCaster.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;AmaranthineRettributer.Name" xml:space="preserve">
+    <value>AmaranthineRettributer</value>
+  </data>
+  <data name="&gt;&gt;label3.Name" xml:space="preserve">
+    <value>label3</value>
+  </data>
+  <data name="&gt;&gt;ApocalypseCaster.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="AmaranthineCasterResult.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="label4.Location" type="System.Drawing.Point, System.Drawing">
+    <value>550, 184</value>
+  </data>
+  <data name="SpecterCaster.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="$this.MaximumSize" type="System.Drawing.Size, System.Drawing">
+    <value>1920, 1080</value>
+  </data>
+  <data name="HavingSigil.Location" type="System.Drawing.Point, System.Drawing">
+    <value>910, 835</value>
+  </data>
+  <data name="Save.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAO
+        wwAADsMBx2+oZAAAAgNJREFUOE+lkutLk2EYxvePhJaHShFBUTEPiCieQOmDiEZgrEbpYGiCQxkqA80I
+        RUkUEZ0YRMS+DDI70MkTmzJnDc8iU8QT2mAEItnle90wHwTDyBduXnie5/rd133Q4ZKfAJqHFs9E08A8
+        zD1emDpmYXjqRlnTFIrMk8iuGkNaxWekGEaQrHecBfw+/vPXODw6hj9whN2fh/Bt/8LSRgA3cxr/DeBZ
+        9kvmTNMoHGNbIrYN+3Aj23IxgJkpds0doP3VstgmsNexhutZ9QrAms8T0zYzU5xXM46kcjsmvfvoeL2i
+        AeoUgA07T8yaaZuZKab1rzN74jgys1YB2O2gmBZzH49LODXrrJlnzEzxe9cOLH1ziMioVgCOiuIFX0CE
+        Q+/WYf+yieiCFrRp9tkwxnP7Kt5MbKGm6wfC000KwDlTXNLgEvHMkh+Db32o7fYivtQm1l9+3IBOp5P7
+        yjYPwlKNCsAluWudxgvtknb5t9oWcL/VLU2Mvd2JFq3uqs7vAtE/ceNayiMF4KiYMSjmY2O7B4Ua+NaD
+        YQGEJumRbvyG1IcfBHI12aAAXM8R57aIWTNrLLY4tfNPiCvpR1SeVeu6WWzHFD6THSDwFMDdpmUG62NJ
+        PKM4Or9ZxBxb8H8l7g5CEu8pAOfM3WanSeeS8CFHxW4zM2umbWamOCShXAH+/wNOANABIDUxWnDPAAAA
+        AElFTkSuQmCC
+</value>
+  </data>
+  <data name="&gt;&gt;AmaranthineRettributerResult.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="SpRettriButer.TabIndex" type="System.Int32, mscorlib">
+    <value>19</value>
+  </data>
+  <data name="AmaranthineRettributerResult.Location" type="System.Drawing.Point, System.Drawing">
+    <value>850, 200</value>
+  </data>
+  <data name="&gt;&gt;SpCaster.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="SpecterCasterResult.ToolTip1" xml:space="preserve">
+    <value />
+  </data>
+  <data name="SpecterRettributer.Location" type="System.Drawing.Point, System.Drawing">
+    <value>550, 81</value>
+  </data>
+  <data name="&gt;&gt;IsSpecterCasterBlessed.Type" xml:space="preserve">
+    <value>System.Windows.Forms.CheckBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="NotHavingSigil.ToolTip1" xml:space="preserve">
+    <value />
+  </data>
+  <data name="&gt;&gt;label5.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="label2.ToolTip1" xml:space="preserve">
+    <value />
+  </data>
+  <data name="&gt;&gt;IsAmaranthineRettributerBlessed.Name" xml:space="preserve">
+    <value>IsAmaranthineRettributerBlessed</value>
+  </data>
+  <data name="IsAmaranthineCasterBlessed.TabIndex" type="System.Int32, mscorlib">
+    <value>26</value>
+  </data>
+  <data name="label4.ToolTip1" xml:space="preserve">
+    <value />
+  </data>
+  <data name="AmaCaster.TabIndex" type="System.Int32, mscorlib">
+    <value>24</value>
+  </data>
+  <data name="&gt;&gt;ApoRettributer.ZOrder" xml:space="preserve">
+    <value>24</value>
+  </data>
+  <data name="&gt;&gt;label3.ZOrder" xml:space="preserve">
+    <value>16</value>
+  </data>
+  <data name="&gt;&gt;IsSpecterCasterBlessed.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;toolStrip1.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStrip, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="SpecterRettributer.Text" xml:space="preserve">
+    <value>SpecterRettributer</value>
+  </data>
+  <data name="&gt;&gt;ApoCaster.ZOrder" xml:space="preserve">
+    <value>33</value>
+  </data>
+  <data name="&gt;&gt;label6.Name" xml:space="preserve">
+    <value>label6</value>
+  </data>
+  <data name="label1.ToolTip1" xml:space="preserve">
+    <value />
+  </data>
+  <data name="AmaranthineRettributerResult.ToolTip" xml:space="preserve">
+    <value />
+  </data>
+  <data name="label6.TabIndex" type="System.Int32, mscorlib">
+    <value>32</value>
+  </data>
+  <data name="ApoCaster.ToolTip" xml:space="preserve">
+    <value>Apocalypse Caster</value>
+  </data>
+  <data name="ApoRettributer.Size" type="System.Drawing.Size, System.Drawing">
+    <value>80, 80</value>
+  </data>
+  <data name="SpecterRettributer.TabIndex" type="System.Int32, mscorlib">
+    <value>20</value>
+  </data>
+  <data name="AmaranthineRettributerResult.ToolTip1" xml:space="preserve">
+    <value />
+  </data>
+  <metadata name="WhereToClickForCalcs.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>305, 14</value>
+  </metadata>
+  <metadata name="$this.Language" type="System.Globalization.CultureInfo, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>en-001</value>
+  </metadata>
+  <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="WhereToInsertMAttack.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>128, 14</value>
+  </metadata>
+  <metadata name="$this.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="NotHavingSigil.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="toolStrip1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>17, 17</value>
+  </metadata>
 </root>

@@ -13,11 +13,15 @@ namespace L2MAtkCalcRemastered
 {
     public partial class Form1 : Form
     {
+        #region Initialization
+
         public Form1()
         {
             InitializeComponent();
         }
 
+        #endregion
+                
         #region Blessed
         private bool IsBlessed(CheckBox isChecked, string wName)
         {
@@ -36,6 +40,8 @@ namespace L2MAtkCalcRemastered
         }
 
         #endregion
+
+        #region MakeButtonsWork
 
         private void Sender(decimal weaponAttack, Label whereToSend, string weapName, CheckBox Blessed)
         {
@@ -75,7 +81,7 @@ namespace L2MAtkCalcRemastered
 
         }
 
-
+        #endregion
 
 
         #region Sigils
@@ -103,7 +109,7 @@ namespace L2MAtkCalcRemastered
         }
         #endregion
 
-
+        #region Initializev2
 
         private void Form1_Load(object sender, EventArgs e)
         {
@@ -140,6 +146,7 @@ namespace L2MAtkCalcRemastered
             }
         }
 
+        #endregion
 
         #region Weapons
 
@@ -241,7 +248,7 @@ namespace L2MAtkCalcRemastered
         #endregion
 
 
-        #region ToolStripsButtons                
+        #region MakeToolStripsButtonsWork               
                
         public int CalculateButtons()
         {
@@ -291,7 +298,6 @@ namespace L2MAtkCalcRemastered
                 if (l.Name.Contains("Result"))
                 {
                     result[i] = l.Name;
-                    Debug.WriteLine(result[i]);
                 }
             }
             return result;
@@ -299,22 +305,34 @@ namespace L2MAtkCalcRemastered
 
         private decimal[] GetResults(string[] weaponNames)                        //returns pairs result and their name
         {
-            string[] resultFieldsNames = GetResultsLabels();
-            //Debug.WriteLine(resultFieldsNames[1]);
-
-            decimal [] result = new decimal[CalculateResultLabels()];
-            for (int i = 0; i < result.Length; i++)
+            try
             {
-                if (resultFieldsNames[i].Contains(weaponNames[i]))
+                string[] resultFieldsNames = new string[CalculateResultLabels()];
+                resultFieldsNames = GetResultsLabels();
+                Debug.WriteLine(resultFieldsNames[0]);
+
+                decimal[] result = new decimal[CalculateResultLabels()];
+                for (int i = 0; i < result.Length; i++)
                 {
-                    result[i] = ToDecimal(ApocalypseCasterResult.Text);
-                    //Debug.WriteLine(result[i] + " z " + resultFieldsNames[i] + " z " + weaponNames[i]);
+                    if (resultFieldsNames[i].Contains(weaponNames[i]))
+                    {
+                        result[i] = ToDecimal(ApocalypseCasterResult.Text);
+                        //Debug.WriteLine(result[i] + " z " + resultFieldsNames[i] + " z " + weaponNames[i]);
+                    }
                 }
+                return result;
             }
-            return result;
+            catch(Exception)
+            {
+                MessageBox.Show("We're working on it.", "Sorry, this does not work for now");
+                decimal[] result = new decimal[0];
+                return result;
+            }
         }
 
+        #endregion
 
+        #region ToolStripButton
 
         private void Save_Click(object sender, EventArgs e)
         {
