@@ -298,6 +298,7 @@ namespace L2MAtkCalcRemastered
                 if (l.Name.Contains("Result"))
                 {
                     result[i] = l.Name;
+                    i++;
                 }
             }
             return result;
@@ -308,8 +309,11 @@ namespace L2MAtkCalcRemastered
             try
             {
                 string[] resultFieldsNames = new string[CalculateResultLabels()];
-                resultFieldsNames = GetResultsLabels();
-                Debug.WriteLine(resultFieldsNames[0]);
+                for (int i = 0; i < CalculateResultLabels(); i++)
+                {
+                    resultFieldsNames[i] = GetResultsLabels()[i];
+                }
+                
 
                 decimal[] result = new decimal[CalculateResultLabels()];
                 for (int i = 0; i < result.Length; i++)
