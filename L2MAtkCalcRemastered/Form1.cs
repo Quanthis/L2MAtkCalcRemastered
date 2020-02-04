@@ -320,17 +320,25 @@ namespace L2MAtkCalcRemastered
                 {
                     if (resultFieldsNames[i].Contains(weaponNames[i]))
                     {
-                        result[i] = ToDecimal(ApocalypseCasterResult.Text);
-                        //Debug.WriteLine(result[i] + " z " + resultFieldsNames[i] + " z " + weaponNames[i]);
+                        foreach (Label l in Controls.OfType<Label>())
+                        {
+                            if (l.Name == resultFieldsNames[i])
+                            {
+                                result[i] = ToDecimal(l.Text);
+                            }
+                        }
+                       
+                        Debug.WriteLine(result[i] + " z " + resultFieldsNames[i] + " z " + weaponNames[i]);
                     }
                 }
                 return result;
             }
-            catch(Exception)
+            catch(Exception ex)
             {
                 MessageBox.Show("We're working on it.", "Sorry, this does not work for now");
                 decimal[] result = new decimal[0];
-                return result;
+                Debug.WriteLine(ex);
+                return result;                
             }
         }
 
