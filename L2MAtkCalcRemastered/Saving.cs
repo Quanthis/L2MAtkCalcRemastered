@@ -9,6 +9,8 @@ namespace L2MAtkCalcRemastered
 {
     class Saving
     {
+        #region Constructor
+
         private int buttons;
         private int labels;
         private string[] weaponNames;
@@ -21,8 +23,10 @@ namespace L2MAtkCalcRemastered
             weaponNames = WNames;
             results = Results;
         }
+        #endregion
 
 
+        #region CSS
         public static void CopyCSS()
         {
             StringBuilder CssBuilder = new StringBuilder("");
@@ -44,7 +48,9 @@ namespace L2MAtkCalcRemastered
                 }
             }
         }
+        #endregion
 
+        #region HTML
         public void SaveToHtml()
         {
             string path = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + @"\MyMAttack.html";
@@ -58,24 +64,46 @@ namespace L2MAtkCalcRemastered
                     sw.WriteLine(@"<meta charset=utf-8/>");
                     sw.WriteLine(@"<link rel =""stylesheet"" type=""text/css"" href=""Style.css"">");
                     sw.WriteLine("<title>MyMagicStats</title> \n</head> \n<body>");
-                    sw.WriteLine("\t<table>");
-                    sw.WriteLine("\t<tr>");                            //this is for headline later
+                    sw.WriteLine("\t <table>");
+                    sw.WriteLine("\t <tr>");                            
+                    sw.WriteLine("\t <th> No. </th> \n \t <th> Weapon Name </th> \n \t <th> Magical Attack</th>");
+                    sw.WriteLine("\t </tr>");
 
                     for (int i = 0; i < buttons; i++)
                     {
-                        sw.WriteLine($"\t<TR> \n \t <TH>{i + 1}. </TH>");
-                        
+                        sw.WriteLine($"\t<TR> \n \t <TD>{i + 1}. </TD>");
 
-                        for (int j = 0; j < labels; j++)
-                        {
-                            
-                        }
-                        sw.WriteLine($"\t<TD>{weaponNames[i]}</TD>");
-                        //sw.WriteLine($"\t<TD>");
-                        sw.WriteLine("\t</TR> ");
+                        sw.WriteLine($"\t <TD>{MakeItPretty()[i]}</TD>");
+                        sw.WriteLine($"\t <TD>{results[i]}</TD>");
+
+                        sw.WriteLine("\t </TR> ");
                     }
+
+                    sw.WriteLine("\t </table>");
+                    sw.WriteLine("</body>\n</html>");
                 }
             }
         }
+        #endregion
+
+        #region OtherClassMethods
+
+        private string[] MakeItPretty()
+        {
+            string[] modifiedWeaponNames = new string[weaponNames.Length];
+            for (int i = 0; i < weaponNames.Length; i++)
+            {
+                foreach (char c in weaponNames[i])
+                {
+                    if(char.IsUpper(c))
+                    {
+                        int b = weaponNames[i].IndexOf(c);
+                        modifiedWeaponNames[i] = weaponNames[i].Substring(0, b) + " " + weaponNames[i].Substring(b);
+                    }
+                }
+            }
+            return modifiedWeaponNames;
+        }
+        #endregion
     }
 }

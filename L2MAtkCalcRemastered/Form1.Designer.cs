@@ -91,7 +91,7 @@
             this.OwnMAttack.Location = new System.Drawing.Point(910, 800);
             this.OwnMAttack.MaxLength = 15;
             this.OwnMAttack.Name = "OwnMAttack";
-            this.OwnMAttack.Size = new System.Drawing.Size(100, 22);
+            this.OwnMAttack.Size = new System.Drawing.Size(100, 20);
             this.OwnMAttack.TabIndex = 1;
             this.OwnMAttack.Text = "0";
             this.OwnMAttack.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
@@ -109,7 +109,7 @@
             this.label1.AutoSize = true;
             this.label1.Location = new System.Drawing.Point(100, 184);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(56, 17);
+            this.label1.Size = new System.Drawing.Size(43, 13);
             this.label1.TabIndex = 3;
             this.label1.Text = "Result: ";
             // 
@@ -118,7 +118,7 @@
             this.ApocalypseCaster.AutoSize = true;
             this.ApocalypseCaster.Location = new System.Drawing.Point(100, 81);
             this.ApocalypseCaster.Name = "ApocalypseCaster";
-            this.ApocalypseCaster.Size = new System.Drawing.Size(126, 17);
+            this.ApocalypseCaster.Size = new System.Drawing.Size(95, 13);
             this.ApocalypseCaster.TabIndex = 4;
             this.ApocalypseCaster.Text = "Apocalypse Caster";
             // 
@@ -127,7 +127,7 @@
             this.IsApocalypseCasterBlessed.AutoSize = true;
             this.IsApocalypseCasterBlessed.Location = new System.Drawing.Point(100, 61);
             this.IsApocalypseCasterBlessed.Name = "IsApocalypseCasterBlessed";
-            this.IsApocalypseCasterBlessed.Size = new System.Drawing.Size(80, 21);
+            this.IsApocalypseCasterBlessed.Size = new System.Drawing.Size(63, 17);
             this.IsApocalypseCasterBlessed.TabIndex = 5;
             this.IsApocalypseCasterBlessed.Text = "Blessed";
             this.IsApocalypseCasterBlessed.UseVisualStyleBackColor = true;
@@ -163,17 +163,16 @@
             this.Save});
             this.toolStrip1.Location = new System.Drawing.Point(0, 0);
             this.toolStrip1.Name = "toolStrip1";
-            this.toolStrip1.Size = new System.Drawing.Size(1898, 27);
+            this.toolStrip1.Size = new System.Drawing.Size(1900, 25);
             this.toolStrip1.TabIndex = 8;
             this.toolStrip1.Text = "toolStrip1";
             // 
             // Save
             // 
             this.Save.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
-            this.Save.Image = ((System.Drawing.Image)(resources.GetObject("Save.Image")));
             this.Save.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.Save.Name = "Save";
-            this.Save.Size = new System.Drawing.Size(44, 24);
+            this.Save.Size = new System.Drawing.Size(35, 22);
             this.Save.Text = "Save";
             this.Save.ToolTipText = "Saves to HTML File and opens it";
             this.Save.Click += new System.EventHandler(this.Save_Click);
@@ -197,7 +196,7 @@
             this.label2.AutoSize = true;
             this.label2.Location = new System.Drawing.Point(250, 184);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(56, 17);
+            this.label2.Size = new System.Drawing.Size(43, 13);
             this.label2.TabIndex = 10;
             this.label2.Text = "Result: ";
             // 
@@ -213,7 +212,7 @@
             this.ApocalypseRettributer.AutoSize = true;
             this.ApocalypseRettributer.Location = new System.Drawing.Point(250, 81);
             this.ApocalypseRettributer.Name = "ApocalypseRettributer";
-            this.ApocalypseRettributer.Size = new System.Drawing.Size(152, 17);
+            this.ApocalypseRettributer.Size = new System.Drawing.Size(114, 13);
             this.ApocalypseRettributer.TabIndex = 12;
             this.ApocalypseRettributer.Text = "Apocalypse Rettributer";
             // 
@@ -222,7 +221,7 @@
             this.IsApocalypseRettributerBlessed.AutoSize = true;
             this.IsApocalypseRettributerBlessed.Location = new System.Drawing.Point(250, 61);
             this.IsApocalypseRettributerBlessed.Name = "IsApocalypseRettributerBlessed";
-            this.IsApocalypseRettributerBlessed.Size = new System.Drawing.Size(80, 21);
+            this.IsApocalypseRettributerBlessed.Size = new System.Drawing.Size(63, 17);
             this.IsApocalypseRettributerBlessed.TabIndex = 13;
             this.IsApocalypseRettributerBlessed.Text = "Blessed";
             this.IsApocalypseRettributerBlessed.UseVisualStyleBackColor = true;
@@ -247,7 +246,7 @@
             this.IsSpecterCasterBlessed.AutoSize = true;
             this.IsSpecterCasterBlessed.Location = new System.Drawing.Point(400, 61);
             this.IsSpecterCasterBlessed.Name = "IsSpecterCasterBlessed";
-            this.IsSpecterCasterBlessed.Size = new System.Drawing.Size(80, 21);
+            this.IsSpecterCasterBlessed.Size = new System.Drawing.Size(63, 17);
             this.IsSpecterCasterBlessed.TabIndex = 16;
             this.IsSpecterCasterBlessed.Text = "Blessed";
             this.IsSpecterCasterBlessed.UseVisualStyleBackColor = true;
@@ -258,7 +257,7 @@
             this.SpecterCaster.AutoSize = true;
             this.SpecterCaster.Location = new System.Drawing.Point(400, 81);
             this.SpecterCaster.Name = "SpecterCaster";
-            this.SpecterCaster.Size = new System.Drawing.Size(102, 17);
+            this.SpecterCaster.Size = new System.Drawing.Size(77, 13);
             this.SpecterCaster.TabIndex = 15;
             this.SpecterCaster.Text = "Specter Caster";
             // 
@@ -267,7 +266,7 @@
             this.label3.AutoSize = true;
             this.label3.Location = new System.Drawing.Point(400, 184);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(56, 17);
+            this.label3.Size = new System.Drawing.Size(43, 13);
             this.label3.TabIndex = 17;
             this.label3.Text = "Result: ";
             // 
@@ -297,7 +296,7 @@
             this.IsSpecterRettributerBlessed.AutoSize = true;
             this.IsSpecterRettributerBlessed.Location = new System.Drawing.Point(550, 61);
             this.IsSpecterRettributerBlessed.Name = "IsSpecterRettributerBlessed";
-            this.IsSpecterRettributerBlessed.Size = new System.Drawing.Size(80, 21);
+            this.IsSpecterRettributerBlessed.Size = new System.Drawing.Size(63, 17);
             this.IsSpecterRettributerBlessed.TabIndex = 21;
             this.IsSpecterRettributerBlessed.Text = "Blessed";
             this.IsSpecterRettributerBlessed.UseVisualStyleBackColor = true;
@@ -308,7 +307,7 @@
             this.SpecterRettributer.AutoSize = true;
             this.SpecterRettributer.Location = new System.Drawing.Point(550, 81);
             this.SpecterRettributer.Name = "SpecterRettributer";
-            this.SpecterRettributer.Size = new System.Drawing.Size(124, 17);
+            this.SpecterRettributer.Size = new System.Drawing.Size(93, 13);
             this.SpecterRettributer.TabIndex = 20;
             this.SpecterRettributer.Text = "SpecterRettributer";
             // 
@@ -317,7 +316,7 @@
             this.label4.AutoSize = true;
             this.label4.Location = new System.Drawing.Point(550, 184);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(56, 17);
+            this.label4.Size = new System.Drawing.Size(43, 13);
             this.label4.TabIndex = 22;
             this.label4.Text = "Result: ";
             // 
@@ -347,7 +346,7 @@
             this.AmaranthineCaster.AutoSize = true;
             this.AmaranthineCaster.Location = new System.Drawing.Point(700, 81);
             this.AmaranthineCaster.Name = "AmaranthineCaster";
-            this.AmaranthineCaster.Size = new System.Drawing.Size(133, 17);
+            this.AmaranthineCaster.Size = new System.Drawing.Size(99, 13);
             this.AmaranthineCaster.TabIndex = 25;
             this.AmaranthineCaster.Text = "Amaranthine Caster";
             // 
@@ -356,7 +355,7 @@
             this.IsAmaranthineCasterBlessed.AutoSize = true;
             this.IsAmaranthineCasterBlessed.Location = new System.Drawing.Point(700, 61);
             this.IsAmaranthineCasterBlessed.Name = "IsAmaranthineCasterBlessed";
-            this.IsAmaranthineCasterBlessed.Size = new System.Drawing.Size(80, 21);
+            this.IsAmaranthineCasterBlessed.Size = new System.Drawing.Size(63, 17);
             this.IsAmaranthineCasterBlessed.TabIndex = 26;
             this.IsAmaranthineCasterBlessed.Text = "Blessed";
             this.IsAmaranthineCasterBlessed.UseVisualStyleBackColor = true;
@@ -367,7 +366,7 @@
             this.label5.AutoSize = true;
             this.label5.Location = new System.Drawing.Point(700, 184);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(56, 17);
+            this.label5.Size = new System.Drawing.Size(43, 13);
             this.label5.TabIndex = 27;
             this.label5.Text = "Result: ";
             // 
@@ -397,7 +396,7 @@
             this.AmaranthineRettributer.AutoSize = true;
             this.AmaranthineRettributer.Location = new System.Drawing.Point(850, 81);
             this.AmaranthineRettributer.Name = "AmaranthineRettributer";
-            this.AmaranthineRettributer.Size = new System.Drawing.Size(159, 17);
+            this.AmaranthineRettributer.Size = new System.Drawing.Size(118, 13);
             this.AmaranthineRettributer.TabIndex = 30;
             this.AmaranthineRettributer.Text = "Amaranthine Rettributer";
             // 
@@ -406,7 +405,7 @@
             this.IsAmaranthineRettributerBlessed.AutoSize = true;
             this.IsAmaranthineRettributerBlessed.Location = new System.Drawing.Point(850, 61);
             this.IsAmaranthineRettributerBlessed.Name = "IsAmaranthineRettributerBlessed";
-            this.IsAmaranthineRettributerBlessed.Size = new System.Drawing.Size(80, 21);
+            this.IsAmaranthineRettributerBlessed.Size = new System.Drawing.Size(63, 17);
             this.IsAmaranthineRettributerBlessed.TabIndex = 31;
             this.IsAmaranthineRettributerBlessed.Text = "Blessed";
             this.IsAmaranthineRettributerBlessed.UseVisualStyleBackColor = true;
@@ -417,7 +416,7 @@
             this.label6.AutoSize = true;
             this.label6.Location = new System.Drawing.Point(850, 184);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(56, 17);
+            this.label6.Size = new System.Drawing.Size(43, 13);
             this.label6.TabIndex = 32;
             this.label6.Text = "Result: ";
             // 
@@ -451,7 +450,7 @@
             this.AutoScroll = true;
             this.BackgroundImage = global::L2MAtkCalcRemastered.Properties.Resources.Shot00113;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ClientSize = new System.Drawing.Size(1898, 1029);
+            this.ClientSize = new System.Drawing.Size(1900, 1038);
             this.Controls.Add(this.AmaranthineRettributerResult);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.IsAmaranthineRettributerBlessed);

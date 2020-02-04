@@ -309,13 +309,14 @@ namespace L2MAtkCalcRemastered
             try
             {
                 string[] resultFieldsNames = new string[CalculateResultLabels()];
+
                 for (int i = 0; i < CalculateResultLabels(); i++)
                 {
                     resultFieldsNames[i] = GetResultsLabels()[i];
-                }
-                
+                }                
 
                 decimal[] result = new decimal[CalculateResultLabels()];
+
                 for (int i = 0; i < result.Length; i++)
                 {
                     if (resultFieldsNames[i].Contains(weaponNames[i]))
@@ -335,8 +336,18 @@ namespace L2MAtkCalcRemastered
             }
             catch(Exception ex)
             {
-                MessageBox.Show("We're working on it.", "Sorry, this does not work for now");
-                decimal[] result = new decimal[0];
+                decimal[] result = new decimal[CalculateResultLabels()];
+
+                for (int i = 0; i < result.Length; i++)
+                {
+                    result[i] = 0;
+                }
+
+                RefreshCalculations();
+
+                var s = new Saving(CalculateButtons(), CalculateResultLabels(), GetWeaponNames(), GetResults(GetWeaponNames()));
+                s.SaveToHtml();
+
                 Debug.WriteLine(ex);
                 return result;                
             }
@@ -344,14 +355,13 @@ namespace L2MAtkCalcRemastered
 
         #endregion
 
-        #region ToolStripButton
+        #region ToolStripButtons
 
         private void Save_Click(object sender, EventArgs e)
         {
             var s = new Saving(CalculateButtons(), CalculateResultLabels(), GetWeaponNames(), GetResults(GetWeaponNames()));
-            s.SaveToHtml();
-        }
-        
+            s.SaveToHtml();            
+        }       
 
         #endregion
     }
