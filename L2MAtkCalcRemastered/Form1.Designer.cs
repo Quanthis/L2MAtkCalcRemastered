@@ -40,6 +40,9 @@
             this.NotHavingSigil = new System.Windows.Forms.RadioButton();
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
             this.Save = new System.Windows.Forms.ToolStripButton();
+            this.CalcucalteAll = new System.Windows.Forms.ToolStripButton();
+            this.CopyrightInfo = new System.Windows.Forms.ToolStripButton();
+            this.Contributors = new System.Windows.Forms.ToolStripButton();
             this.ApoRettributer = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
             this.ApocalypseRettributerResult = new System.Windows.Forms.Label();
@@ -67,6 +70,12 @@
             this.AmaranthineRettributerResult = new System.Windows.Forms.Label();
             this.WhereToInsertMAttack = new System.Windows.Forms.ToolTip(this.components);
             this.WhereToClickForCalcs = new System.Windows.Forms.ToolTip(this.components);
+            this.MCaster = new System.Windows.Forms.Button();
+            this.MyCaster = new System.Windows.Forms.Label();
+            this.label7 = new System.Windows.Forms.Label();
+            this.MyCasterResult = new System.Windows.Forms.Label();
+            this.OwnWeapAttack = new System.Windows.Forms.Label();
+            this.OwnWeaponAttack = new System.Windows.Forms.TextBox();
             this.toolStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -160,7 +169,10 @@
             // 
             this.toolStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.Save});
+            this.Save,
+            this.CalcucalteAll,
+            this.CopyrightInfo,
+            this.Contributors});
             this.toolStrip1.Location = new System.Drawing.Point(0, 0);
             this.toolStrip1.Name = "toolStrip1";
             this.toolStrip1.Size = new System.Drawing.Size(1900, 25);
@@ -176,6 +188,37 @@
             this.Save.Text = "Save";
             this.Save.ToolTipText = "Saves to HTML File and opens it";
             this.Save.Click += new System.EventHandler(this.Save_Click);
+            // 
+            // CalcucalteAll
+            // 
+            this.CalcucalteAll.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
+            this.CalcucalteAll.Image = ((System.Drawing.Image)(resources.GetObject("CalcucalteAll.Image")));
+            this.CalcucalteAll.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.CalcucalteAll.Name = "CalcucalteAll";
+            this.CalcucalteAll.Overflow = System.Windows.Forms.ToolStripItemOverflow.Never;
+            this.CalcucalteAll.Size = new System.Drawing.Size(77, 22);
+            this.CalcucalteAll.Text = "Calculate All";
+            this.CalcucalteAll.Click += new System.EventHandler(this.CalcucalteAll_Click);
+            // 
+            // CopyrightInfo
+            // 
+            this.CopyrightInfo.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
+            this.CopyrightInfo.Image = ((System.Drawing.Image)(resources.GetObject("CopyrightInfo.Image")));
+            this.CopyrightInfo.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.CopyrightInfo.Name = "CopyrightInfo";
+            this.CopyrightInfo.Size = new System.Drawing.Size(88, 22);
+            this.CopyrightInfo.Text = "Copyright Info";
+            this.CopyrightInfo.Click += new System.EventHandler(this.CopyrightInfo_Click);
+            // 
+            // Contributors
+            // 
+            this.Contributors.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
+            this.Contributors.Image = ((System.Drawing.Image)(resources.GetObject("Contributors.Image")));
+            this.Contributors.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.Contributors.Name = "Contributors";
+            this.Contributors.Size = new System.Drawing.Size(109, 22);
+            this.Contributors.Text = "Code Contributors";
+            this.Contributors.Click += new System.EventHandler(this.Contributors_Click);
             // 
             // ApoRettributer
             // 
@@ -444,6 +487,62 @@
             this.WhereToClickForCalcs.ReshowDelay = 200;
             this.WhereToClickForCalcs.ToolTipTitle = "Click here to perform calculations for this item: ";
             // 
+            // MCaster
+            // 
+            this.MCaster.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.MCaster.BackgroundImage = global::L2MAtkCalcRemastered.Properties.Resources.Infinity_Retributer;
+            this.MCaster.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.MCaster.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.MCaster.Location = new System.Drawing.Point(1727, 100);
+            this.MCaster.Name = "MCaster";
+            this.MCaster.Size = new System.Drawing.Size(77, 77);
+            this.MCaster.TabIndex = 34;
+            this.MCaster.UseVisualStyleBackColor = true;
+            this.MCaster.Click += new System.EventHandler(this.MCaster_Click);
+            // 
+            // MyCaster
+            // 
+            this.MyCaster.AutoSize = true;
+            this.MyCaster.Location = new System.Drawing.Point(1727, 81);
+            this.MyCaster.Name = "MyCaster";
+            this.MyCaster.Size = new System.Drawing.Size(105, 13);
+            this.MyCaster.TabIndex = 35;
+            this.MyCaster.Text = "I have other weapon";
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(1727, 184);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(43, 13);
+            this.label7.TabIndex = 36;
+            this.label7.Text = "Result: ";
+            // 
+            // MyCasterResult
+            // 
+            this.MyCasterResult.Location = new System.Drawing.Point(1727, 200);
+            this.MyCasterResult.Name = "MyCasterResult";
+            this.MyCasterResult.Size = new System.Drawing.Size(77, 20);
+            this.MyCasterResult.TabIndex = 37;
+            // 
+            // OwnWeapAttack
+            // 
+            this.OwnWeapAttack.AutoSize = true;
+            this.OwnWeapAttack.Location = new System.Drawing.Point(1600, 110);
+            this.OwnWeapAttack.Name = "OwnWeapAttack";
+            this.OwnWeapAttack.Size = new System.Drawing.Size(100, 13);
+            this.OwnWeapAttack.TabIndex = 38;
+            this.OwnWeapAttack.Text = "Weapon M. Attack:";
+            // 
+            // OwnWeaponAttack
+            // 
+            this.OwnWeaponAttack.Location = new System.Drawing.Point(1600, 150);
+            this.OwnWeaponAttack.Name = "OwnWeaponAttack";
+            this.OwnWeaponAttack.Size = new System.Drawing.Size(100, 20);
+            this.OwnWeaponAttack.TabIndex = 39;
+            this.OwnWeaponAttack.Text = "0";
+            this.OwnWeaponAttack.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
             // Form1
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
@@ -451,6 +550,12 @@
             this.BackgroundImage = global::L2MAtkCalcRemastered.Properties.Resources.Shot00113;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(1900, 1038);
+            this.Controls.Add(this.OwnWeaponAttack);
+            this.Controls.Add(this.OwnWeapAttack);
+            this.Controls.Add(this.MyCasterResult);
+            this.Controls.Add(this.label7);
+            this.Controls.Add(this.MyCaster);
+            this.Controls.Add(this.MCaster);
             this.Controls.Add(this.AmaranthineRettributerResult);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.IsAmaranthineRettributerBlessed);
@@ -538,6 +643,15 @@
         private System.Windows.Forms.Label AmaranthineRettributerResult;
         private System.Windows.Forms.ToolTip WhereToInsertMAttack;
         private System.Windows.Forms.ToolTip WhereToClickForCalcs;
+        private System.Windows.Forms.ToolStripButton CalcucalteAll;
+        private System.Windows.Forms.ToolStripButton CopyrightInfo;
+        private System.Windows.Forms.ToolStripButton Contributors;
+        private System.Windows.Forms.Button MCaster;
+        private System.Windows.Forms.Label MyCaster;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Label MyCasterResult;
+        private System.Windows.Forms.Label OwnWeapAttack;
+        private System.Windows.Forms.TextBox OwnWeaponAttack;
     }
 }
 

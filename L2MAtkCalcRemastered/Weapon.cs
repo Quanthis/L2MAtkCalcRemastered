@@ -27,6 +27,12 @@ namespace L2MAtkCalcRemastered
             sigilOn = sigil;
             isBlessed = blessed;
         }
+
+        internal Weapon(decimal weapAttack, string OwnAttack)
+        {
+            weaponAttack = weapAttack;
+            OwnMAttack2 = OwnAttack;
+        }
         #endregion
 
         #region ClassMethods
@@ -107,6 +113,11 @@ namespace L2MAtkCalcRemastered
                     return (OwnAttack + weaponAttack * factor);
                 }
             }
+        }
+
+        private decimal CalculateMAtk(decimal OwnAttack, decimal weaponAttack)
+        {
+            return (OwnAttack * weaponAttack * factor);
         }
         #endregion
 

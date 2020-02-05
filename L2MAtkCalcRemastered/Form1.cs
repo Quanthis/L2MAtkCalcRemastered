@@ -51,7 +51,13 @@ namespace L2MAtkCalcRemastered
             wp.Dispose();
         }
 
-
+        private void Sender(decimal weaponAttack, Label whereToSend, string weapName)
+        {
+            string OwnAtak = OwnMAttack.Text;
+            var wp = new Weapon(weaponAttack, OwnAtak);
+            whereToSend.Text = wp.ConvertToSendableForm();
+            wp.Dispose();
+        }
 
         private void RefreshCalculations()
         {
@@ -61,9 +67,11 @@ namespace L2MAtkCalcRemastered
             SpRettriButer.PerformClick();
             AmaCaster.PerformClick();
             AmaRettributer.PerformClick();
-            
-            //statements below throw some unpleasant exceptions
+            MCaster.PerformClick();
 
+            #region NiceTry
+
+            //statements below throw some unpleasant exceptions
 
             //Parallel.Invoke(() => ApoCaster.PerformClick(), ()=> ApoRettributer.PerformClick(), ()=> SpCaster.PerformClick(), ()=> SpRettriButer.PerformClick());*/
 
@@ -78,6 +86,7 @@ namespace L2MAtkCalcRemastered
             t2.Join();
             t3.Join();
             t4.Join();*/
+            #endregion
 
         }
 
@@ -245,11 +254,20 @@ namespace L2MAtkCalcRemastered
         }
         #endregion
 
+        #region MyCaster
+
+        private void MCaster_Click(object sender, EventArgs e)
+        {
+            decimal weaponAttack = ToDecimal(OwnWeaponAttack.Text);
+            Sender(weaponAttack, MyCasterResult, MCaster.Name);
+        }
+        #endregion
+
         #endregion
 
 
         #region MakeToolStripsButtonsWork               
-               
+
         public int CalculateButtons()
         {
             int result = 0;
@@ -361,7 +379,25 @@ namespace L2MAtkCalcRemastered
         {
             var s = new Saving(CalculateButtons(), CalculateResultLabels(), GetWeaponNames(), GetResults(GetWeaponNames()));
             s.SaveToHtml();            
-        }       
+        }
+
+
+        private void CalcucalteAll_Click(object sender, EventArgs e)
+        {
+            RefreshCalculations();
+        }
+
+
+
+        private void CopyrightInfo_Click(object sender, EventArgs e)  
+        {
+            MessageBox.Show("Although code is open source project, all the images belong to NCSoft.", "Copyright Info"); 
+        }
+
+        private void Contributors_Click(object sender, EventArgs e)                 //add yourself here if you also contributted to this project!
+        {
+            System.Diagnostics.Process.Start("https://github.com/Quanthis");
+        }
 
         #endregion
     }

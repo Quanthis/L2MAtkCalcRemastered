@@ -117,5 +117,8 @@
   <ItemGroup>
     <Folder Include="ConfigurationFiles\" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Infinity Retributer.PNG" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

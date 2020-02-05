@@ -83,7 +83,15 @@ namespace L2MAtkCalcRemastered
                     sw.WriteLine("</body>\n</html>");
                 }
             }
+            OpenFile();
         }
+
+        private void OpenFile()
+        {
+            string path = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + @"\MyMAttack.html";
+            System.Diagnostics.Process.Start(path);
+        }
+
         #endregion
 
         #region OtherClassMethods

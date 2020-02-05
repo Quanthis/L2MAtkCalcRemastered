@@ -113,6 +113,16 @@ namespace L2MAtkCalcRemastered.Properties {
         /// <summary>
         ///   Wyszukuje zlokalizowany zasób typu System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap Infinity_Retributer {
+            get {
+                object obj = ResourceManager.GetObject("Infinity Retributer", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Wyszukuje zlokalizowany zasób typu System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Shot00008 {
             get {
                 object obj = ResourceManager.GetObject("Shot00008", resourceCulture);
