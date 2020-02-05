@@ -9,7 +9,7 @@ namespace L2MAtkCalcRemastered
     class Weapon : Form1
     {
         #region ClassPreparations
-        readonly decimal factor = 1.29M;
+        readonly decimal factor = 31.47M;
         readonly decimal sigilFactor = 1.04M;
         readonly decimal blessedFactor = 1.29M;
 

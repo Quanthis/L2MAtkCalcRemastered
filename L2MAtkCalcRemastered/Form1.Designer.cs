@@ -497,13 +497,14 @@
             this.MCaster.Name = "MCaster";
             this.MCaster.Size = new System.Drawing.Size(77, 77);
             this.MCaster.TabIndex = 34;
+            this.WhereToClickForCalcs.SetToolTip(this.MCaster, "Custom Weapon.");
             this.MCaster.UseVisualStyleBackColor = true;
             this.MCaster.Click += new System.EventHandler(this.MCaster_Click);
             // 
             // MyCaster
             // 
             this.MyCaster.AutoSize = true;
-            this.MyCaster.Location = new System.Drawing.Point(1727, 81);
+            this.MyCaster.Location = new System.Drawing.Point(1727, 71);
             this.MyCaster.Name = "MyCaster";
             this.MyCaster.Size = new System.Drawing.Size(105, 13);
             this.MyCaster.TabIndex = 35;

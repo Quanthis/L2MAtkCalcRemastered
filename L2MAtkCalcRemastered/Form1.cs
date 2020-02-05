@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 using System.ComponentModel;
 using System.IO;
 using System.Text;
-using System.Diagnostics;
+//using System.Diagnostics;
 using System.Linq;
 
 namespace L2MAtkCalcRemastered
@@ -346,13 +346,11 @@ namespace L2MAtkCalcRemastered
                                 result[i] = ToDecimal(l.Text);
                             }
                         }
-                       
-                        Debug.WriteLine(result[i] + " z " + resultFieldsNames[i] + " z " + weaponNames[i]);
                     }
                 }
                 return result;
             }
-            catch(Exception ex)
+            catch(Exception)
             {
                 decimal[] result = new decimal[CalculateResultLabels()];
 
@@ -366,7 +364,6 @@ namespace L2MAtkCalcRemastered
                 var s = new Saving(CalculateButtons(), CalculateResultLabels(), GetWeaponNames(), GetResults(GetWeaponNames()));
                 s.SaveToHtml();
 
-                Debug.WriteLine(ex);
                 return result;                
             }
         }
