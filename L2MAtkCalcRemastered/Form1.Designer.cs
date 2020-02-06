@@ -78,7 +78,6 @@
             this.OwnWeaponAttack = new System.Windows.Forms.TextBox();
             this.panel1 = new System.Windows.Forms.Panel();
             this.Buffs = new System.Windows.Forms.CheckedListBox();
-            this.T2 = new System.ComponentModel.BackgroundWorker();
             this.ProgressBar1 = new System.Windows.Forms.ProgressBar();
             this.toolStrip1.SuspendLayout();
             this.panel1.SuspendLayout();
@@ -644,11 +643,6 @@
             this.Buffs.ThreeDCheckBoxes = true;
             this.Buffs.SelectedIndexChanged += new System.EventHandler(this.Buffs_SelectedIndexChanged);
             // 
-            // T2
-            // 
-            this.T2.WorkerReportsProgress = true;
-            this.T2.DoWork += new System.ComponentModel.DoWorkEventHandler(this.T2_DoWork);
-            // 
             // ProgressBar1
             // 
             this.ProgressBar1.Location = new System.Drawing.Point(800, 540);
@@ -774,7 +768,6 @@
         private System.Windows.Forms.Label OwnWeapAttack;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.CheckedListBox Buffs;
-        private System.ComponentModel.BackgroundWorker T2;
         private System.Windows.Forms.ProgressBar ProgressBar1;
         protected System.Windows.Forms.TextBox OwnWeaponAttack;
     }

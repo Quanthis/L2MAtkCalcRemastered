@@ -68,7 +68,7 @@ namespace L2MAtkCalcRemastered
             }
             catch(Exception)
             {
-                MessageBox.Show($"Field {nameof(OwnWeaponAttack)} can only contain numbers!", "Error!");
+                MessageBox.Show($"Field {nameof(OwnWeaponAttack)} can only contain numbers!", "Error!", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             OwnMAttack2 = OwnAttack;
             buffs = bufs;
@@ -135,18 +135,18 @@ namespace L2MAtkCalcRemastered
                 result = ToDecimal(OwnMAttack2);
                 if (result == 0)
                 {
-                    MessageBox.Show("I don't think you attack is so low, try inserting it again :)", "Warning");
+                    MessageBox.Show("I don't think you attack is so low, try inserting it again :)", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 }
                 return result;
             }
             catch (FormatException)
             {
-                MessageBox.Show($"Field {nameof(OwnMAttack)} cannot be empty and can only contain numbers!", "Error!");
+                MessageBox.Show($"Field {nameof(OwnMAttack)} cannot be empty and can only contain numbers!", "Error!", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return 0;
             }
             catch (OverflowException)
             {
-                MessageBox.Show("Have you really become a god among races?", "Error - unexpectedly high value");
+                MessageBox.Show("Have you really become a god among races?", "Error - unexpectedly high value", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return 0;
             }
             catch (Exception)

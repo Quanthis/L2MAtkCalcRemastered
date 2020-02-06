@@ -375,10 +375,8 @@ namespace L2MAtkCalcRemastered
 
         private void Save_Click(object sender, EventArgs e)
         {
-            T2.RunWorkerAsync();
             var s = new Saving(CalculateButtons(), CalculateResultLabels(), GetWeaponNames(), GetResults(GetWeaponNames()), GetBuffNames());
             s.SaveToHtml();
-            T2.Dispose();
         }
 
 
@@ -391,7 +389,7 @@ namespace L2MAtkCalcRemastered
 
         private void CopyrightInfo_Click(object sender, EventArgs e)  
         {
-            MessageBox.Show("Although code is open source project, all the images belong to NCSoft.", "Copyright Info"); 
+            MessageBox.Show("Although code is open source project, all the images belong to NCSoft.", "Copyright Info", MessageBoxButtons.OK, MessageBoxIcon.Information); 
         }
 
         private void Contributors_Click(object sender, EventArgs e)                 //add yourself here if you also contributted to this project!
@@ -401,23 +399,7 @@ namespace L2MAtkCalcRemastered
 
         #endregion
 
-        private void T2_DoWork(object sender, DoWorkEventArgs e)
-        {
-            /*using (FileStream fs = new FileStream(@"ConfigurationFiles\OwnMAttack.txt", FileMode.Create))
-            {
-                using (StreamWriter sw = new StreamWriter(fs, Encoding.Unicode))
-                {
-                    string toSave = OwnMAttack.Text = Microsoft.VisualBasic.Interaction.InputBox("What's your magic attack?", "Need informations from user to proceed...");
-                    sw.WriteLine(toSave);
 
-                    while (OwnMAttack.Text.Length == 0)
-                    {
-                        sw.WriteLine(OwnMAttack.Text = Microsoft.VisualBasic.Interaction.InputBox("What's your magic attack?", "This field cannot be empty!"));
-                    }
-                }
-            }*/
-            //RefreshCalculations();
-        }
 
         #region Buffs
 
