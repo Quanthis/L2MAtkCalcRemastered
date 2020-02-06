@@ -101,11 +101,12 @@
             // OwnMAttack
             // 
             this.OwnMAttack.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.OwnMAttack.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.OwnMAttack.ForeColor = System.Drawing.Color.Black;
             this.OwnMAttack.Location = new System.Drawing.Point(910, 800);
             this.OwnMAttack.MaxLength = 10;
             this.OwnMAttack.Name = "OwnMAttack";
-            this.OwnMAttack.Size = new System.Drawing.Size(100, 20);
+            this.OwnMAttack.Size = new System.Drawing.Size(100, 22);
             this.OwnMAttack.TabIndex = 1;
             this.OwnMAttack.Text = "0";
             this.OwnMAttack.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
@@ -114,6 +115,7 @@
             // ApocalypseCasterResult
             // 
             this.ApocalypseCasterResult.AutoSize = true;
+            this.ApocalypseCasterResult.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.ApocalypseCasterResult.Location = new System.Drawing.Point(100, 200);
             this.ApocalypseCasterResult.MaximumSize = new System.Drawing.Size(150, 25);
             this.ApocalypseCasterResult.MinimumSize = new System.Drawing.Size(77, 20);
@@ -124,27 +126,31 @@
             // label1
             // 
             this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.label1.Location = new System.Drawing.Point(100, 184);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(43, 13);
+            this.label1.Size = new System.Drawing.Size(52, 16);
             this.label1.TabIndex = 3;
             this.label1.Text = "Result: ";
             // 
             // ApocalypseCaster
             // 
             this.ApocalypseCaster.AutoSize = true;
+            this.ApocalypseCaster.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.ApocalypseCaster.Location = new System.Drawing.Point(100, 81);
             this.ApocalypseCaster.Name = "ApocalypseCaster";
-            this.ApocalypseCaster.Size = new System.Drawing.Size(95, 13);
+            this.ApocalypseCaster.Size = new System.Drawing.Size(123, 16);
             this.ApocalypseCaster.TabIndex = 4;
             this.ApocalypseCaster.Text = "Apocalypse Caster";
             // 
             // IsApocalypseCasterBlessed
             // 
             this.IsApocalypseCasterBlessed.AutoSize = true;
+            this.IsApocalypseCasterBlessed.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.IsApocalypseCasterBlessed.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.IsApocalypseCasterBlessed.Location = new System.Drawing.Point(100, 61);
             this.IsApocalypseCasterBlessed.Name = "IsApocalypseCasterBlessed";
-            this.IsApocalypseCasterBlessed.Size = new System.Drawing.Size(63, 17);
+            this.IsApocalypseCasterBlessed.Size = new System.Drawing.Size(77, 20);
             this.IsApocalypseCasterBlessed.TabIndex = 5;
             this.IsApocalypseCasterBlessed.Text = "Blessed";
             this.IsApocalypseCasterBlessed.UseVisualStyleBackColor = true;
@@ -152,6 +158,8 @@
             // 
             // HavingSigil
             // 
+            this.HavingSigil.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.HavingSigil.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.HavingSigil.Location = new System.Drawing.Point(910, 835);
             this.HavingSigil.Name = "HavingSigil";
             this.HavingSigil.Size = new System.Drawing.Size(100, 20);
@@ -164,9 +172,11 @@
             // NotHavingSigil
             // 
             this.NotHavingSigil.Checked = true;
-            this.NotHavingSigil.Location = new System.Drawing.Point(900, 870);
+            this.NotHavingSigil.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.NotHavingSigil.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.NotHavingSigil.Location = new System.Drawing.Point(885, 870);
             this.NotHavingSigil.Name = "NotHavingSigil";
-            this.NotHavingSigil.Size = new System.Drawing.Size(120, 20);
+            this.NotHavingSigil.Size = new System.Drawing.Size(150, 20);
             this.NotHavingSigil.TabIndex = 7;
             this.NotHavingSigil.TabStop = true;
             this.NotHavingSigil.Text = "I dont\' have a sigil";
@@ -183,7 +193,7 @@
             this.Contributors});
             this.toolStrip1.Location = new System.Drawing.Point(0, 0);
             this.toolStrip1.Name = "toolStrip1";
-            this.toolStrip1.Size = new System.Drawing.Size(1900, 25);
+            this.toolStrip1.Size = new System.Drawing.Size(1904, 25);
             this.toolStrip1.TabIndex = 8;
             this.toolStrip1.Text = "toolStrip1";
             // 
@@ -245,15 +255,17 @@
             // label2
             // 
             this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.label2.Location = new System.Drawing.Point(250, 184);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(43, 13);
+            this.label2.Size = new System.Drawing.Size(52, 16);
             this.label2.TabIndex = 10;
             this.label2.Text = "Result: ";
             // 
             // ApocalypseRettributerResult
             // 
             this.ApocalypseRettributerResult.AutoSize = true;
+            this.ApocalypseRettributerResult.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.ApocalypseRettributerResult.Location = new System.Drawing.Point(250, 200);
             this.ApocalypseRettributerResult.MaximumSize = new System.Drawing.Size(150, 25);
             this.ApocalypseRettributerResult.MinimumSize = new System.Drawing.Size(77, 20);
@@ -264,18 +276,21 @@
             // ApocalypseRettributer
             // 
             this.ApocalypseRettributer.AutoSize = true;
+            this.ApocalypseRettributer.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.ApocalypseRettributer.Location = new System.Drawing.Point(250, 81);
             this.ApocalypseRettributer.Name = "ApocalypseRettributer";
-            this.ApocalypseRettributer.Size = new System.Drawing.Size(114, 13);
+            this.ApocalypseRettributer.Size = new System.Drawing.Size(145, 16);
             this.ApocalypseRettributer.TabIndex = 12;
             this.ApocalypseRettributer.Text = "Apocalypse Rettributer";
             // 
             // IsApocalypseRettributerBlessed
             // 
             this.IsApocalypseRettributerBlessed.AutoSize = true;
+            this.IsApocalypseRettributerBlessed.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.IsApocalypseRettributerBlessed.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.IsApocalypseRettributerBlessed.Location = new System.Drawing.Point(250, 61);
             this.IsApocalypseRettributerBlessed.Name = "IsApocalypseRettributerBlessed";
-            this.IsApocalypseRettributerBlessed.Size = new System.Drawing.Size(63, 17);
+            this.IsApocalypseRettributerBlessed.Size = new System.Drawing.Size(77, 20);
             this.IsApocalypseRettributerBlessed.TabIndex = 13;
             this.IsApocalypseRettributerBlessed.Text = "Blessed";
             this.IsApocalypseRettributerBlessed.UseVisualStyleBackColor = true;
@@ -298,9 +313,11 @@
             // IsSpecterCasterBlessed
             // 
             this.IsSpecterCasterBlessed.AutoSize = true;
+            this.IsSpecterCasterBlessed.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.IsSpecterCasterBlessed.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.IsSpecterCasterBlessed.Location = new System.Drawing.Point(400, 61);
             this.IsSpecterCasterBlessed.Name = "IsSpecterCasterBlessed";
-            this.IsSpecterCasterBlessed.Size = new System.Drawing.Size(63, 17);
+            this.IsSpecterCasterBlessed.Size = new System.Drawing.Size(77, 20);
             this.IsSpecterCasterBlessed.TabIndex = 16;
             this.IsSpecterCasterBlessed.Text = "Blessed";
             this.IsSpecterCasterBlessed.UseVisualStyleBackColor = true;
@@ -309,24 +326,27 @@
             // SpecterCaster
             // 
             this.SpecterCaster.AutoSize = true;
+            this.SpecterCaster.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.SpecterCaster.Location = new System.Drawing.Point(400, 81);
             this.SpecterCaster.Name = "SpecterCaster";
-            this.SpecterCaster.Size = new System.Drawing.Size(77, 13);
+            this.SpecterCaster.Size = new System.Drawing.Size(97, 16);
             this.SpecterCaster.TabIndex = 15;
             this.SpecterCaster.Text = "Specter Caster";
             // 
             // label3
             // 
             this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.label3.Location = new System.Drawing.Point(400, 184);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(43, 13);
+            this.label3.Size = new System.Drawing.Size(52, 16);
             this.label3.TabIndex = 17;
             this.label3.Text = "Result: ";
             // 
             // SpecterCasterResult
             // 
             this.SpecterCasterResult.AutoSize = true;
+            this.SpecterCasterResult.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.SpecterCasterResult.Location = new System.Drawing.Point(400, 200);
             this.SpecterCasterResult.MaximumSize = new System.Drawing.Size(150, 25);
             this.SpecterCasterResult.MinimumSize = new System.Drawing.Size(77, 20);
@@ -351,9 +371,11 @@
             // IsSpecterRettributerBlessed
             // 
             this.IsSpecterRettributerBlessed.AutoSize = true;
+            this.IsSpecterRettributerBlessed.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.IsSpecterRettributerBlessed.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.IsSpecterRettributerBlessed.Location = new System.Drawing.Point(550, 61);
             this.IsSpecterRettributerBlessed.Name = "IsSpecterRettributerBlessed";
-            this.IsSpecterRettributerBlessed.Size = new System.Drawing.Size(63, 17);
+            this.IsSpecterRettributerBlessed.Size = new System.Drawing.Size(77, 20);
             this.IsSpecterRettributerBlessed.TabIndex = 21;
             this.IsSpecterRettributerBlessed.Text = "Blessed";
             this.IsSpecterRettributerBlessed.UseVisualStyleBackColor = true;
@@ -362,24 +384,27 @@
             // SpecterRettributer
             // 
             this.SpecterRettributer.AutoSize = true;
+            this.SpecterRettributer.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.SpecterRettributer.Location = new System.Drawing.Point(550, 81);
             this.SpecterRettributer.Name = "SpecterRettributer";
-            this.SpecterRettributer.Size = new System.Drawing.Size(93, 13);
+            this.SpecterRettributer.Size = new System.Drawing.Size(116, 16);
             this.SpecterRettributer.TabIndex = 20;
             this.SpecterRettributer.Text = "SpecterRettributer";
             // 
             // label4
             // 
             this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.label4.Location = new System.Drawing.Point(550, 184);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(43, 13);
+            this.label4.Size = new System.Drawing.Size(52, 16);
             this.label4.TabIndex = 22;
             this.label4.Text = "Result: ";
             // 
             // SpecterRettributerResult
             // 
             this.SpecterRettributerResult.AutoSize = true;
+            this.SpecterRettributerResult.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.SpecterRettributerResult.Location = new System.Drawing.Point(550, 200);
             this.SpecterRettributerResult.MaximumSize = new System.Drawing.Size(150, 25);
             this.SpecterRettributerResult.MinimumSize = new System.Drawing.Size(77, 20);
@@ -404,18 +429,21 @@
             // AmaranthineCaster
             // 
             this.AmaranthineCaster.AutoSize = true;
+            this.AmaranthineCaster.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.AmaranthineCaster.Location = new System.Drawing.Point(700, 81);
             this.AmaranthineCaster.Name = "AmaranthineCaster";
-            this.AmaranthineCaster.Size = new System.Drawing.Size(99, 13);
+            this.AmaranthineCaster.Size = new System.Drawing.Size(125, 16);
             this.AmaranthineCaster.TabIndex = 25;
             this.AmaranthineCaster.Text = "Amaranthine Caster";
             // 
             // IsAmaranthineCasterBlessed
             // 
             this.IsAmaranthineCasterBlessed.AutoSize = true;
+            this.IsAmaranthineCasterBlessed.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.IsAmaranthineCasterBlessed.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.IsAmaranthineCasterBlessed.Location = new System.Drawing.Point(700, 61);
             this.IsAmaranthineCasterBlessed.Name = "IsAmaranthineCasterBlessed";
-            this.IsAmaranthineCasterBlessed.Size = new System.Drawing.Size(63, 17);
+            this.IsAmaranthineCasterBlessed.Size = new System.Drawing.Size(77, 20);
             this.IsAmaranthineCasterBlessed.TabIndex = 26;
             this.IsAmaranthineCasterBlessed.Text = "Blessed";
             this.IsAmaranthineCasterBlessed.UseVisualStyleBackColor = true;
@@ -424,15 +452,17 @@
             // label5
             // 
             this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.label5.Location = new System.Drawing.Point(700, 184);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(43, 13);
+            this.label5.Size = new System.Drawing.Size(52, 16);
             this.label5.TabIndex = 27;
             this.label5.Text = "Result: ";
             // 
             // AmaranthineCasterResult
             // 
             this.AmaranthineCasterResult.AutoSize = true;
+            this.AmaranthineCasterResult.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.AmaranthineCasterResult.Location = new System.Drawing.Point(700, 200);
             this.AmaranthineCasterResult.MaximumSize = new System.Drawing.Size(150, 25);
             this.AmaranthineCasterResult.MinimumSize = new System.Drawing.Size(77, 20);
@@ -446,6 +476,7 @@
             this.AmaRettributer.BackgroundImage = global::L2MAtkCalcRemastered.Properties.Resources.AmaranthineRetributer;
             this.AmaRettributer.Cursor = System.Windows.Forms.Cursors.Hand;
             this.AmaRettributer.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.AmaRettributer.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.AmaRettributer.Location = new System.Drawing.Point(850, 100);
             this.AmaRettributer.Name = "AmaRettributer";
             this.AmaRettributer.Size = new System.Drawing.Size(72, 72);
@@ -457,18 +488,21 @@
             // AmaranthineRettributer
             // 
             this.AmaranthineRettributer.AutoSize = true;
+            this.AmaranthineRettributer.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.AmaranthineRettributer.Location = new System.Drawing.Point(850, 81);
             this.AmaranthineRettributer.Name = "AmaranthineRettributer";
-            this.AmaranthineRettributer.Size = new System.Drawing.Size(118, 13);
+            this.AmaranthineRettributer.Size = new System.Drawing.Size(147, 16);
             this.AmaranthineRettributer.TabIndex = 30;
             this.AmaranthineRettributer.Text = "Amaranthine Rettributer";
             // 
             // IsAmaranthineRettributerBlessed
             // 
             this.IsAmaranthineRettributerBlessed.AutoSize = true;
+            this.IsAmaranthineRettributerBlessed.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.IsAmaranthineRettributerBlessed.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.IsAmaranthineRettributerBlessed.Location = new System.Drawing.Point(850, 61);
             this.IsAmaranthineRettributerBlessed.Name = "IsAmaranthineRettributerBlessed";
-            this.IsAmaranthineRettributerBlessed.Size = new System.Drawing.Size(63, 17);
+            this.IsAmaranthineRettributerBlessed.Size = new System.Drawing.Size(77, 20);
             this.IsAmaranthineRettributerBlessed.TabIndex = 31;
             this.IsAmaranthineRettributerBlessed.Text = "Blessed";
             this.IsAmaranthineRettributerBlessed.UseVisualStyleBackColor = true;
@@ -477,15 +511,17 @@
             // label6
             // 
             this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.label6.Location = new System.Drawing.Point(850, 184);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(43, 13);
+            this.label6.Size = new System.Drawing.Size(52, 16);
             this.label6.TabIndex = 32;
             this.label6.Text = "Result: ";
             // 
             // AmaranthineRettributerResult
             // 
             this.AmaranthineRettributerResult.AutoSize = true;
+            this.AmaranthineRettributerResult.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.AmaranthineRettributerResult.Location = new System.Drawing.Point(850, 200);
             this.AmaranthineRettributerResult.MaximumSize = new System.Drawing.Size(150, 25);
             this.AmaranthineRettributerResult.MinimumSize = new System.Drawing.Size(77, 20);
@@ -520,30 +556,33 @@
             this.MCaster.Name = "MCaster";
             this.MCaster.Size = new System.Drawing.Size(77, 77);
             this.MCaster.TabIndex = 34;
-            this.WhereToClickForCalcs.SetToolTip(this.MCaster, "Custom Weapon.");
+            this.WhereToClickForCalcs.SetToolTip(this.MCaster, "Custom Weapon");
             this.MCaster.UseVisualStyleBackColor = true;
             this.MCaster.Click += new System.EventHandler(this.MCaster_Click);
             // 
             // MyCaster
             // 
             this.MyCaster.AutoSize = true;
+            this.MyCaster.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.MyCaster.Location = new System.Drawing.Point(1727, 71);
             this.MyCaster.Name = "MyCaster";
-            this.MyCaster.Size = new System.Drawing.Size(105, 13);
+            this.MyCaster.Size = new System.Drawing.Size(128, 16);
             this.MyCaster.TabIndex = 35;
             this.MyCaster.Text = "I have other weapon";
             // 
             // label7
             // 
             this.label7.AutoSize = true;
+            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.label7.Location = new System.Drawing.Point(1727, 184);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(43, 13);
+            this.label7.Size = new System.Drawing.Size(52, 16);
             this.label7.TabIndex = 36;
             this.label7.Text = "Result: ";
             // 
             // MyCasterResult
             // 
+            this.MyCasterResult.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.MyCasterResult.Location = new System.Drawing.Point(1727, 200);
             this.MyCasterResult.Name = "MyCasterResult";
             this.MyCasterResult.Size = new System.Drawing.Size(77, 20);
@@ -552,41 +591,55 @@
             // OwnWeapAttack
             // 
             this.OwnWeapAttack.AutoSize = true;
+            this.OwnWeapAttack.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.OwnWeapAttack.Location = new System.Drawing.Point(1600, 110);
             this.OwnWeapAttack.Name = "OwnWeapAttack";
-            this.OwnWeapAttack.Size = new System.Drawing.Size(100, 13);
+            this.OwnWeapAttack.Size = new System.Drawing.Size(120, 16);
             this.OwnWeapAttack.TabIndex = 38;
             this.OwnWeapAttack.Text = "Weapon M. Attack:";
             // 
             // OwnWeaponAttack
             // 
+            this.OwnWeaponAttack.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.OwnWeaponAttack.Location = new System.Drawing.Point(1600, 150);
             this.OwnWeaponAttack.MaxLength = 10;
             this.OwnWeaponAttack.Name = "OwnWeaponAttack";
-            this.OwnWeaponAttack.Size = new System.Drawing.Size(100, 20);
+            this.OwnWeaponAttack.Size = new System.Drawing.Size(100, 22);
             this.OwnWeaponAttack.TabIndex = 39;
             this.OwnWeaponAttack.Text = "0";
             this.OwnWeaponAttack.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // panel1
             // 
+            this.panel1.BackColor = System.Drawing.SystemColors.Window;
+            this.panel1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.panel1.Controls.Add(this.Buffs);
-            this.panel1.Location = new System.Drawing.Point(331, 897);
+            this.panel1.Location = new System.Drawing.Point(331, 870);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(132, 106);
+            this.panel1.Size = new System.Drawing.Size(292, 98);
             this.panel1.TabIndex = 40;
             // 
             // Buffs
             // 
+            this.Buffs.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.Buffs.CheckOnClick = true;
+            this.Buffs.ColumnWidth = 150;
+            this.Buffs.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.Buffs.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.Buffs.FormattingEnabled = true;
             this.Buffs.Items.AddRange(new object[] {
             "Empowering echo",
             "Essence of Mana",
-            "Battle Rhapsody"});
-            this.Buffs.Location = new System.Drawing.Point(3, 3);
+            "Battle Rhapsody",
+            "Horn Melody",
+            "Fantasia Harmony",
+            "Prophecy of Might",
+            "Prevailing Sonata"});
+            this.Buffs.Location = new System.Drawing.Point(3, 12);
+            this.Buffs.MultiColumn = true;
             this.Buffs.Name = "Buffs";
-            this.Buffs.Size = new System.Drawing.Size(120, 94);
+            this.Buffs.Size = new System.Drawing.Size(300, 68);
             this.Buffs.TabIndex = 0;
             this.Buffs.ThreeDCheckBoxes = true;
             this.Buffs.SelectedIndexChanged += new System.EventHandler(this.Buffs_SelectedIndexChanged);
@@ -609,11 +662,13 @@
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.AutoScroll = true;
+            this.AutoScrollMinSize = new System.Drawing.Size(100, 100);
+            this.AutoValidate = System.Windows.Forms.AutoValidate.EnablePreventFocusChange;
             this.BackgroundImage = global::L2MAtkCalcRemastered.Properties.Resources.Shot00113;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ClientSize = new System.Drawing.Size(1900, 1038);
-            this.Controls.Add(this.ProgressBar1);
+            this.ClientSize = new System.Drawing.Size(1904, 1042);
             this.Controls.Add(this.panel1);
+            this.Controls.Add(this.ProgressBar1);
             this.Controls.Add(this.OwnWeaponAttack);
             this.Controls.Add(this.OwnWeapAttack);
             this.Controls.Add(this.MyCasterResult);
@@ -654,11 +709,12 @@
             this.Controls.Add(this.ApocalypseCasterResult);
             this.Controls.Add(this.OwnMAttack);
             this.Controls.Add(this.ApoCaster);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
+            this.DoubleBuffered = true;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximumSize = new System.Drawing.Size(1920, 1080);
-            this.MinimumSize = new System.Drawing.Size(1918, 1028);
+            this.MinimumSize = new System.Drawing.Size(1600, 900);
             this.Name = "Form1";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "L2MAtkCalc 2.0";
             this.Load += new System.EventHandler(this.Form1_Load);
             this.toolStrip1.ResumeLayout(false);
@@ -716,11 +772,11 @@
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label MyCasterResult;
         private System.Windows.Forms.Label OwnWeapAttack;
-        private System.Windows.Forms.TextBox OwnWeaponAttack;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.CheckedListBox Buffs;
         private System.ComponentModel.BackgroundWorker T2;
         private System.Windows.Forms.ProgressBar ProgressBar1;
+        protected System.Windows.Forms.TextBox OwnWeaponAttack;
     }
 }
 

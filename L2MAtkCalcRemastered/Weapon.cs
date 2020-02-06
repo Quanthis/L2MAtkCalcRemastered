@@ -42,11 +42,34 @@ namespace L2MAtkCalcRemastered
             {
                 factor *= 2;
             }
+            if(buffs[3])
+            {
+                factor *= 1.45M;
+            }
+            if(buffs[4])
+            {
+                factor *= 2;
+            }
+            if(buffs[5])
+            {
+                factor *= 1.2M;
+            }
+            if(buffs[6])
+            {
+                factor *= 1.33M;
+            }
         }
 
-        internal Weapon(decimal weapAttack, string OwnAttack, bool[] bufs)
+        internal Weapon(string weapAttack, string OwnAttack, bool[] bufs)
         {
-            weaponAttack = weapAttack;
+            try
+            {
+                weaponAttack = ToDecimal(weapAttack);
+            }
+            catch(Exception)
+            {
+                MessageBox.Show($"Field {nameof(OwnWeaponAttack)} can only contain numbers!", "Error!");
+            }
             OwnMAttack2 = OwnAttack;
             buffs = bufs;
 
@@ -61,6 +84,22 @@ namespace L2MAtkCalcRemastered
             if (buffs[2])
             {
                 factor *= 2;
+            }
+            if (buffs[3])
+            {
+                factor *= 1.45M;
+            }
+            if (buffs[4])
+            {
+                factor *= 2;
+            }
+            if (buffs[5])
+            {
+                factor *= 1.2M;
+            }
+            if (buffs[6])
+            {
+                factor *= 1.33M;
             }
         }
         #endregion

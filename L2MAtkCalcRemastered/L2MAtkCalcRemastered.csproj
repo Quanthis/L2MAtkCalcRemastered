@@ -120,5 +120,8 @@
   <ItemGroup>
     <None Include="Resources\Infinity Retributer.PNG" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Shot00091.bmp" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

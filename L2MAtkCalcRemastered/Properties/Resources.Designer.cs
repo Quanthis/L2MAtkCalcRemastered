@@ -133,6 +133,16 @@ namespace L2MAtkCalcRemastered.Properties {
         /// <summary>
         ///   Wyszukuje zlokalizowany zasób typu System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap Shot00091 {
+            get {
+                object obj = ResourceManager.GetObject("Shot00091", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Wyszukuje zlokalizowany zasób typu System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Shot00113 {
             get {
                 object obj = ResourceManager.GetObject("Shot00113", resourceCulture);

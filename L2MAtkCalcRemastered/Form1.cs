@@ -51,7 +51,7 @@ namespace L2MAtkCalcRemastered
             wp.Dispose();
         }
 
-        private void Sender(decimal weaponAttack, Label whereToSend, string weapName)
+        private void Sender(string weaponAttack, Label whereToSend, string weapName)
         {
             string OwnAtak = OwnMAttack.Text;
             var wp = new Weapon(weaponAttack, OwnAtak, GetActiveBuffs());
@@ -277,7 +277,7 @@ namespace L2MAtkCalcRemastered
 
         private void MCaster_Click(object sender, EventArgs e)
         {
-            decimal weaponAttack = ToDecimal(OwnWeaponAttack.Text);
+            string weaponAttack = (OwnWeaponAttack.Text);
             Sender(weaponAttack, MyCasterResult, MCaster.Name);
         }
         #endregion
