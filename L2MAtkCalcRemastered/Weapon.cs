@@ -9,7 +9,7 @@ namespace L2MAtkCalcRemastered
     class Weapon : Form1
     {
         #region ClassPreparations
-        readonly decimal factor = 31.47M;
+        decimal factor = 31.4735M;
         readonly decimal sigilFactor = 1.04M;
         readonly decimal blessedFactor = 1.29M;
 
@@ -18,20 +18,50 @@ namespace L2MAtkCalcRemastered
         string OwnMAttack2;
         bool sigilOn;
         bool isBlessed;
+        bool[] buffs;
+        decimal essenceOfManaFactor = 0.49M;
 
-        internal Weapon(decimal weapAttack, string weapName, string OwnAttack, bool sigil, bool blessed)
+        internal Weapon(decimal weapAttack, string weapName, string OwnAttack, bool sigil, bool blessed, bool[] bufs)
         {
             weaponAttack = weapAttack;
             weaponName = weapName;
             OwnMAttack2 = OwnAttack;
             sigilOn = sigil;
             isBlessed = blessed;
+            buffs = bufs;
+
+            if (buffs[0])
+            {
+                factor = 39.4513M;
+            }
+            if(buffs[1])
+            {
+                factor = factor + (factor * essenceOfManaFactor);
+            }
+            if(buffs[2])
+            {
+                factor *= 2;
+            }
         }
 
-        internal Weapon(decimal weapAttack, string OwnAttack)
+        internal Weapon(decimal weapAttack, string OwnAttack, bool[] bufs)
         {
             weaponAttack = weapAttack;
             OwnMAttack2 = OwnAttack;
+            buffs = bufs;
+
+            if(buffs[0])
+            {
+                factor = 39.4513M;
+            }
+            if (buffs[1])
+            {
+                factor = factor + (factor * essenceOfManaFactor);
+            }
+            if (buffs[2])
+            {
+                factor *= 2;
+            }
         }
         #endregion
 
@@ -90,7 +120,6 @@ namespace L2MAtkCalcRemastered
 
         private decimal CalculateMAtk(decimal OwnAttack, decimal weaponAttack, string weaponName)
         {
-
             if (isBlessed)
             {
                 if (DoesSigilMatter(weaponName))
@@ -110,14 +139,14 @@ namespace L2MAtkCalcRemastered
                 }
                 else
                 {
-                    return (OwnAttack + weaponAttack * factor);
+                    return (OwnAttack + (weaponAttack * factor));
                 }
             }
         }
 
         private decimal CalculateMAtk(decimal OwnAttack, decimal weaponAttack)
         {
-            return (OwnAttack * weaponAttack * factor);
+            return (OwnAttack + weaponAttack * factor);
         }
         #endregion
 
@@ -125,9 +154,18 @@ namespace L2MAtkCalcRemastered
 
         public string ConvertToSendableForm()
         {
-            decimal sentValue = CalculateMAtk(ConvertOwnAttack(), weaponAttack, weaponName);
-            string result = sentValue.ToString();
-            return result;
+            if (weaponName != null)
+            {
+                decimal sentValue = CalculateMAtk(ConvertOwnAttack(), weaponAttack, weaponName);
+                string result = sentValue.ToString();
+                return result;
+            }
+            else
+            {
+                decimal sentValue = CalculateMAtk(ConvertOwnAttack(), weaponAttack);
+                string result = sentValue.ToString();
+                return result;
+            }
         }
 
         #endregion

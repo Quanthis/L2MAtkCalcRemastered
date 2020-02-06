@@ -6,12 +6,12 @@ using System.Threading.Tasks;
 using System.ComponentModel;
 using System.IO;
 using System.Text;
-//using System.Diagnostics;
+using System.Diagnostics;
 using System.Linq;
 
 namespace L2MAtkCalcRemastered
 {
-    public partial class Form1 : Form
+    public partial class Form1 : Form                               //remember to add database binding possibility soon, best in another branch (windows 7 compability problems)
     {
         #region Initialization
 
@@ -46,7 +46,7 @@ namespace L2MAtkCalcRemastered
         private void Sender(decimal weaponAttack, Label whereToSend, string weapName, CheckBox Blessed)
         {
             string OwnAtak = OwnMAttack.Text;
-            var wp = new Weapon(weaponAttack, weapName, OwnAtak, HaveSigil(), IsBlessed(Blessed, weapName));
+            var wp = new Weapon(weaponAttack, weapName, OwnAtak, HaveSigil(), IsBlessed(Blessed, weapName), GetActiveBuffs());
             whereToSend.Text = wp.ConvertToSendableForm();
             wp.Dispose();
         }
@@ -54,7 +54,7 @@ namespace L2MAtkCalcRemastered
         private void Sender(decimal weaponAttack, Label whereToSend, string weapName)
         {
             string OwnAtak = OwnMAttack.Text;
-            var wp = new Weapon(weaponAttack, OwnAtak);
+            var wp = new Weapon(weaponAttack, OwnAtak, GetActiveBuffs());
             whereToSend.Text = wp.ConvertToSendableForm();
             wp.Dispose();
         }
@@ -87,7 +87,26 @@ namespace L2MAtkCalcRemastered
             t3.Join();
             t4.Join();*/
             #endregion
+        }
 
+        private bool[] GetActiveBuffs()
+        {
+            bool[] result = new bool[Buffs.Items.Count];
+            for (int i = 0; i < result.Length; i++)
+            {
+                if (Buffs.GetItemCheckState(i) == CheckState.Checked)
+                {
+                    result[i] = true;
+                }
+                else
+                {
+                    result[i] = false;
+                }
+                Debug.WriteLine(result.Length);
+                Debug.WriteLine(result[i]);
+            }
+
+            return result;
         }
 
         #endregion
@@ -374,8 +393,10 @@ namespace L2MAtkCalcRemastered
 
         private void Save_Click(object sender, EventArgs e)
         {
+            T2.RunWorkerAsync();
             var s = new Saving(CalculateButtons(), CalculateResultLabels(), GetWeaponNames(), GetResults(GetWeaponNames()));
-            s.SaveToHtml();            
+            s.SaveToHtml();
+            T2.Dispose();
         }
 
 
@@ -397,5 +418,28 @@ namespace L2MAtkCalcRemastered
         }
 
         #endregion
+
+        private void T2_DoWork(object sender, DoWorkEventArgs e)
+        {
+            /*using (FileStream fs = new FileStream(@"ConfigurationFiles\OwnMAttack.txt", FileMode.Create))
+            {
+                using (StreamWriter sw = new StreamWriter(fs, Encoding.Unicode))
+                {
+                    string toSave = OwnMAttack.Text = Microsoft.VisualBasic.Interaction.InputBox("What's your magic attack?", "Need informations from user to proceed...");
+                    sw.WriteLine(toSave);
+
+                    while (OwnMAttack.Text.Length == 0)
+                    {
+                        sw.WriteLine(OwnMAttack.Text = Microsoft.VisualBasic.Interaction.InputBox("What's your magic attack?", "This field cannot be empty!"));
+                    }
+                }
+            }*/
+            //RefreshCalculations();
+        }
+
+        private void Buffs_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            RefreshCalculations();
+        }
     }
 }

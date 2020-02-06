@@ -76,7 +76,12 @@
             this.MyCasterResult = new System.Windows.Forms.Label();
             this.OwnWeapAttack = new System.Windows.Forms.Label();
             this.OwnWeaponAttack = new System.Windows.Forms.TextBox();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.Buffs = new System.Windows.Forms.CheckedListBox();
+            this.T2 = new System.ComponentModel.BackgroundWorker();
+            this.ProgressBar1 = new System.Windows.Forms.ProgressBar();
             this.toolStrip1.SuspendLayout();
+            this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // ApoCaster
@@ -98,7 +103,7 @@
             this.OwnMAttack.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.OwnMAttack.ForeColor = System.Drawing.Color.Black;
             this.OwnMAttack.Location = new System.Drawing.Point(910, 800);
-            this.OwnMAttack.MaxLength = 15;
+            this.OwnMAttack.MaxLength = 10;
             this.OwnMAttack.Name = "OwnMAttack";
             this.OwnMAttack.Size = new System.Drawing.Size(100, 20);
             this.OwnMAttack.TabIndex = 1;
@@ -108,7 +113,10 @@
             // 
             // ApocalypseCasterResult
             // 
+            this.ApocalypseCasterResult.AutoSize = true;
             this.ApocalypseCasterResult.Location = new System.Drawing.Point(100, 200);
+            this.ApocalypseCasterResult.MaximumSize = new System.Drawing.Size(150, 25);
+            this.ApocalypseCasterResult.MinimumSize = new System.Drawing.Size(77, 20);
             this.ApocalypseCasterResult.Name = "ApocalypseCasterResult";
             this.ApocalypseCasterResult.Size = new System.Drawing.Size(77, 20);
             this.ApocalypseCasterResult.TabIndex = 2;
@@ -245,7 +253,10 @@
             // 
             // ApocalypseRettributerResult
             // 
+            this.ApocalypseRettributerResult.AutoSize = true;
             this.ApocalypseRettributerResult.Location = new System.Drawing.Point(250, 200);
+            this.ApocalypseRettributerResult.MaximumSize = new System.Drawing.Size(150, 25);
+            this.ApocalypseRettributerResult.MinimumSize = new System.Drawing.Size(77, 20);
             this.ApocalypseRettributerResult.Name = "ApocalypseRettributerResult";
             this.ApocalypseRettributerResult.Size = new System.Drawing.Size(77, 20);
             this.ApocalypseRettributerResult.TabIndex = 11;
@@ -315,7 +326,10 @@
             // 
             // SpecterCasterResult
             // 
+            this.SpecterCasterResult.AutoSize = true;
             this.SpecterCasterResult.Location = new System.Drawing.Point(400, 200);
+            this.SpecterCasterResult.MaximumSize = new System.Drawing.Size(150, 25);
+            this.SpecterCasterResult.MinimumSize = new System.Drawing.Size(77, 20);
             this.SpecterCasterResult.Name = "SpecterCasterResult";
             this.SpecterCasterResult.Size = new System.Drawing.Size(77, 20);
             this.SpecterCasterResult.TabIndex = 18;
@@ -365,7 +379,10 @@
             // 
             // SpecterRettributerResult
             // 
+            this.SpecterRettributerResult.AutoSize = true;
             this.SpecterRettributerResult.Location = new System.Drawing.Point(550, 200);
+            this.SpecterRettributerResult.MaximumSize = new System.Drawing.Size(150, 25);
+            this.SpecterRettributerResult.MinimumSize = new System.Drawing.Size(77, 20);
             this.SpecterRettributerResult.Name = "SpecterRettributerResult";
             this.SpecterRettributerResult.Size = new System.Drawing.Size(77, 20);
             this.SpecterRettributerResult.TabIndex = 23;
@@ -415,7 +432,10 @@
             // 
             // AmaranthineCasterResult
             // 
+            this.AmaranthineCasterResult.AutoSize = true;
             this.AmaranthineCasterResult.Location = new System.Drawing.Point(700, 200);
+            this.AmaranthineCasterResult.MaximumSize = new System.Drawing.Size(150, 25);
+            this.AmaranthineCasterResult.MinimumSize = new System.Drawing.Size(77, 20);
             this.AmaranthineCasterResult.Name = "AmaranthineCasterResult";
             this.AmaranthineCasterResult.Size = new System.Drawing.Size(77, 20);
             this.AmaranthineCasterResult.TabIndex = 28;
@@ -465,7 +485,10 @@
             // 
             // AmaranthineRettributerResult
             // 
+            this.AmaranthineRettributerResult.AutoSize = true;
             this.AmaranthineRettributerResult.Location = new System.Drawing.Point(850, 200);
+            this.AmaranthineRettributerResult.MaximumSize = new System.Drawing.Size(150, 25);
+            this.AmaranthineRettributerResult.MinimumSize = new System.Drawing.Size(77, 20);
             this.AmaranthineRettributerResult.Name = "AmaranthineRettributerResult";
             this.AmaranthineRettributerResult.Size = new System.Drawing.Size(77, 20);
             this.AmaranthineRettributerResult.TabIndex = 33;
@@ -538,11 +561,49 @@
             // OwnWeaponAttack
             // 
             this.OwnWeaponAttack.Location = new System.Drawing.Point(1600, 150);
+            this.OwnWeaponAttack.MaxLength = 10;
             this.OwnWeaponAttack.Name = "OwnWeaponAttack";
             this.OwnWeaponAttack.Size = new System.Drawing.Size(100, 20);
             this.OwnWeaponAttack.TabIndex = 39;
             this.OwnWeaponAttack.Text = "0";
             this.OwnWeaponAttack.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // panel1
+            // 
+            this.panel1.Controls.Add(this.Buffs);
+            this.panel1.Location = new System.Drawing.Point(331, 897);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(132, 106);
+            this.panel1.TabIndex = 40;
+            // 
+            // Buffs
+            // 
+            this.Buffs.CheckOnClick = true;
+            this.Buffs.FormattingEnabled = true;
+            this.Buffs.Items.AddRange(new object[] {
+            "Empowering echo",
+            "Essence of Mana",
+            "Battle Rhapsody"});
+            this.Buffs.Location = new System.Drawing.Point(3, 3);
+            this.Buffs.Name = "Buffs";
+            this.Buffs.Size = new System.Drawing.Size(120, 94);
+            this.Buffs.TabIndex = 0;
+            this.Buffs.ThreeDCheckBoxes = true;
+            this.Buffs.SelectedIndexChanged += new System.EventHandler(this.Buffs_SelectedIndexChanged);
+            // 
+            // T2
+            // 
+            this.T2.WorkerReportsProgress = true;
+            this.T2.DoWork += new System.ComponentModel.DoWorkEventHandler(this.T2_DoWork);
+            // 
+            // ProgressBar1
+            // 
+            this.ProgressBar1.Location = new System.Drawing.Point(800, 540);
+            this.ProgressBar1.Name = "ProgressBar1";
+            this.ProgressBar1.Size = new System.Drawing.Size(300, 50);
+            this.ProgressBar1.TabIndex = 41;
+            this.ProgressBar1.UseWaitCursor = true;
+            this.ProgressBar1.Visible = false;
             // 
             // Form1
             // 
@@ -551,6 +612,8 @@
             this.BackgroundImage = global::L2MAtkCalcRemastered.Properties.Resources.Shot00113;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(1900, 1038);
+            this.Controls.Add(this.ProgressBar1);
+            this.Controls.Add(this.panel1);
             this.Controls.Add(this.OwnWeaponAttack);
             this.Controls.Add(this.OwnWeapAttack);
             this.Controls.Add(this.MyCasterResult);
@@ -600,6 +663,7 @@
             this.Load += new System.EventHandler(this.Form1_Load);
             this.toolStrip1.ResumeLayout(false);
             this.toolStrip1.PerformLayout();
+            this.panel1.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -653,6 +717,10 @@
         private System.Windows.Forms.Label MyCasterResult;
         private System.Windows.Forms.Label OwnWeapAttack;
         private System.Windows.Forms.TextBox OwnWeaponAttack;
+        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.CheckedListBox Buffs;
+        private System.ComponentModel.BackgroundWorker T2;
+        private System.Windows.Forms.ProgressBar ProgressBar1;
     }
 }
 
