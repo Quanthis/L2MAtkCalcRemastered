@@ -15,13 +15,15 @@ namespace L2MAtkCalcRemastered
         private int labels;
         private string[] weaponNames;
         private decimal[] results;
+        private string[] buffs;
 
-        public Saving(int Buttons, int Labels, string[] WNames, decimal[] Results)
+        public Saving(int Buttons, int Labels, string[] WNames, decimal[] Results, string[] bufs)
         {
             buttons = Buttons;
             labels = Labels;
             weaponNames = WNames;
             results = Results;
+            buffs = bufs;
         }
         #endregion
 
@@ -66,16 +68,16 @@ namespace L2MAtkCalcRemastered
                     sw.WriteLine("<title>MyMagicStats</title> \n</head> \n<body>");
                     sw.WriteLine("\t <table>");
                     sw.WriteLine("\t <tr>");                            
-                    sw.WriteLine("\t <th> No. </th> \n \t <th> Weapon Name </th> \n \t <th> Magical Attack</th>");
+                    sw.WriteLine("\t <th> No. </th> \n \t <th> Weapon Name </th> \n \t <th> Magical Attack</th> \n \t <th> Active Buffs </th>");
                     sw.WriteLine("\t </tr>");
 
                     for (int i = 0; i < buttons; i++)
                     {
                         sw.WriteLine($"\t<TR> \n \t <TD>{i + 1}. </TD>");
-
+                        
                         sw.WriteLine($"\t <TD>{MakeItPretty()[i]}</TD>");
                         sw.WriteLine($"\t <TD>{results[i]}</TD>");
-
+                        WriteStringTableToHTML(buffs, sw);
                         sw.WriteLine("\t </TR> ");
                     }
 
@@ -111,6 +113,23 @@ namespace L2MAtkCalcRemastered
                 }
             }
             return modifiedWeaponNames;
+        }
+
+        private void WriteStringTableToHTML(string[] table, StreamWriter sw2)
+        {
+            sw2.WriteLine("\t <td>");
+            for (int i = 0; i < table.Length; i++)
+            {
+                if (i == table.Length - 1)
+                {
+                    sw2.Write(table[i]);
+                }
+                else
+                {
+                    sw2.Write(table[i] + ", ");
+                }
+            }
+            sw2.WriteLine("\n \t </td>");
         }
         #endregion
     }

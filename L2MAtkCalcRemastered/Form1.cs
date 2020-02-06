@@ -89,25 +89,7 @@ namespace L2MAtkCalcRemastered
             #endregion
         }
 
-        private bool[] GetActiveBuffs()
-        {
-            bool[] result = new bool[Buffs.Items.Count];
-            for (int i = 0; i < result.Length; i++)
-            {
-                if (Buffs.GetItemCheckState(i) == CheckState.Checked)
-                {
-                    result[i] = true;
-                }
-                else
-                {
-                    result[i] = false;
-                }
-                Debug.WriteLine(result.Length);
-                Debug.WriteLine(result[i]);
-            }
 
-            return result;
-        }
 
         #endregion
 
@@ -380,7 +362,7 @@ namespace L2MAtkCalcRemastered
 
                 RefreshCalculations();
 
-                var s = new Saving(CalculateButtons(), CalculateResultLabels(), GetWeaponNames(), GetResults(GetWeaponNames()));
+                var s = new Saving(CalculateButtons(), CalculateResultLabels(), GetWeaponNames(), GetResults(GetWeaponNames()), GetBuffNames());
                 s.SaveToHtml();
 
                 return result;                
@@ -394,7 +376,7 @@ namespace L2MAtkCalcRemastered
         private void Save_Click(object sender, EventArgs e)
         {
             T2.RunWorkerAsync();
-            var s = new Saving(CalculateButtons(), CalculateResultLabels(), GetWeaponNames(), GetResults(GetWeaponNames()));
+            var s = new Saving(CalculateButtons(), CalculateResultLabels(), GetWeaponNames(), GetResults(GetWeaponNames()), GetBuffNames());
             s.SaveToHtml();
             T2.Dispose();
         }
@@ -437,9 +419,51 @@ namespace L2MAtkCalcRemastered
             //RefreshCalculations();
         }
 
+        #region Buffs
+
+        private bool[] GetActiveBuffs()
+        {
+            bool[] result = new bool[Buffs.Items.Count];
+            for (int i = 0; i < result.Length; i++)
+            {
+                if (Buffs.GetItemCheckState(i) == CheckState.Checked)
+                {
+                    result[i] = true;
+                }
+                else
+                {
+                    result[i] = false;
+                }
+            }
+
+            return result;
+        }
+
+        private string[] GetBuffNames()
+        {
+            int i = 0;
+            foreach(object item in Buffs.CheckedItems)
+            {
+                ++i;
+            }
+
+            string[] result = new string[i];
+
+            i = 0;
+
+            foreach(object item in Buffs.CheckedItems)
+            {
+                result[i] = (string)item;
+                ++i;
+            }
+            return result;
+        }
+
         private void Buffs_SelectedIndexChanged(object sender, EventArgs e)
         {
-            RefreshCalculations();
+            //RefreshCalculations();
         }
+
+        #endregion
     }
 }
