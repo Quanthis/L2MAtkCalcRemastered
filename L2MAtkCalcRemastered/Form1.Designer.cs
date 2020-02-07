@@ -79,6 +79,7 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.Buffs = new System.Windows.Forms.CheckedListBox();
             this.ProgressBar1 = new System.Windows.Forms.ProgressBar();
+            this.T2 = new System.ComponentModel.BackgroundWorker();
             this.toolStrip1.SuspendLayout();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
@@ -652,6 +653,14 @@
             this.ProgressBar1.UseWaitCursor = true;
             this.ProgressBar1.Visible = false;
             // 
+            // T2
+            // 
+            this.T2.WorkerReportsProgress = true;
+            this.T2.WorkerSupportsCancellation = true;
+            this.T2.DoWork += new System.ComponentModel.DoWorkEventHandler(this.T2_DoWork);
+            this.T2.ProgressChanged += new System.ComponentModel.ProgressChangedEventHandler(this.T2_ProgressChanged);
+            this.T2.RunWorkerCompleted += new System.ComponentModel.RunWorkerCompletedEventHandler(this.T2_RunWorkerCompleted);
+            // 
             // Form1
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
@@ -770,6 +779,7 @@
         private System.Windows.Forms.CheckedListBox Buffs;
         private System.Windows.Forms.ProgressBar ProgressBar1;
         protected System.Windows.Forms.TextBox OwnWeaponAttack;
+        private System.ComponentModel.BackgroundWorker T2;
     }
 }
 

@@ -36,7 +36,7 @@ namespace L2MAtkCalcRemastered
                     return false;
                 }
             }
-            else return false;
+            else return false;            
         }
 
         #endregion
@@ -98,11 +98,13 @@ namespace L2MAtkCalcRemastered
 
         private void HavingSigil_CheckedChanged(object sender, EventArgs e)
         {
+            RunBackgroundWorker();
             RefreshCalculations();
         }
 
         private void NotHavingSigil_CheckedChanged(object sender, EventArgs e)
         {
+            RunBackgroundWorker();
             RefreshCalculations();
         }
 
@@ -375,13 +377,23 @@ namespace L2MAtkCalcRemastered
 
         private void Save_Click(object sender, EventArgs e)
         {
-            var s = new Saving(CalculateButtons(), CalculateResultLabels(), GetWeaponNames(), GetResults(GetWeaponNames()), GetBuffNames());
+            RunBackgroundWorker();
+
+            int buttonNo = CalculateButtons();
+            int resultsNo = CalculateResultLabels();
+            string[] weapNames = GetWeaponNames();
+            decimal[] results = GetResults(weapNames);
+            string[] buffNames = GetBuffNames();
+
+            var s = new Saving(buttonNo, resultsNo, weapNames, results, buffNames);
             s.SaveToHtml();
+            
         }
 
 
         private void CalcucalteAll_Click(object sender, EventArgs e)
         {
+            RunBackgroundWorker();
             RefreshCalculations();
         }
 
@@ -447,5 +459,73 @@ namespace L2MAtkCalcRemastered
         }
 
         #endregion
+
+
+
+        private void T2_DoWork(object sender, DoWorkEventArgs e)
+        {
+            using (BackgroundWorker bw = sender as BackgroundWorker)
+            {
+
+                for (int i = 0; i <= 10; i++)
+                {
+                    if (bw.CancellationPending)
+                    {
+                        e.Cancel = true;
+                        break;
+                    }
+                    else
+                    {
+                        Thread.Sleep(100);
+                        bw.ReportProgress(i * 10);
+                    }
+                }
+                
+            }
+        }
+
+        private void T2_ProgressChanged(object sender, ProgressChangedEventArgs e)
+        {
+            ProgressBar1.Increment(10);
+            ProgressBar1.Update();
+        }
+
+        private void T2_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
+        {
+            if (e.Cancelled)
+            {
+                ResetProgressBar();
+                T2.CancelAsync();
+            }
+            else
+            {
+                ResetProgressBar();
+                T2.CancelAsync();
+            }
+        }
+
+        private void RunBackgroundWorker()
+        {
+            ProgressBar1.Visible = true;
+            if(T2.IsBusy)
+            {
+                T2.CancelAsync();
+                Thread.Sleep(500);
+                T2.Dispose();
+                Thread.Sleep(500);
+                T2.RunWorkerAsync();
+            }
+            else if(!T2.IsBusy)
+            {
+                T2.RunWorkerAsync();
+            }
+        }
+
+        private void ResetProgressBar()
+        {
+            ProgressBar1.Visible = false;
+            ProgressBar1.Value = 0;
+            ProgressBar1.Update();
+        }
     }
 }

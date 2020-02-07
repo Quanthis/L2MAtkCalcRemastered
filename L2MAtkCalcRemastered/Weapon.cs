@@ -6,9 +6,10 @@ using System.Threading;
 
 namespace L2MAtkCalcRemastered
 {
-    class Weapon : Form1
+    class Weapon : Form1, IDisposable
     {
         #region ClassPreparations
+
         decimal factor = 31.4735M;
         readonly decimal sigilFactor = 1.04M;
         readonly decimal blessedFactor = 1.29M;
@@ -205,6 +206,17 @@ namespace L2MAtkCalcRemastered
                 string result = sentValue.ToString();
                 return result;
             }
+        }
+
+        #endregion
+
+        #region Cleaning
+
+        public new void Dispose()
+        {
+            Dispose(true);
+            GC.Collect();
+            GC.WaitForPendingFinalizers();
         }
 
         #endregion
