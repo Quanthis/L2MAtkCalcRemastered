@@ -364,11 +364,41 @@ namespace L2MAtkCalcRemastered
 
                 RefreshCalculations();
 
-                var s = new Saving(CalculateButtons(), CalculateResultLabels(), GetWeaponNames(), GetResults(GetWeaponNames()), GetBuffNames());
+                var s = new Saving(CalculateButtons(), CalculateResultLabels(), GetWeaponNames(), GetResults(GetWeaponNames()), GetBuffNames(),AreWeaponsBlessed());
                 s.SaveToHtml();
 
                 return result;                
             }
+        }
+
+        private string[] AreWeaponsBlessed()
+        {
+            int j = 0;
+            foreach(CheckBox c in Controls.OfType<CheckBox>())
+            {
+                ++j;
+            }
+
+            string[] result = new string[j+1];
+
+            int i = 0;
+            foreach (CheckBox cb in Controls.OfType<CheckBox>())
+            {
+                if (cb.Name.Contains("Blessed"))
+                {
+                    if(cb.Checked)
+                    {
+                        result[i] = cb.Text;
+                    }
+                    else
+                    {
+                        result[i] = "";
+                    }
+                    ++i;
+                }
+            }
+            result[result.Length - 1] = "";
+            return result;
         }
 
         #endregion
@@ -384,8 +414,9 @@ namespace L2MAtkCalcRemastered
             string[] weapNames = GetWeaponNames();
             decimal[] results = GetResults(weapNames);
             string[] buffNames = GetBuffNames();
+            string[] bles = AreWeaponsBlessed();
 
-            var s = new Saving(buttonNo, resultsNo, weapNames, results, buffNames);
+            var s = new Saving(buttonNo, resultsNo, weapNames, results, buffNames, bles);
             s.SaveToHtml();
             
         }
@@ -460,7 +491,7 @@ namespace L2MAtkCalcRemastered
 
         #endregion
 
-
+        #region BackGroundWorker
 
         private void T2_DoWork(object sender, DoWorkEventArgs e)
         {
@@ -507,13 +538,10 @@ namespace L2MAtkCalcRemastered
         private void RunBackgroundWorker()
         {
             ProgressBar1.Visible = true;
+            UseWaitCursor = true;
             if(T2.IsBusy)
             {
-                T2.CancelAsync();
-                Thread.Sleep(500);
-                T2.Dispose();
-                Thread.Sleep(500);
-                T2.RunWorkerAsync();
+                T2.CancelAsync();                
             }
             else if(!T2.IsBusy)
             {
@@ -526,6 +554,8 @@ namespace L2MAtkCalcRemastered
             ProgressBar1.Visible = false;
             ProgressBar1.Value = 0;
             ProgressBar1.Update();
+            UseWaitCursor = false;
         }
+        #endregion
     }
 }

@@ -669,7 +669,7 @@
             this.AutoValidate = System.Windows.Forms.AutoValidate.EnablePreventFocusChange;
             this.BackgroundImage = global::L2MAtkCalcRemastered.Properties.Resources.Shot00113;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ClientSize = new System.Drawing.Size(1904, 1042);
+            this.ClientSize = new System.Drawing.Size(1904, 1004);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.ProgressBar1);
             this.Controls.Add(this.OwnWeaponAttack);

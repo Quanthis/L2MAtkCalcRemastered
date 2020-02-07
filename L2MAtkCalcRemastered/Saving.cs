@@ -17,14 +17,16 @@ namespace L2MAtkCalcRemastered
         private string[] weaponNames;
         private decimal[] results;
         private string[] buffs;
+        private string[] Blesseds;
 
-        public Saving(int Buttons, int Labels, string[] WNames, decimal[] Results, string[] bufs)
+        public Saving(int Buttons, int Labels, string[] WNames, decimal[] Results, string[] bufs, string[]bless)
         {
             buttons = Buttons;
             labels = Labels;
             weaponNames = WNames;
             results = Results;
             buffs = bufs;
+            Blesseds = bless;
         }
         #endregion
 
@@ -84,7 +86,7 @@ namespace L2MAtkCalcRemastered
                         {
                             sw.WriteLine($"\t<TR> \n \t <TD>{i + 1}. </TD>");
 
-                            sw.WriteLine($"\t <TD>{MakeItPretty()[i]}</TD>");
+                            sw.WriteLine($"\t <TD>{Blesseds[i]} {MakeItPretty()[i]}</TD>");
                             sw.WriteLine($"\t <TD>{results[i]}</TD>");
                             WriteStringTableToHTML(buffs, sw);
                             sw.WriteLine("\t </TR> ");
