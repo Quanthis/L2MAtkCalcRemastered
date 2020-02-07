@@ -11,7 +11,7 @@ using System.Linq;
 
 namespace L2MAtkCalcRemastered
 {
-    public partial class Form1 : Form                               //remember to add database binding possibility soon, best in another branch (windows 7 compability problems)
+    public partial class Form1 : Form, IDisposable                               //remember to add database binding possibility soon, best in another branch (windows 7 compability problems)
     {
         #region Initialization
 
