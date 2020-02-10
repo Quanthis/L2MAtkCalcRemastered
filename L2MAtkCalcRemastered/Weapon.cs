@@ -6,9 +6,11 @@ using System.Threading;
 
 namespace L2MAtkCalcRemastered
 {
-    class Weapon : Form1, IDisposable
+    class Weapon : IDisposable
     {
         #region ClassPreparations
+
+        private bool disposed = false;
 
         decimal factor = 31.4735M;
         readonly decimal sigilFactor = 1.04M;
@@ -69,7 +71,7 @@ namespace L2MAtkCalcRemastered
             }
             catch(Exception)
             {
-                MessageBox.Show($"Field {nameof(OwnWeaponAttack)} can only contain numbers!", "Error!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show($"Field 'OwnMAttack' can only contain numbers!", "Error!", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             OwnMAttack2 = OwnAttack;
             buffs = bufs;
@@ -142,7 +144,7 @@ namespace L2MAtkCalcRemastered
             }
             catch (FormatException)
             {
-                MessageBox.Show($"Field {nameof(OwnMAttack)} cannot be empty and can only contain numbers!", "Error!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show($"Field 'OwnMAttack' cannot be empty and can only contain numbers!", "Error!", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return 0;
             }
             catch (OverflowException)
@@ -212,11 +214,28 @@ namespace L2MAtkCalcRemastered
 
         #region Cleaning
 
-        public new void Dispose()
+        public void Dispose()
         {
             Dispose(true);
-            GC.Collect();
-            GC.WaitForPendingFinalizers();
+            GC.SuppressFinalize(this);
+        }
+
+        protected virtual void Dispose(bool disposing)
+        {
+            if(!this.disposed)
+            {
+                if(disposing)
+                {
+                                    //dispose external objects here (there are no external objects here atm)
+                }
+
+                disposed = true;
+            }
+        }
+
+        ~Weapon()
+        {
+            Dispose(false);
         }
 
         #endregion
