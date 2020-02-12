@@ -4,6 +4,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.IO;
 using System.Threading;
+using System.Windows.Forms;
 
 
 namespace L2MAtkCalcRemastered
@@ -39,25 +40,36 @@ namespace L2MAtkCalcRemastered
                 StringBuilder CssBuilder = new StringBuilder("");
                 string path = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + @"\Style.css";
 
-                using (FileStream fs = new FileStream(@"ConfigurationFiles\Style.css", FileMode.Open))
+                try
                 {
-                    using (StreamReader sr = new StreamReader(fs, Encoding.Unicode))
+
+                    using (FileStream fs = new FileStream(@"ConfigurationFiles\Style.css", FileMode.Open))
                     {
-                        CssBuilder.Append(sr.ReadToEnd());
+                        using (StreamReader sr = new StreamReader(fs, Encoding.Unicode))
+                        {
+                            CssBuilder.Append(sr.ReadToEnd());
+                        }
+                    }
+
+                    using (FileStream fs = new FileStream(path, FileMode.Create))
+                    {
+                        using (StreamWriter sw = new StreamWriter(fs, Encoding.Unicode))
+                        {
+                            sw.WriteLine(CssBuilder);
+                        }
                     }
                 }
-
-                using (FileStream fs = new FileStream(path, FileMode.Create))
+                catch(FileNotFoundException)
                 {
-                    using (StreamWriter sw = new StreamWriter(fs, Encoding.Unicode))
-                    {
-                        sw.WriteLine(CssBuilder);
-                    }
+                    MessageBox.Show("CSS configuration file is missing!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                catch(Exception)
+                {
+                    MessageBox.Show("CSS file could not be copied!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             });
 
             thread.Start();
-            thread.Join();
         }
         #endregion
 
@@ -98,7 +110,7 @@ namespace L2MAtkCalcRemastered
                 }
             });
             Parallel.Invoke(() => t1.Start(), ()=> OpenFile());
-            t1.Join();          //yeah, I know this is dangerous            
+                      //yeah, I know this is dangerous            
         }
 
         private void OpenFile()

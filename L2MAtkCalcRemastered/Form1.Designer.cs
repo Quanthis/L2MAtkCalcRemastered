@@ -80,6 +80,7 @@
             this.Buffs = new System.Windows.Forms.CheckedListBox();
             this.ProgressBar1 = new System.Windows.Forms.ProgressBar();
             this.T2 = new System.ComponentModel.BackgroundWorker();
+            this.ActiveBuffs = new System.Windows.Forms.Label();
             this.toolStrip1.SuspendLayout();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
@@ -614,10 +615,11 @@
             this.panel1.BackColor = System.Drawing.SystemColors.Window;
             this.panel1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.panel1.Controls.Add(this.ActiveBuffs);
             this.panel1.Controls.Add(this.Buffs);
-            this.panel1.Location = new System.Drawing.Point(331, 870);
+            this.panel1.Location = new System.Drawing.Point(331, 863);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(292, 98);
+            this.panel1.Size = new System.Drawing.Size(292, 105);
             this.panel1.TabIndex = 40;
             // 
             // Buffs
@@ -636,7 +638,7 @@
             "Fantasia Harmony",
             "Prophecy of Might",
             "Prevailing Sonata"});
-            this.Buffs.Location = new System.Drawing.Point(3, 12);
+            this.Buffs.Location = new System.Drawing.Point(6, 28);
             this.Buffs.MultiColumn = true;
             this.Buffs.Name = "Buffs";
             this.Buffs.Size = new System.Drawing.Size(300, 68);
@@ -660,6 +662,16 @@
             this.T2.DoWork += new System.ComponentModel.DoWorkEventHandler(this.T2_DoWork);
             this.T2.ProgressChanged += new System.ComponentModel.ProgressChangedEventHandler(this.T2_ProgressChanged);
             this.T2.RunWorkerCompleted += new System.ComponentModel.RunWorkerCompletedEventHandler(this.T2_RunWorkerCompleted);
+            // 
+            // ActiveBuffs
+            // 
+            this.ActiveBuffs.AutoSize = true;
+            this.ActiveBuffs.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.5F, System.Drawing.FontStyle.Bold);
+            this.ActiveBuffs.Location = new System.Drawing.Point(22, 4);
+            this.ActiveBuffs.Name = "ActiveBuffs";
+            this.ActiveBuffs.Size = new System.Drawing.Size(93, 16);
+            this.ActiveBuffs.TabIndex = 1;
+            this.ActiveBuffs.Text = "Active Buffs:";
             // 
             // Form1
             // 
@@ -723,6 +735,7 @@
             this.toolStrip1.ResumeLayout(false);
             this.toolStrip1.PerformLayout();
             this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -780,6 +793,7 @@
         private System.Windows.Forms.ProgressBar ProgressBar1;
         protected System.Windows.Forms.TextBox OwnWeaponAttack;
         private System.ComponentModel.BackgroundWorker T2;
+        private System.Windows.Forms.Label ActiveBuffs;
     }
 }
 
