@@ -121,7 +121,6 @@ namespace L2MAtkCalcRemastered
                 System.Diagnostics.Process.Start(path);
             });
             thread.Start();
-            thread.Join();
         }
 
         #endregion

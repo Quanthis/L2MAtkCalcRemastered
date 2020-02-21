@@ -381,7 +381,7 @@ namespace L2MAtkCalcRemastered
 
             string[] result = new string[j+1];
 
-            int i = 0;
+            int i = 1;
             foreach (CheckBox cb in Controls.OfType<CheckBox>())
             {
                 if (cb.Name.Contains("Blessed"))
@@ -397,7 +397,7 @@ namespace L2MAtkCalcRemastered
                     ++i;
                 }
             }
-            result[result.Length - 1] = "";
+            //result[result.Length - 1] = "";
             return result;
         }
 
