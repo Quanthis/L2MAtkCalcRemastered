@@ -77,10 +77,11 @@
             this.OwnWeapAttack = new System.Windows.Forms.Label();
             this.OwnWeaponAttack = new System.Windows.Forms.TextBox();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.ActiveBuffs = new System.Windows.Forms.Label();
             this.Buffs = new System.Windows.Forms.CheckedListBox();
             this.ProgressBar1 = new System.Windows.Forms.ProgressBar();
             this.T2 = new System.ComponentModel.BackgroundWorker();
-            this.ActiveBuffs = new System.Windows.Forms.Label();
+            this.ClearAll = new System.Windows.Forms.ToolStripButton();
             this.toolStrip1.SuspendLayout();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
@@ -191,7 +192,8 @@
             this.Save,
             this.CalcucalteAll,
             this.CopyrightInfo,
-            this.Contributors});
+            this.Contributors,
+            this.ClearAll});
             this.toolStrip1.Location = new System.Drawing.Point(0, 0);
             this.toolStrip1.Name = "toolStrip1";
             this.toolStrip1.Size = new System.Drawing.Size(1904, 25);
@@ -622,6 +624,16 @@
             this.panel1.Size = new System.Drawing.Size(292, 105);
             this.panel1.TabIndex = 40;
             // 
+            // ActiveBuffs
+            // 
+            this.ActiveBuffs.AutoSize = true;
+            this.ActiveBuffs.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.5F, System.Drawing.FontStyle.Bold);
+            this.ActiveBuffs.Location = new System.Drawing.Point(22, 4);
+            this.ActiveBuffs.Name = "ActiveBuffs";
+            this.ActiveBuffs.Size = new System.Drawing.Size(93, 16);
+            this.ActiveBuffs.TabIndex = 1;
+            this.ActiveBuffs.Text = "Active Buffs:";
+            // 
             // Buffs
             // 
             this.Buffs.BorderStyle = System.Windows.Forms.BorderStyle.None;
@@ -663,15 +675,14 @@
             this.T2.ProgressChanged += new System.ComponentModel.ProgressChangedEventHandler(this.T2_ProgressChanged);
             this.T2.RunWorkerCompleted += new System.ComponentModel.RunWorkerCompletedEventHandler(this.T2_RunWorkerCompleted);
             // 
-            // ActiveBuffs
+            // ClearAll
             // 
-            this.ActiveBuffs.AutoSize = true;
-            this.ActiveBuffs.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.5F, System.Drawing.FontStyle.Bold);
-            this.ActiveBuffs.Location = new System.Drawing.Point(22, 4);
-            this.ActiveBuffs.Name = "ActiveBuffs";
-            this.ActiveBuffs.Size = new System.Drawing.Size(93, 16);
-            this.ActiveBuffs.TabIndex = 1;
-            this.ActiveBuffs.Text = "Active Buffs:";
+            this.ClearAll.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
+            this.ClearAll.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.ClearAll.Name = "ClearAll";
+            this.ClearAll.Size = new System.Drawing.Size(38, 22);
+            this.ClearAll.Text = "Clear";
+            this.ClearAll.Click += new System.EventHandler(this.ClearAll_Click);
             // 
             // Form1
             // 
@@ -794,6 +805,7 @@
         protected System.Windows.Forms.TextBox OwnWeaponAttack;
         private System.ComponentModel.BackgroundWorker T2;
         private System.Windows.Forms.Label ActiveBuffs;
+        private System.Windows.Forms.ToolStripButton ClearAll;
     }
 }
 

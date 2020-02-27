@@ -6,7 +6,6 @@ using System.Threading.Tasks;
 using System.ComponentModel;
 using System.IO;
 using System.Text;
-using System.Diagnostics;
 using System.Linq;
 
 namespace L2MAtkCalcRemastered
@@ -98,14 +97,12 @@ namespace L2MAtkCalcRemastered
 
         private void HavingSigil_CheckedChanged(object sender, EventArgs e)
         {
-            RunBackgroundWorker();
-            RefreshCalculations();
+
         }
 
         private void NotHavingSigil_CheckedChanged(object sender, EventArgs e)
         {
-            RunBackgroundWorker();
-            RefreshCalculations();
+
         }
 
         private bool HaveSigil()
@@ -557,5 +554,43 @@ namespace L2MAtkCalcRemastered
             UseWaitCursor = false;
         }
         #endregion
+
+        private void ClearAll_Click(object sender, EventArgs e)
+        {
+            RunBackgroundWorker();
+            foreach(CheckBox c in Controls.OfType<CheckBox>())
+            {
+                c.Checked = false;
+            }
+
+            foreach (Label l in Controls.OfType<Label>())
+            {
+                if(l.Name.Contains("Result"))
+                {
+                    l.Text = null;
+                }
+            }
+
+            foreach(TextBox t in Controls.OfType<TextBox>())
+            {
+                t.Text = null;
+            }
+
+            NotHavingSigil.Checked = true;
+
+            for (int i = 0; i < Buffs.Items.Count; i++)
+            {
+                Buffs.SetItemCheckState(i, CheckState.Unchecked);
+            }
+
+            try
+            {
+                File.Delete(@"ConfigurationFiles\OwnMAttack.txt");                
+            }
+            catch(Exception)
+            {
+                MessageBox.Show("File 'OwnMAttack.txt' could not be deleted.", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+        }
     }
 }

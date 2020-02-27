@@ -83,30 +83,33 @@ namespace L2MAtkCalcRemastered
                 using (FileStream fs = new FileStream(path, FileMode.Create))
                 {
                     using (StreamWriter sw = new StreamWriter(fs, Encoding.Unicode))
-                    {
-                        sw.WriteLine(@"<!DOCTYPE html>");
-                        sw.WriteLine("<html>\n<head>");
-                        sw.WriteLine(@"<meta charset=utf-8/>");
-                        sw.WriteLine(@"<link rel =""stylesheet"" type=""text/css"" href=""Style.css"">");
-                        sw.WriteLine("<title>MyMagicStats</title> \n</head> \n<body>");
-                        sw.WriteLine("\t <table>");
-                        sw.WriteLine("\t <tr>");
-                        sw.WriteLine("\t <th> No. </th> \n \t <th> Weapon Name </th> \n \t <th> Magical Attack</th> \n \t <th> Active Buffs </th>");
-                        sw.WriteLine("\t </tr>");
-
-                        for (int i = 0; i < buttons; i++)
+                        lock (sw)
                         {
-                            sw.WriteLine($"\t<TR> \n \t <TD>{i + 1}. </TD>");
+                            {
+                                sw.WriteLine(@"<!DOCTYPE html>");
+                                sw.WriteLine("<html>\n<head>");
+                                sw.WriteLine(@"<meta charset=utf-8/>");
+                                sw.WriteLine(@"<link rel =""stylesheet"" type=""text/css"" href=""Style.css"">");
+                                sw.WriteLine("<title>MyMagicStats</title> \n</head> \n<body>");
+                                sw.WriteLine("\t <table>");
+                                sw.WriteLine("\t <tr>");
+                                sw.WriteLine("\t <th> No. </th> \n \t <th> Weapon Name </th> \n \t <th> Magical Attack</th> \n \t <th> Active Buffs </th>");
+                                sw.WriteLine("\t </tr>");
 
-                            sw.WriteLine($"\t <TD>{Blesseds[i]} {MakeItPretty()[i]}</TD>");
-                            sw.WriteLine($"\t <TD>{results[i]}</TD>");
-                            WriteStringTableToHTML(buffs, sw);
-                            sw.WriteLine("\t </TR> ");
+                                for (int i = 0; i < buttons; i++)
+                                {
+                                    sw.WriteLine($"\t<TR> \n \t <TD>{i + 1}. </TD>");
+
+                                    sw.WriteLine($"\t <TD>{Blesseds[i]} {MakeItPretty()[i]}</TD>");
+                                    sw.WriteLine($"\t <TD>{results[i]}</TD>");
+                                    WriteStringTableToHTML(buffs, sw);
+                                    sw.WriteLine("\t </TR> ");
+                                }
+
+                                sw.WriteLine("\t </table>");
+                                sw.WriteLine("</body>\n</html>");
+                            }
                         }
-
-                        sw.WriteLine("\t </table>");
-                        sw.WriteLine("</body>\n</html>");
-                    }
                 }
             });
             Parallel.Invoke(() => t1.Start(), ()=> OpenFile());
@@ -147,25 +150,19 @@ namespace L2MAtkCalcRemastered
         }
         private void WriteStringTableToHTML(string[] table, StreamWriter sw2)
         {
-            Thread thread = new Thread(() =>
+            sw2.WriteLine("\t <td>");
+            for (int i = 0; i < table.Length; i++)
             {
-                sw2.WriteLine("\t <td>");
-                for (int i = 0; i < table.Length; i++)
+                if (i == table.Length - 1)
                 {
-                    if (i == table.Length - 1)
-                    {
-                        sw2.Write(table[i]);
-                    }
-                    else
-                    {
-                        sw2.Write(table[i] + ", ");
-                    }
+                    sw2.Write(table[i]);
                 }
-                sw2.WriteLine("\n \t </td>");
-            });
-
-            thread.Start();
-            thread.Join();
+                else
+                {
+                    sw2.Write(table[i] + ", ");
+                }
+            }
+            sw2.WriteLine("\n \t </td>");
         }
         #endregion
     }
