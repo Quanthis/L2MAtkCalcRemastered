@@ -7,6 +7,8 @@ using System.ComponentModel;
 using System.IO;
 using System.Text;
 using System.Linq;
+using System.Diagnostics;
+
 
 namespace L2MAtkCalcRemastered
 {
@@ -22,10 +24,10 @@ namespace L2MAtkCalcRemastered
         #endregion
                 
         #region Blessed
-        private bool IsBlessed(CheckBox isChecked, string wName)
-        {
-            if (isChecked.Name.Contains(wName))
-            {
+        private async Task<bool> IsBlessed(CheckBox isChecked, string wName)        //why placing this in return Task.Run()=> freezes UI?
+        {                                                                           //because that awaits also UI thred
+            if (isChecked.Name.Contains(wName))                                     //funny, wasn't it completely backwards in console apps?
+            {                                                                       //so this is deadlock I guess
                 if (isChecked.Checked)
                 {
                     return true;
@@ -35,22 +37,22 @@ namespace L2MAtkCalcRemastered
                     return false;
                 }
             }
-            else return false;            
+            else return false;
         }
 
         #endregion
 
         #region MakeButtonsWork
 
-        private void Sender(decimal weaponAttack, Label whereToSend, string weapName, CheckBox Blessed)
+        private async Task Sender(decimal weaponAttack, Label whereToSend, string weapName, CheckBox Blessed)
         {
             string OwnAtak = OwnMAttack.Text;
-            var wp = new Weapon(weaponAttack, weapName, OwnAtak, HaveSigil(), IsBlessed(Blessed, weapName), GetActiveBuffs());
+            var wp = new Weapon(weaponAttack, weapName, OwnAtak, HaveSigil(), IsBlessed(Blessed, weapName).Result, GetActiveBuffs());
             whereToSend.Text = wp.ConvertToSendableForm();
             wp.Dispose();
         }
 
-        private void Sender(string weaponAttack, Label whereToSend, string weapName)
+        private async Task Sender(string weaponAttack, Label whereToSend, string weapName)
         {
             string OwnAtak = OwnMAttack.Text;
             var wp = new Weapon(weaponAttack, OwnAtak, GetActiveBuffs());
@@ -58,7 +60,7 @@ namespace L2MAtkCalcRemastered
             wp.Dispose();
         }
 
-        private void RefreshCalculations()
+        private async Task RefreshCalculations()
         {
             ApoCaster.PerformClick();
             ApoRettributer.PerformClick();
@@ -67,25 +69,6 @@ namespace L2MAtkCalcRemastered
             AmaCaster.PerformClick();
             AmaRettributer.PerformClick();
             MCaster.PerformClick();
-
-            #region NiceTry
-
-            //statements below throw some unpleasant exceptions
-
-            //Parallel.Invoke(() => ApoCaster.PerformClick(), ()=> ApoRettributer.PerformClick(), ()=> SpCaster.PerformClick(), ()=> SpRettriButer.PerformClick());*/
-
-            /*Parallel.Invoke(() => t1.Start(), () => t2.Start(), () => t3.Start(), () => t4.Start());
-            Parallel.Invoke(() => t1.Join(), () => t2.Join(), () => t3.Join(), () => t4.Join());*/
-
-            /*t1.Start();
-            t2.Start();
-            t3.Start();
-            t4.Start();
-            t1.Join();
-            t2.Join();
-            t3.Join();
-            t4.Join();*/
-            #endregion
         }
 
 
@@ -128,11 +111,14 @@ namespace L2MAtkCalcRemastered
             {
                 using (FileStream fs = new FileStream(@"ConfigurationFiles\OwnMAttack.txt", FileMode.Open))
                 {
-                    using (StreamReader sr = new StreamReader(fs, Encoding.Unicode))
+                    lock (fs)
                     {
-                        string s = "";
-                        s = sr.ReadToEnd();
-                        OwnMAttack.Text = s;
+                        using (StreamReader sr = new StreamReader(fs, Encoding.Unicode))
+                        {
+                            string s = "";
+                            s = sr.ReadToEnd();
+                            OwnMAttack.Text = s;
+                        }
                     }
                 }
             }
@@ -140,14 +126,17 @@ namespace L2MAtkCalcRemastered
             {
                 using (FileStream fs = new FileStream(@"ConfigurationFiles\OwnMAttack.txt", FileMode.Create))
                 {
-                    using (StreamWriter sw = new StreamWriter(fs, Encoding.Unicode))
+                    lock (fs)
                     {
-                        string toSave = OwnMAttack.Text = Microsoft.VisualBasic.Interaction.InputBox("What's your magic attack?", "Need informations from user to proceed...");
-                        sw.WriteLine(toSave);
+                        using (StreamWriter sw = new StreamWriter(fs, Encoding.Unicode))
+                        {
+                            string toSave = OwnMAttack.Text = Microsoft.VisualBasic.Interaction.InputBox("What's your magic attack?", "Need informations from user to proceed...");
+                            sw.WriteLine(toSave);
 
-                        while (OwnMAttack.Text.Length == 0)
-                        {                            
-                            sw.WriteLine(OwnMAttack.Text = Microsoft.VisualBasic.Interaction.InputBox("What's your magic attack?", "This field cannot be empty!"));
+                            while (OwnMAttack.Text.Length == 0)
+                            {
+                                sw.WriteLine(OwnMAttack.Text = Microsoft.VisualBasic.Interaction.InputBox("What's your magic attack?", "This field cannot be empty!"));
+                            }
                         }
                     }
                 }
@@ -268,7 +257,7 @@ namespace L2MAtkCalcRemastered
 
         #region MakeToolStripsButtonsWork               
 
-        public int CalculateButtons()
+        public async Task<int> CalculateButtons()
         {
             int result = 0;
             foreach (Button b in Controls.OfType<Button>())
@@ -276,9 +265,10 @@ namespace L2MAtkCalcRemastered
                 result++;
             }
             return result;
+
         }
 
-        private int CalculateResultLabels()
+        public async Task<int> CalculateResultLabels()
         {
             int result = 0;
             foreach(Label l in Controls.OfType<Label>())
@@ -291,9 +281,9 @@ namespace L2MAtkCalcRemastered
             return result;
         }
 
-        private string[] GetWeaponNames()
+        private async Task<string[]> GetWeaponNames()
         {
-            string[] result = new string[CalculateResultLabels()];
+            string[] result = new string[CalculateResultLabels().Result];
             int i = 0;
 
             foreach (Label l in Controls.OfType<Label>())
@@ -307,10 +297,10 @@ namespace L2MAtkCalcRemastered
             return result;
         }
 
-        private string[] GetResultsLabels()
+        private async Task<string[]> GetResultsLabels()
         {
             int i = 0;
-            string[] result = new string[CalculateResultLabels()];
+            string[] result = new string[CalculateResultLabels().Result];
             foreach (Label l in Controls.OfType<Label>())
             {
                 if (l.Name.Contains("Result"))
@@ -322,18 +312,18 @@ namespace L2MAtkCalcRemastered
             return result;
         }
 
-        private decimal[] GetResults(string[] weaponNames)                        //returns pairs result and their name
+        private async Task<decimal[]> GetResults(string[] weaponNames)                        //returns pairs result and their name
         {
             try
             {
-                string[] resultFieldsNames = new string[CalculateResultLabels()];
+                string[] resultFieldsNames = new string[CalculateResultLabels().Result];
 
-                for (int i = 0; i < CalculateResultLabels(); i++)
+                for (int i = 0; i < CalculateResultLabels().Result; i++)
                 {
-                    resultFieldsNames[i] = GetResultsLabels()[i];
+                    resultFieldsNames[i] = GetResultsLabels().Result[i];
                 }                
 
-                decimal[] result = new decimal[CalculateResultLabels()];
+                decimal[] result = new decimal[CalculateResultLabels().Result];
 
                 for (int i = 0; i < result.Length; i++)
                 {
@@ -352,7 +342,7 @@ namespace L2MAtkCalcRemastered
             }
             catch(Exception)
             {
-                decimal[] result = new decimal[CalculateResultLabels()];
+                decimal[] result = new decimal[CalculateResultLabels().Result];
 
                 for (int i = 0; i < result.Length; i++)
                 {
@@ -361,14 +351,14 @@ namespace L2MAtkCalcRemastered
 
                 RefreshCalculations();
 
-                var s = new Saving(CalculateButtons(), CalculateResultLabels(), GetWeaponNames(), GetResults(GetWeaponNames()), GetBuffNames(),AreWeaponsBlessed());
+                var s = new Saving(CalculateButtons().Result, CalculateResultLabels().Result, GetWeaponNames().Result, GetResults(GetWeaponNames().Result).Result, GetBuffNames(),AreWeaponsBlessed().Result);
                 s.SaveToHtml();
 
                 return result;                
             }
         }
 
-        private string[] AreWeaponsBlessed()
+        private async Task<string[]> AreWeaponsBlessed()
         {
             int j = 0;
             foreach(CheckBox c in Controls.OfType<CheckBox>())
@@ -402,29 +392,27 @@ namespace L2MAtkCalcRemastered
 
         #region ToolStripButtons
 
-        private void Save_Click(object sender, EventArgs e)
+        private async void Save_Click(object sender, EventArgs e)
         {
             RunBackgroundWorker();
 
-            int buttonNo = CalculateButtons();
-            int resultsNo = CalculateResultLabels();
-            string[] weapNames = GetWeaponNames();
-            decimal[] results = GetResults(weapNames);
+            int buttonNo = CalculateButtons().Result;
+            int resultsNo = CalculateResultLabels().Result;
+            string[] weapNames = GetWeaponNames().Result;
+            decimal[] results = GetResults(weapNames).Result;
             string[] buffNames = GetBuffNames();
-            string[] bles = AreWeaponsBlessed();
+            string[] bles = AreWeaponsBlessed().Result;
 
             var s = new Saving(buttonNo, resultsNo, weapNames, results, buffNames, bles);
-            s.SaveToHtml();
-            
+            s.SaveToHtml();            
         }
 
 
-        private void CalcucalteAll_Click(object sender, EventArgs e)
+        private async void CalcucalteAll_Click(object sender, EventArgs e)
         {
             RunBackgroundWorker();
             RefreshCalculations();
         }
-
 
 
         private void CopyrightInfo_Click(object sender, EventArgs e)  
@@ -432,7 +420,7 @@ namespace L2MAtkCalcRemastered
             MessageBox.Show("Although code is open source project, all the images belong to NCSoft.", "Copyright Info", MessageBoxButtons.OK, MessageBoxIcon.Information); 
         }
 
-        private void Contributors_Click(object sender, EventArgs e)                 //add yourself here if you also contributted to this project!
+        private async void Contributors_Click(object sender, EventArgs e)                 //add yourself here if you also contributted to this project!
         {
             System.Diagnostics.Process.Start("https://github.com/Quanthis");
         }
@@ -488,14 +476,14 @@ namespace L2MAtkCalcRemastered
 
         #endregion
 
-        #region BackGroundWorker
+        #region BackgroundWorker
 
         private void T2_DoWork(object sender, DoWorkEventArgs e)
         {
             using (BackgroundWorker bw = sender as BackgroundWorker)
             {
 
-                for (int i = 0; i <= 10; i++)
+                for (int i = 1; i < 5; i++)
                 {
                     if (bw.CancellationPending)
                     {
@@ -505,7 +493,7 @@ namespace L2MAtkCalcRemastered
                     else
                     {
                         Thread.Sleep(100);
-                        bw.ReportProgress(i * 10);
+                        bw.ReportProgress(i * 20);
                     }
                 }
                 
@@ -532,7 +520,7 @@ namespace L2MAtkCalcRemastered
             }
         }
 
-        private void RunBackgroundWorker()
+        private async void RunBackgroundWorker()
         {
             ProgressBar1.Visible = true;
             UseWaitCursor = true;
@@ -546,7 +534,7 @@ namespace L2MAtkCalcRemastered
             }
         }
 
-        private void ResetProgressBar()
+        private async void ResetProgressBar()
         {
             ProgressBar1.Visible = false;
             ProgressBar1.Value = 0;
@@ -555,7 +543,8 @@ namespace L2MAtkCalcRemastered
         }
         #endregion
 
-        private void ClearAll_Click(object sender, EventArgs e)
+        #region Clear
+        private async void ClearAll_Click(object sender, EventArgs e)
         {
             RunBackgroundWorker();
             foreach(CheckBox c in Controls.OfType<CheckBox>())
@@ -592,5 +581,6 @@ namespace L2MAtkCalcRemastered
                 MessageBox.Show("File 'OwnMAttack.txt' could not be deleted.", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
         }
+        #endregion
     }
 }

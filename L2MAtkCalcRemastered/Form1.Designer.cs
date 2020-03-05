@@ -43,6 +43,7 @@
             this.CalcucalteAll = new System.Windows.Forms.ToolStripButton();
             this.CopyrightInfo = new System.Windows.Forms.ToolStripButton();
             this.Contributors = new System.Windows.Forms.ToolStripButton();
+            this.ClearAll = new System.Windows.Forms.ToolStripButton();
             this.ApoRettributer = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
             this.ApocalypseRettributerResult = new System.Windows.Forms.Label();
@@ -81,7 +82,6 @@
             this.Buffs = new System.Windows.Forms.CheckedListBox();
             this.ProgressBar1 = new System.Windows.Forms.ProgressBar();
             this.T2 = new System.ComponentModel.BackgroundWorker();
-            this.ClearAll = new System.Windows.Forms.ToolStripButton();
             this.toolStrip1.SuspendLayout();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
@@ -187,6 +187,8 @@
             // 
             // toolStrip1
             // 
+            this.toolStrip1.AllowMerge = false;
+            this.toolStrip1.BackColor = System.Drawing.Color.DimGray;
             this.toolStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.Save,
@@ -196,12 +198,14 @@
             this.ClearAll});
             this.toolStrip1.Location = new System.Drawing.Point(0, 0);
             this.toolStrip1.Name = "toolStrip1";
+            this.toolStrip1.RenderMode = System.Windows.Forms.ToolStripRenderMode.Professional;
             this.toolStrip1.Size = new System.Drawing.Size(1904, 25);
             this.toolStrip1.TabIndex = 8;
             this.toolStrip1.Text = "toolStrip1";
             // 
             // Save
             // 
+            this.Save.BackColor = System.Drawing.Color.LightGray;
             this.Save.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
             this.Save.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.Save.Name = "Save";
@@ -212,6 +216,7 @@
             // 
             // CalcucalteAll
             // 
+            this.CalcucalteAll.BackColor = System.Drawing.Color.LightGray;
             this.CalcucalteAll.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
             this.CalcucalteAll.Image = ((System.Drawing.Image)(resources.GetObject("CalcucalteAll.Image")));
             this.CalcucalteAll.ImageTransparentColor = System.Drawing.Color.Magenta;
@@ -223,6 +228,7 @@
             // 
             // CopyrightInfo
             // 
+            this.CopyrightInfo.BackColor = System.Drawing.Color.LightGray;
             this.CopyrightInfo.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
             this.CopyrightInfo.Image = ((System.Drawing.Image)(resources.GetObject("CopyrightInfo.Image")));
             this.CopyrightInfo.ImageTransparentColor = System.Drawing.Color.Magenta;
@@ -233,6 +239,7 @@
             // 
             // Contributors
             // 
+            this.Contributors.BackColor = System.Drawing.Color.LightGray;
             this.Contributors.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
             this.Contributors.Image = ((System.Drawing.Image)(resources.GetObject("Contributors.Image")));
             this.Contributors.ImageTransparentColor = System.Drawing.Color.Magenta;
@@ -240,6 +247,16 @@
             this.Contributors.Size = new System.Drawing.Size(109, 22);
             this.Contributors.Text = "Code Contributors";
             this.Contributors.Click += new System.EventHandler(this.Contributors_Click);
+            // 
+            // ClearAll
+            // 
+            this.ClearAll.BackColor = System.Drawing.Color.LightGray;
+            this.ClearAll.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
+            this.ClearAll.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.ClearAll.Name = "ClearAll";
+            this.ClearAll.Size = new System.Drawing.Size(38, 22);
+            this.ClearAll.Text = "Clear";
+            this.ClearAll.Click += new System.EventHandler(this.ClearAll_Click);
             // 
             // ApoRettributer
             // 
@@ -674,15 +691,6 @@
             this.T2.DoWork += new System.ComponentModel.DoWorkEventHandler(this.T2_DoWork);
             this.T2.ProgressChanged += new System.ComponentModel.ProgressChangedEventHandler(this.T2_ProgressChanged);
             this.T2.RunWorkerCompleted += new System.ComponentModel.RunWorkerCompletedEventHandler(this.T2_RunWorkerCompleted);
-            // 
-            // ClearAll
-            // 
-            this.ClearAll.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
-            this.ClearAll.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.ClearAll.Name = "ClearAll";
-            this.ClearAll.Size = new System.Drawing.Size(38, 22);
-            this.ClearAll.Text = "Clear";
-            this.ClearAll.Click += new System.EventHandler(this.ClearAll_Click);
             // 
             // Form1
             // 
