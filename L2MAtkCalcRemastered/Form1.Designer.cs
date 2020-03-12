@@ -82,6 +82,7 @@
             this.Buffs = new System.Windows.Forms.CheckedListBox();
             this.ProgressBar1 = new System.Windows.Forms.ProgressBar();
             this.T2 = new System.ComponentModel.BackgroundWorker();
+            this.TestButton = new System.Windows.Forms.ToolStripButton();
             this.toolStrip1.SuspendLayout();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
@@ -195,7 +196,8 @@
             this.CalcucalteAll,
             this.CopyrightInfo,
             this.Contributors,
-            this.ClearAll});
+            this.ClearAll,
+            this.TestButton});
             this.toolStrip1.Location = new System.Drawing.Point(0, 0);
             this.toolStrip1.Name = "toolStrip1";
             this.toolStrip1.RenderMode = System.Windows.Forms.ToolStripRenderMode.Professional;
@@ -692,6 +694,15 @@
             this.T2.ProgressChanged += new System.ComponentModel.ProgressChangedEventHandler(this.T2_ProgressChanged);
             this.T2.RunWorkerCompleted += new System.ComponentModel.RunWorkerCompletedEventHandler(this.T2_RunWorkerCompleted);
             // 
+            // TestButton
+            // 
+            this.TestButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
+            this.TestButton.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.TestButton.Name = "TestButton";
+            this.TestButton.Size = new System.Drawing.Size(57, 22);
+            this.TestButton.Text = "TestTool";
+            this.TestButton.Click += new System.EventHandler(this.TestButton_Click);
+            // 
             // Form1
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
@@ -814,6 +825,7 @@
         private System.ComponentModel.BackgroundWorker T2;
         private System.Windows.Forms.Label ActiveBuffs;
         private System.Windows.Forms.ToolStripButton ClearAll;
+        private System.Windows.Forms.ToolStripButton TestButton;
     }
 }
 

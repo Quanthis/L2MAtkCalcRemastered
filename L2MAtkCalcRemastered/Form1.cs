@@ -8,6 +8,7 @@ using System.IO;
 using System.Text;
 using System.Linq;
 using System.Diagnostics;
+using System.Numerics;
 
 
 namespace L2MAtkCalcRemastered
@@ -581,6 +582,92 @@ namespace L2MAtkCalcRemastered
                 MessageBox.Show("File 'OwnMAttack.txt' could not be deleted.", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
         }
+        #endregion
+
+        #region TestingTools
+        
+        public static async Task TestForResponsivenessV1()
+        {
+            for(int i = 0; i <= 10; i++)
+            {
+                Thread.Sleep(1000);
+            }
+
+            Debug.WriteLine("Work finished. ");
+        }
+
+        public static async Task TestForResponsivenessV2()
+        {
+            await Task.Run(() =>
+            {
+                  for (int i = 0; i <= 10; i++)
+                  {
+                        Thread.Sleep(1000);
+                  }
+
+              Debug.WriteLine("Work finished. ");
+            });
+        }
+
+        public static async Task<Task> TypedTestForResponsivenessV1()
+        {
+            return Task.Run(() =>
+            {
+                for (int i = 0; i <= 10; i++)
+                {
+                    Thread.Sleep(1000);
+                }
+
+                Debug.WriteLine("Work finished. ");
+            });
+        }
+
+        public static async Task<Task> TypedTestForResponsivenessV2()
+        {
+            return Task.Run(() =>
+            {
+                for (int i = 0; i <= 10; i++)
+                {
+                    Thread.Sleep(1000);
+                }
+
+                Debug.WriteLine("Work finished. ");
+                int r = 0;
+                return r;
+            });
+        }
+
+        public static async Task<int> TypedTestForResponsivenessV3()
+        {
+            return await Task.Run(() =>
+            {
+                for (int i = 0; i <= 10; i++)
+                {
+                    Thread.Sleep(1000);
+                }
+
+                Debug.WriteLine("Work finished.");
+
+                return 0;
+            });
+        }
+
+
+        private async void TestButton_Click(object sender, EventArgs e)
+        {
+            //TestForResponsivenessV1();              //freezes app for period of time but remembers inputs
+            //TestForResponsivenessV2();                 //doesn't freeze app
+
+            //await TypedTestForResponsivenessV1();             //doesn't freeze app, no matter with awaiter or w/o
+            /*var r = TypedTestForResponsivenessV2().Result;
+            Debug.WriteLine(r);*/                         //doesn't freeze app, however returns used library instead of intended value
+
+            //TypedTestForResponsivenessV3();                 //doesn't freeze app although uselesness of this instruction at all
+            int r = TypedTestForResponsivenessV3().Result;
+            Debug.WriteLine(r);                               //freezes app permanently
+
+        }
+
         #endregion
     }
 }
