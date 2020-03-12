@@ -25,20 +25,23 @@ namespace L2MAtkCalcRemastered
         #endregion
                 
         #region Blessed
-        private async Task<bool> IsBlessed(CheckBox isChecked, string wName)        //why placing this in return Task.Run()=> freezes UI?
-        {                                                                           //because that awaits also UI thred
-            if (isChecked.Name.Contains(wName))                                     //funny, wasn't it completely backwards in console apps?
-            {                                                                       //so this is deadlock I guess
-                if (isChecked.Checked)
+        private async Task<bool> IsBlessed(CheckBox isChecked, string wName)        
+        {
+            return await Task.Run(() =>
+            {
+                if (isChecked.Name.Contains(wName))
                 {
-                    return true;
+                    if (isChecked.Checked)
+                    {
+                        return true;
+                    }
+                    else
+                    {
+                        return false;
+                    }
                 }
-                else
-                {
-                    return false;
-                }
-            }
-            else return false;
+                else return false;
+            });
         }
 
         #endregion
@@ -48,9 +51,11 @@ namespace L2MAtkCalcRemastered
         private async Task Sender(decimal weaponAttack, Label whereToSend, string weapName, CheckBox Blessed)
         {
             string OwnAtak = OwnMAttack.Text;
-            var wp = new Weapon(weaponAttack, weapName, OwnAtak, HaveSigil(), IsBlessed(Blessed, weapName).Result, GetActiveBuffs());
+            var wp = new Weapon
+                (weaponAttack, weapName, OwnAtak, HaveSigil(), await Task.Run(async()=> IsBlessed(Blessed, weapName).Result), GetActiveBuffs());            
             whereToSend.Text = wp.ConvertToSendableForm();
             wp.Dispose();
+            
         }
 
         private async Task Sender(string weaponAttack, Label whereToSend, string weapName)
