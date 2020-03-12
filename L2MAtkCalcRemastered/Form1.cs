@@ -652,20 +652,56 @@ namespace L2MAtkCalcRemastered
             });
         }
 
+        public static async Task<int> TypedTestForResponsivenessV4()
+        {
+            for (int i = 0; i <= 10; i++)
+            {
+                Thread.Sleep(1000);
+            }
+
+            Debug.WriteLine("Work finished.");
+
+            return 0;
+        }
+
 
         private async void TestButton_Click(object sender, EventArgs e)
         {
-            //TestForResponsivenessV1();              //freezes app for period of time but remembers inputs
-            //TestForResponsivenessV2();                 //doesn't freeze app
+            await Task.Run(async () =>
+            {
+                //TestForResponsivenessV1();              //freezes app for period of time but remembers inputs                                //1
+                //TestForResponsivenessV2();                 //doesn't freeze app                                                              //2
 
-            //await TypedTestForResponsivenessV1();             //doesn't freeze app, no matter with awaiter or w/o
-            /*var r = TypedTestForResponsivenessV2().Result;
-            Debug.WriteLine(r);*/                         //doesn't freeze app, however returns used library instead of intended value
+                //await TypedTestForResponsivenessV1();             //doesn't freeze app, no matter with awaiter or w/o                        //3
+                /*var r = TypedTestForResponsivenessV2().Result;
+                Debug.WriteLine(r);*/                        //doesn't freeze app, however returns used library instead of intended value      //4
+                                                             //additionaly, result is gained before method has run to end
 
-            //TypedTestForResponsivenessV3();                 //doesn't freeze app although uselesness of this instruction at all
-            int r = TypedTestForResponsivenessV3().Result;
-            Debug.WriteLine(r);                               //freezes app permanently
+                //await TypedTestForResponsivenessV3();                 //doesn't freeze app although uselesness of this instruction at all    //5
+                /*int r = TypedTestForResponsivenessV3().Result;
+                Debug.WriteLine(r);    */                       //freezes app permanently                                                      //6
+                
+                await TypedTestForResponsivenessV4();                 //freezes app periodically                                               //7
+                /*var r = TypedTestForResponsivenessV4().Result;
+                Debug.WriteLine(r);*/                               //freezes app periodically, returns expected result                        //8
 
+                /* When method body was moved into awaiter, most methods started behaving differently:
+                 * 
+                 * Method 8. stopped freezing app, result was still gained. 
+                 * Method 7. also stopped freezing app.
+                 * Method 6. also stopped freezing app, although it freezed it permanently.                 
+                 * Method 6. also stopped freezing app, although it freezed it permanently.
+                 * Method 5. - no changes.
+                 * Method 4. - no changes.
+                 * Method 3. - no changes.
+                 * Method 2. - no changes.
+                 * Method 1. stopped freezing app.
+                 * 
+                 * Additionaly, when we try to await task that doesn't return result async keyword must be declared at beggining.
+                 * 
+                 * */
+
+            });
         }
 
         #endregion
