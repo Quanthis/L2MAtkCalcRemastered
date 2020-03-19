@@ -555,6 +555,8 @@ namespace L2MAtkCalcRemastered
         }
         #endregion
 
+        #region Clear
+
         private void ClearAll_Click(object sender, EventArgs e)
         {
             RunBackgroundWorker();
@@ -592,5 +594,6 @@ namespace L2MAtkCalcRemastered
                 MessageBox.Show("File 'OwnMAttack.txt' could not be deleted.", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
         }
+        #endregion
     }
 }

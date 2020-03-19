@@ -13,8 +13,9 @@ namespace L2MAtkCalcRemastered
         private bool disposed = false;
 
         decimal factor = 31.4735M;
-        readonly decimal sigilFactor = 1.04M;
-        readonly decimal blessedFactor = 1.29M;
+        readonly static decimal sigilFactor = 1.04M;
+        readonly static decimal blessedFactor = 1.29M;
+        readonly static decimal essenceOfManaFactor = 0.49M;
 
         decimal weaponAttack;
         string weaponName;
@@ -22,7 +23,6 @@ namespace L2MAtkCalcRemastered
         bool sigilOn;
         bool isBlessed;
         bool[] buffs;
-        decimal essenceOfManaFactor = 0.49M;
 
         internal Weapon(decimal weapAttack, string weapName, string OwnAttack, bool sigil, bool blessed, bool[] bufs)
         {
