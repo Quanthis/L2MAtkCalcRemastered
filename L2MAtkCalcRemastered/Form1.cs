@@ -52,7 +52,8 @@ namespace L2MAtkCalcRemastered
         {
             string OwnAtak = OwnMAttack.Text;
             var wp = new Weapon
-                (weaponAttack, weapName, OwnAtak, HaveSigil(), await Task.Run(async()=> IsBlessed(Blessed, weapName).Result), GetActiveBuffs());            
+                (weaponAttack, weapName, OwnAtak, await HaveSigil(), await IsBlessed(Blessed, weapName), GetActiveBuffs());   
+            
             whereToSend.Text = wp.ConvertToSendableForm();
             wp.Dispose();
             
@@ -61,13 +62,25 @@ namespace L2MAtkCalcRemastered
         private async Task Sender(string weaponAttack, Label whereToSend, string weapName)
         {
             string OwnAtak = OwnMAttack.Text;
-            var wp = new Weapon(weaponAttack, OwnAtak, GetActiveBuffs());
+            var wp = new Weapon
+                (weaponAttack, OwnAtak, GetActiveBuffs());
+
             whereToSend.Text = wp.ConvertToSendableForm();
             wp.Dispose();
         }
 
         private async Task RefreshCalculations()
         {
+            #region notWorking
+            /*Task t1 = Task.Run( async () => ApoCaster.PerformClick());
+            Task t2 = Task.Run( async () => ApoRettributer.PerformClick());
+            Task t3 = Task.Run( async () => SpCaster.PerformClick());
+            Task t4 = Task.Run( async () => SpRettriButer.PerformClick());
+            Task t5 = Task.Run( async () => AmaCaster.PerformClick());
+            Task t6 = Task.Run( async () => AmaRettributer.PerformClick());
+            Task t7 = Task.Run( async () => MCaster.PerformClick());*/
+            #endregion
+
             ApoCaster.PerformClick();
             ApoRettributer.PerformClick();
             SpCaster.PerformClick();
@@ -76,9 +89,7 @@ namespace L2MAtkCalcRemastered
             AmaRettributer.PerformClick();
             MCaster.PerformClick();
         }
-
-
-
+               
         #endregion
 
 
@@ -94,16 +105,19 @@ namespace L2MAtkCalcRemastered
 
         }
 
-        private bool HaveSigil()
+        private async Task<bool> HaveSigil()
         {
-            if (HavingSigil.Checked)
+            return await Task.Run( async () =>
             {
-                return true;
-            }
-            else
-            {
-                return false;
-            }
+                if (HavingSigil.Checked)
+                {
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
+            });
         }
         #endregion
 
