@@ -700,7 +700,7 @@ namespace L2MAtkCalcRemastered
                 /*int r = TypedTestForResponsivenessV3().Result;
                 Debug.WriteLine(r);    */                       //freezes app permanently                                                      //6
                 
-                await TypedTestForResponsivenessV4();                 //freezes app periodically                                               //7
+                Debug.WriteLine(await TypedTestForResponsivenessV4());                 //freezes app periodically                              //7
                 /*var r = TypedTestForResponsivenessV4().Result;
                 Debug.WriteLine(r);*/                               //freezes app periodically, returns expected result                        //8
 
@@ -719,6 +719,8 @@ namespace L2MAtkCalcRemastered
                  * Additionaly, when we try to await task that doesn't return result async keyword must be declared at beggining.
                  * 
                  * */
+
+
 
             });
         }
