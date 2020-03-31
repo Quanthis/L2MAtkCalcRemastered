@@ -7,6 +7,9 @@ using System.ComponentModel;
 using System.IO;
 using System.Text;
 using System.Linq;
+using System.Diagnostics;
+using System.Numerics;
+
 
 namespace L2MAtkCalcRemastered
 {
@@ -22,44 +25,62 @@ namespace L2MAtkCalcRemastered
         #endregion
                 
         #region Blessed
-        private bool IsBlessed(CheckBox isChecked, string wName)
+        private async Task<bool> IsBlessed(CheckBox isChecked, string wName)        
         {
-            if (isChecked.Name.Contains(wName))
+            return await Task.Run(() =>
             {
-                if (isChecked.Checked)
+                if (isChecked.Name.Contains(wName))
                 {
-                    return true;
+                    if (isChecked.Checked)
+                    {
+                        return true;
+                    }
+                    else
+                    {
+                        return false;
+                    }
                 }
-                else
-                {
-                    return false;
-                }
-            }
-            else return false;            
+                else return false;
+            });
         }
 
         #endregion
 
         #region MakeButtonsWork
 
-        private void Sender(decimal weaponAttack, Label whereToSend, string weapName, CheckBox Blessed)
+        private async Task Sender(decimal weaponAttack, Label whereToSend, string weapName, CheckBox Blessed)
         {
             string OwnAtak = OwnMAttack.Text;
-            var wp = new Weapon(weaponAttack, weapName, OwnAtak, HaveSigil(), IsBlessed(Blessed, weapName), GetActiveBuffs());
+            var wp = new Weapon
+                (weaponAttack, weapName, OwnAtak, await HaveSigil(), await IsBlessed(Blessed, weapName), await GetActiveBuffs());   
+            
+            whereToSend.Text = wp.ConvertToSendableForm();
+            wp.Dispose();
+            
+        }
+
+        private async Task Sender(string weaponAttack, Label whereToSend, string weapName)
+        {
+            string OwnAtak = OwnMAttack.Text;
+            var wp = new Weapon
+                (weaponAttack, OwnAtak, await GetActiveBuffs());
+
             whereToSend.Text = wp.ConvertToSendableForm();
             wp.Dispose();
         }
 
-        private void Sender(string weaponAttack, Label whereToSend, string weapName)
+        private async Task RefreshCalculations()
         {
-            string OwnAtak = OwnMAttack.Text;
-            var wp = new Weapon(weaponAttack, OwnAtak, GetActiveBuffs());
-            whereToSend.Text = wp.ConvertToSendableForm();
-            wp.Dispose();
-        }
+            #region notWorking
+            /*Task t1 = Task.Run( async () => ApoCaster.PerformClick());
+            Task t2 = Task.Run( async () => ApoRettributer.PerformClick());
+            Task t3 = Task.Run( async () => SpCaster.PerformClick());
+            Task t4 = Task.Run( async () => SpRettriButer.PerformClick());
+            Task t5 = Task.Run( async () => AmaCaster.PerformClick());
+            Task t6 = Task.Run( async () => AmaRettributer.PerformClick());
+            Task t7 = Task.Run( async () => MCaster.PerformClick());*/
+            #endregion
 
-        private void RefreshCalculations()
-        {
             ApoCaster.PerformClick();
             ApoRettributer.PerformClick();
             SpCaster.PerformClick();
@@ -67,29 +88,8 @@ namespace L2MAtkCalcRemastered
             AmaCaster.PerformClick();
             AmaRettributer.PerformClick();
             MCaster.PerformClick();
-
-            #region NiceTry
-
-            //statements below throw some unpleasant exceptions
-
-            //Parallel.Invoke(() => ApoCaster.PerformClick(), ()=> ApoRettributer.PerformClick(), ()=> SpCaster.PerformClick(), ()=> SpRettriButer.PerformClick());*/
-
-            /*Parallel.Invoke(() => t1.Start(), () => t2.Start(), () => t3.Start(), () => t4.Start());
-            Parallel.Invoke(() => t1.Join(), () => t2.Join(), () => t3.Join(), () => t4.Join());*/
-
-            /*t1.Start();
-            t2.Start();
-            t3.Start();
-            t4.Start();
-            t1.Join();
-            t2.Join();
-            t3.Join();
-            t4.Join();*/
-            #endregion
         }
-
-
-
+               
         #endregion
 
 
@@ -105,16 +105,19 @@ namespace L2MAtkCalcRemastered
 
         }
 
-        private bool HaveSigil()
+        private async Task<bool> HaveSigil()
         {
-            if (HavingSigil.Checked)
+            return await Task.Run(() =>
             {
-                return true;
-            }
-            else
-            {
-                return false;
-            }
+                if (HavingSigil.Checked)
+                {
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
+            });
         }
         #endregion
 
@@ -128,11 +131,14 @@ namespace L2MAtkCalcRemastered
             {
                 using (FileStream fs = new FileStream(@"ConfigurationFiles\OwnMAttack.txt", FileMode.Open))
                 {
-                    using (StreamReader sr = new StreamReader(fs, Encoding.Unicode))
+                    lock (fs)
                     {
-                        string s = "";
-                        s = sr.ReadToEnd();
-                        OwnMAttack.Text = s;
+                        using (StreamReader sr = new StreamReader(fs, Encoding.Unicode))
+                        {
+                            string s = "";
+                            s = sr.ReadToEnd();
+                            OwnMAttack.Text = s;
+                        }
                     }
                 }
             }
@@ -140,14 +146,17 @@ namespace L2MAtkCalcRemastered
             {
                 using (FileStream fs = new FileStream(@"ConfigurationFiles\OwnMAttack.txt", FileMode.Create))
                 {
-                    using (StreamWriter sw = new StreamWriter(fs, Encoding.Unicode))
+                    lock (fs)
                     {
-                        string toSave = OwnMAttack.Text = Microsoft.VisualBasic.Interaction.InputBox("What's your magic attack?", "Need informations from user to proceed...");
-                        sw.WriteLine(toSave);
+                        using (StreamWriter sw = new StreamWriter(fs, Encoding.Unicode))
+                        {
+                            string toSave = OwnMAttack.Text = Microsoft.VisualBasic.Interaction.InputBox("What's your magic attack?", "Need informations from user to proceed...");
+                            sw.WriteLine(toSave);
 
-                        while (OwnMAttack.Text.Length == 0)
-                        {                            
-                            sw.WriteLine(OwnMAttack.Text = Microsoft.VisualBasic.Interaction.InputBox("What's your magic attack?", "This field cannot be empty!"));
+                            while (OwnMAttack.Text.Length == 0)
+                            {
+                                sw.WriteLine(OwnMAttack.Text = Microsoft.VisualBasic.Interaction.InputBox("What's your magic attack?", "This field cannot be empty!"));
+                            }
                         }
                     }
                 }
@@ -268,163 +277,176 @@ namespace L2MAtkCalcRemastered
 
         #region MakeToolStripsButtonsWork               
 
-        public int CalculateButtons()
+        public async Task<int> CalculateButtons()
         {
-            int result = 0;
-            foreach (Button b in Controls.OfType<Button>())
+            return await Task.Run(() =>                                 //why did this method work before adding this? Because it only reads from UI thread?
             {
-                result++;
-            }
-            return result;
-        }
-
-        private int CalculateResultLabels()
-        {
-            int result = 0;
-            foreach(Label l in Controls.OfType<Label>())
-            {
-                if(l.Name.Contains("Result"))
+                int result = 0;
+                foreach (Button b in Controls.OfType<Button>())
                 {
                     result++;
                 }
-            }
-            return result;
+                return result;
+            });
         }
 
-        private string[] GetWeaponNames()
+        public async Task<int> CalculateResultLabels()
         {
-            string[] result = new string[CalculateResultLabels()];
-            int i = 0;
-
-            foreach (Label l in Controls.OfType<Label>())
+            return await Task.Run(() =>
             {
-                if ((l.Name.Contains("Rettributer") || (l.Name.Contains("Caster"))) && (!l.Name.Contains("Result")))
+                int result = 0;
+                foreach (Label l in Controls.OfType<Label>())
                 {
-                    result[i] = l.Name;
-                    i++;
-                }
-            }
-            return result;
-        }
-
-        private string[] GetResultsLabels()
-        {
-            int i = 0;
-            string[] result = new string[CalculateResultLabels()];
-            foreach (Label l in Controls.OfType<Label>())
-            {
-                if (l.Name.Contains("Result"))
-                {
-                    result[i] = l.Name;
-                    i++;
-                }
-            }
-            return result;
-        }
-
-        private decimal[] GetResults(string[] weaponNames)                        //returns pairs result and their name
-        {
-            try
-            {
-                string[] resultFieldsNames = new string[CalculateResultLabels()];
-
-                for (int i = 0; i < CalculateResultLabels(); i++)
-                {
-                    resultFieldsNames[i] = GetResultsLabels()[i];
-                }                
-
-                decimal[] result = new decimal[CalculateResultLabels()];
-
-                for (int i = 0; i < result.Length; i++)
-                {
-                    if (resultFieldsNames[i].Contains(weaponNames[i]))
+                    if (l.Name.Contains("Result"))
                     {
-                        foreach (Label l in Controls.OfType<Label>())
-                        {
-                            if (l.Name == resultFieldsNames[i])
-                            {
-                                result[i] = ToDecimal(l.Text);
-                            }
-                        }
+                        result++;
                     }
                 }
                 return result;
-            }
-            catch(Exception)
+            });
+        }
+        private async Task<string[]> GetWeaponNames()
+        {
+            return await Task.Run(async() =>
             {
-                decimal[] result = new decimal[CalculateResultLabels()];
+                string[] result = new string[await CalculateResultLabels()];
+                int i = 0;
 
-                for (int i = 0; i < result.Length; i++)
+                foreach (Label l in Controls.OfType<Label>())
                 {
-                    result[i] = 0;
+                    if ((l.Name.Contains("Rettributer") || (l.Name.Contains("Caster"))) && (!l.Name.Contains("Result")))
+                    {
+                        result[i] = l.Name;
+                        i++;
+                    }
                 }
-
-                RefreshCalculations();
-
-                var s = new Saving(CalculateButtons(), CalculateResultLabels(), GetWeaponNames(), GetResults(GetWeaponNames()), GetBuffNames(),AreWeaponsBlessed());
-                s.SaveToHtml();
-
-                return result;                
-            }
+                return result;
+            });
         }
 
-        private string[] AreWeaponsBlessed()
+        private async Task<string[]> GetResultsLabels()
         {
-            int j = 0;
-            foreach(CheckBox c in Controls.OfType<CheckBox>())
+            return await Task.Run(async() =>
             {
-                ++j;
-            }
-
-            string[] result = new string[j+1];
-
-            int i = 1;
-            foreach (CheckBox cb in Controls.OfType<CheckBox>())
-            {
-                if (cb.Name.Contains("Blessed"))
+                int i = 0;
+                string[] result = new string[await CalculateResultLabels()];
+                foreach (Label l in Controls.OfType<Label>())
                 {
-                    if(cb.Checked)
+                    if (l.Name.Contains("Result"))
                     {
-                        result[i] = cb.Text;
+                        result[i] = l.Name;
+                        i++;
                     }
-                    else
-                    {
-                        result[i] = "";
-                    }
-                    ++i;
                 }
-            }
-            //result[result.Length - 1] = "";
-            return result;
+                return result;
+            });
+        }
+
+        private async Task<decimal[]> GetResults(string[] weaponNames)                        //returns pairs result and their name
+        {
+            return await Task.Run(async () =>                                           
+            {
+                try
+                {
+                    string[] resultFieldsNames = new string[await CalculateResultLabels()];
+
+                    resultFieldsNames = await GetResultsLabels();
+
+                    decimal[] result = new decimal[await CalculateResultLabels()];
+
+                    for (int i = 0; i < result.Length; i++)
+                    {
+                        if (resultFieldsNames[i].Contains(weaponNames[i]))
+                        {
+                            foreach (Label l in Controls.OfType<Label>())
+                            {
+                                if (l.Name == resultFieldsNames[i])
+                                {
+                                    result[i] = ToDecimal(l.Text);
+                                }
+                            }
+                        }
+                    }
+                    return result;
+                }
+                catch (Exception)
+                {
+                    decimal[] result = new decimal[await CalculateResultLabels()];
+
+                    for (int i = 0; i < result.Length; i++)
+                    {
+                        result[i] = 0;
+                    }
+
+                    await RefreshCalculations();
+
+                    var s = new Saving
+                        (await CalculateButtons(), await CalculateResultLabels(), await GetWeaponNames(), await GetResults(await GetWeaponNames()), await GetBuffNames(), await AreWeaponsBlessed());
+                    s.SaveToHtml();
+
+                    return result;
+                }
+            });
+        }
+
+        private async Task<string[]> AreWeaponsBlessed()
+        {
+            return await Task.Run(() =>
+            {
+                int j = 0;
+                foreach (CheckBox c in Controls.OfType<CheckBox>())
+                {
+                    ++j;
+                }
+
+                string[] result = new string[j + 1];
+
+                int i = 1;
+                foreach (CheckBox cb in Controls.OfType<CheckBox>())
+                {
+                    if (cb.Name.Contains("Blessed"))
+                    {
+                        if (cb.Checked)
+                        {
+                            result[i] = cb.Text;
+                        }
+                        else
+                        {
+                            result[i] = "";
+                        }
+                        ++i;
+                    }
+                }
+                //result[result.Length - 1] = "";
+                return result;
+            });
         }
 
         #endregion
 
         #region ToolStripButtons
 
-        private void Save_Click(object sender, EventArgs e)
+        private async void Save_Click(object sender, EventArgs e)
         {
             RunBackgroundWorker();
 
-            int buttonNo = CalculateButtons();
-            int resultsNo = CalculateResultLabels();
-            string[] weapNames = GetWeaponNames();
-            decimal[] results = GetResults(weapNames);
-            string[] buffNames = GetBuffNames();
-            string[] bles = AreWeaponsBlessed();
+            int buttonNo = await CalculateButtons();
+            int resultsNo = await CalculateResultLabels();
+            string[] weapNames = await GetWeaponNames();
+            decimal[] results = await GetResults(weapNames);
+            string[] buffNames = await GetBuffNames();
+            string[] bles = await AreWeaponsBlessed();
 
             var s = new Saving(buttonNo, resultsNo, weapNames, results, buffNames, bles);
-            s.SaveToHtml();
-            
+            s.SaveToHtml();            
         }
 
 
-        private void CalcucalteAll_Click(object sender, EventArgs e)
+        private async void CalcucalteAll_Click(object sender, EventArgs e)
         {
             RunBackgroundWorker();
             RefreshCalculations();
         }
-
 
 
         private void CopyrightInfo_Click(object sender, EventArgs e)  
@@ -432,7 +454,7 @@ namespace L2MAtkCalcRemastered
             MessageBox.Show("Although code is open source project, all the images belong to NCSoft.", "Copyright Info", MessageBoxButtons.OK, MessageBoxIcon.Information); 
         }
 
-        private void Contributors_Click(object sender, EventArgs e)                 //add yourself here if you also contributted to this project!
+        private async void Contributors_Click(object sender, EventArgs e)                 //add yourself here if you also contributted to this project!
         {
             System.Diagnostics.Process.Start("https://github.com/Quanthis");
         }
@@ -443,42 +465,48 @@ namespace L2MAtkCalcRemastered
 
         #region Buffs
 
-        private bool[] GetActiveBuffs()
+        private async Task<bool[]> GetActiveBuffs()
         {
-            bool[] result = new bool[Buffs.Items.Count];
-            for (int i = 0; i < result.Length; i++)
+            return await Task.Run(() =>
             {
-                if (Buffs.GetItemCheckState(i) == CheckState.Checked)
+                bool[] result = new bool[Buffs.Items.Count];
+                for (int i = 0; i < result.Length; i++)
                 {
-                    result[i] = true;
+                    if (Buffs.GetItemCheckState(i) == CheckState.Checked)
+                    {
+                        result[i] = true;
+                    }
+                    else
+                    {
+                        result[i] = false;
+                    }
                 }
-                else
-                {
-                    result[i] = false;
-                }
-            }
 
-            return result;
+                return result;
+            });
         }
 
-        private string[] GetBuffNames()
+        private async Task<string[]> GetBuffNames()
         {
-            int i = 0;
-            foreach(object item in Buffs.CheckedItems)
+            return await Task.Run(() =>
             {
-                ++i;
-            }
+                int i = 0;
+                foreach (object item in Buffs.CheckedItems)
+                {
+                    ++i;
+                }
 
-            string[] result = new string[i];
+                string[] result = new string[i];
 
-            i = 0;
+                i = 0;
 
-            foreach(object item in Buffs.CheckedItems)
-            {
-                result[i] = (string)item;
-                ++i;
-            }
-            return result;
+                foreach (object item in Buffs.CheckedItems)
+                {
+                    result[i] = (string)item;
+                    ++i;
+                }
+                return result;
+            });
         }
 
         private void Buffs_SelectedIndexChanged(object sender, EventArgs e)
@@ -488,14 +516,14 @@ namespace L2MAtkCalcRemastered
 
         #endregion
 
-        #region BackGroundWorker
+        #region BackgroundWorker
 
         private void T2_DoWork(object sender, DoWorkEventArgs e)
         {
             using (BackgroundWorker bw = sender as BackgroundWorker)
             {
 
-                for (int i = 0; i <= 10; i++)
+                for (int i = 1; i < 5; i++)
                 {
                     if (bw.CancellationPending)
                     {
@@ -505,7 +533,7 @@ namespace L2MAtkCalcRemastered
                     else
                     {
                         Thread.Sleep(100);
-                        bw.ReportProgress(i * 10);
+                        bw.ReportProgress(i * 20);
                     }
                 }
                 
@@ -532,7 +560,7 @@ namespace L2MAtkCalcRemastered
             }
         }
 
-        private void RunBackgroundWorker()
+        private async void RunBackgroundWorker()
         {
             ProgressBar1.Visible = true;
             UseWaitCursor = true;
@@ -546,7 +574,7 @@ namespace L2MAtkCalcRemastered
             }
         }
 
-        private void ResetProgressBar()
+        private async void ResetProgressBar()
         {
             ProgressBar1.Visible = false;
             ProgressBar1.Value = 0;
@@ -556,8 +584,7 @@ namespace L2MAtkCalcRemastered
         #endregion
 
         #region Clear
-
-        private void ClearAll_Click(object sender, EventArgs e)
+        private async void ClearAll_Click(object sender, EventArgs e)
         {
             RunBackgroundWorker();
             foreach(CheckBox c in Controls.OfType<CheckBox>())
@@ -594,6 +621,147 @@ namespace L2MAtkCalcRemastered
                 MessageBox.Show("File 'OwnMAttack.txt' could not be deleted.", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
         }
+        #endregion
+
+        #region TestingTools
+        
+        public static async Task TestForResponsivenessV1()
+        {
+            for(int i = 0; i <= 10; i++)
+            {
+                Thread.Sleep(1000);
+            }
+
+            Debug.WriteLine("Work finished. ");
+        }
+
+        public static async Task TestForResponsivenessV2()
+        {
+            await Task.Run(() =>
+            {
+                  for (int i = 0; i <= 10; i++)
+                  {
+                        Thread.Sleep(1000);
+                  }
+
+              Debug.WriteLine("Work finished. ");
+            });
+        }
+
+        public static async Task<Task> TypedTestForResponsivenessV1()
+        {
+            return Task.Run(() =>
+            {
+                for (int i = 0; i <= 10; i++)
+                {
+                    Thread.Sleep(1000);
+                }
+
+                Debug.WriteLine("Work finished. ");
+            });
+        }
+
+        public static async Task<Task> TypedTestForResponsivenessV2()
+        {
+            return Task.Run(() =>
+            {
+                for (int i = 0; i <= 10; i++)
+                {
+                    Thread.Sleep(1000);
+                }
+
+                Debug.WriteLine("Work finished. ");
+                int r = 0;
+                return r;
+            });
+        }
+
+        public static async Task<int> TypedTestForResponsivenessV3()
+        {
+            return await Task.Run(() =>
+            {
+                for (int i = 0; i <= 10; i++)
+                {
+                    Thread.Sleep(1000);
+                }
+
+                Debug.WriteLine("Work finished.");
+
+                return 0;
+            });
+        }
+
+        public static async Task<int> TypedTestForResponsivenessV4()
+        {
+            for (int i = 0; i <= 10; i++)
+            {
+                Thread.Sleep(1000);
+            }
+
+            Debug.WriteLine("Work finished.");
+
+            return 0;
+        }
+
+
+        public static async Task<int> TypedTestForReponsivenessV5()
+        {
+            return await Task.Run(async () =>
+            {
+                for (int i = 0; i <= 10; i++)
+                {
+                    Thread.Sleep(1000);
+                }
+
+                Debug.WriteLine("Work finished. ");
+
+                return 0;
+            });
+        }
+
+
+        private async void TestButton_Click(object sender, EventArgs e)
+        {
+            //await Task.Run(async () =>
+            //{
+            //TestForResponsivenessV1();              //freezes app for period of time but remembers inputs                                //1
+            //TestForResponsivenessV2();                 //doesn't freeze app                                                              //2
+
+            //await TypedTestForResponsivenessV1();             //doesn't freeze app, no matter with awaiter or w/o                        //3
+            /*var r = TypedTestForResponsivenessV2().Result;
+            Debug.WriteLine(r);*/                        //doesn't freeze app, however returns used library instead of intended value      //4
+                                                         //additionaly, result is gained before method has run to end
+
+            //await TypedTestForResponsivenessV3();                 //doesn't freeze app although uselesness of this instruction at all    //5
+            /*int r = TypedTestForResponsivenessV3().Result;
+            Debug.WriteLine(r);    */                       //freezes app permanently                                                      //6
+
+            //Debug.WriteLine(await TypedTestForResponsivenessV4());                 //freezes app periodically                              //7
+            /*var r = TypedTestForResponsivenessV4().Result;
+            Debug.WriteLine(r);*/                               //freezes app periodically, returns expected result                        //8
+
+            /* When method body was moved into awaiter, most methods started behaving differently:
+             * 
+             * Method 8. stopped freezing app, result was still gained. 
+             * Method 7. also stopped freezing app.
+             * Method 6. also stopped freezing app, although it freezed it permanently.                 
+             * Method 6. also stopped freezing app, although it freezed it permanently.
+             * Method 5. - no changes.
+             * Method 4. - no changes.
+             * Method 3. - no changes.
+             * Method 2. - no changes.
+             * Method 1. stopped freezing app.
+             * 
+             * Additionaly, when we try to await task that doesn't return result async keyword must be declared at beggining.
+             * 
+             * */
+
+            //});
+
+            await TypedTestForResponsivenessV3();
+            //await TypedTestForReponsivenessV5();
+        }
+
         #endregion
     }
 }
