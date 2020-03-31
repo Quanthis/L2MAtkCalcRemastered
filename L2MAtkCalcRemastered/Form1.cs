@@ -13,7 +13,7 @@ using System.Numerics;
 
 namespace L2MAtkCalcRemastered
 {
-    public partial class Form1 : Form, IDisposable                               //remember to add database binding possibility soon, best in another branch (windows 7 compability problems)
+    public partial class Form1 : Form                               //remember to add database binding possibility soon, best in another branch (windows 7 compability problems)
     {
         #region Initialization
 
@@ -55,8 +55,9 @@ namespace L2MAtkCalcRemastered
                 (weaponAttack, weapName, OwnAtak, await HaveSigil(), await IsBlessed(Blessed, weapName), await GetActiveBuffs());   
             
             whereToSend.Text = wp.ConvertToSendableForm();
-            wp.Dispose();
-            
+            //wp.Dispose();
+
+            //wp = null;                //this instruction doesn't pay off - it takes up to 300kB of memory more
         }
 
         private async Task Sender(string weaponAttack, Label whereToSend, string weapName)
@@ -66,7 +67,9 @@ namespace L2MAtkCalcRemastered
                 (weaponAttack, OwnAtak, await GetActiveBuffs());
 
             whereToSend.Text = wp.ConvertToSendableForm();
-            wp.Dispose();
+            //wp.Dispose();
+
+            //wp = null;
         }
 
         private async Task RefreshCalculations()

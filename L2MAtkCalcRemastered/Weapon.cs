@@ -12,17 +12,20 @@ namespace L2MAtkCalcRemastered
 
         private bool disposed = false;
 
-        decimal factor = 31.4735M;
-        readonly static decimal sigilFactor = 1.04M;
-        readonly static decimal blessedFactor = 1.29M;
-        readonly static decimal essenceOfManaFactor = 0.49M;
+        protected decimal factor = 31.4735M;
 
-        decimal weaponAttack;
-        string weaponName;
-        string OwnMAttack2;
-        bool sigilOn;
-        bool isBlessed;
-        bool[] buffs;
+        protected readonly static decimal sigilFactor = 1.04M;
+        protected readonly static decimal blessedFactor = 1.29M;
+        protected readonly static decimal essenceOfManaFactor = 0.49M;
+
+        private decimal weaponAttack;
+        private string weaponName;
+        private string OwnMAttack2;
+        private bool sigilOn;
+        private bool isBlessed;
+        private bool[] buffs;
+
+        public bool alreadyNotified = true;
 
         internal Weapon(decimal weapAttack, string weapName, string OwnAttack, bool sigil, bool blessed, bool[] bufs)
         {
@@ -33,34 +36,7 @@ namespace L2MAtkCalcRemastered
             isBlessed = blessed;
             buffs = bufs;
 
-            if (buffs[0])
-            {
-                factor = 39.4513M;
-            }
-            if(buffs[1])
-            {
-                factor = factor + (factor * essenceOfManaFactor);
-            }
-            if(buffs[2])
-            {
-                factor *= 2;
-            }
-            if(buffs[3])
-            {
-                factor *= 1.45M;
-            }
-            if(buffs[4])
-            {
-                factor *= 2;
-            }
-            if(buffs[5])
-            {
-                factor *= 1.2M;
-            }
-            if(buffs[6])
-            {
-                factor *= 1.33M;
-            }
+            CheckBuffs();
         }
 
         internal Weapon(string weapAttack, string OwnAttack, bool[] bufs)
@@ -76,7 +52,12 @@ namespace L2MAtkCalcRemastered
             OwnMAttack2 = OwnAttack;
             buffs = bufs;
 
-            if(buffs[0])
+            CheckBuffs();
+        }
+
+        private void CheckBuffs()
+        {
+            if (buffs[0])
             {
                 factor = 39.4513M;
             }
@@ -105,6 +86,7 @@ namespace L2MAtkCalcRemastered
                 factor *= 1.33M;
             }
         }
+
         #endregion
 
         #region ClassMethods
