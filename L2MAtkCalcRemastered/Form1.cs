@@ -279,133 +279,147 @@ namespace L2MAtkCalcRemastered
 
         public async Task<int> CalculateButtons()
         {
-            int result = 0;
-            foreach (Button b in Controls.OfType<Button>())
+            return await Task.Run(() =>                                 //why did this method work before adding this? Because it only reads from UI thread?
             {
-                result++;
-            }
-            return result;
-
+                int result = 0;
+                foreach (Button b in Controls.OfType<Button>())
+                {
+                    result++;
+                }
+                return result;
+            });
         }
 
         public async Task<int> CalculateResultLabels()
         {
-            int result = 0;
-            foreach(Label l in Controls.OfType<Label>())
+            return await Task.Run(() =>
             {
-                if(l.Name.Contains("Result"))
+                int result = 0;
+                foreach (Label l in Controls.OfType<Label>())
                 {
-                    result++;
+                    if (l.Name.Contains("Result"))
+                    {
+                        result++;
+                    }
                 }
-            }
-            return result;
+                return result;
+            });
         }
-
         private async Task<string[]> GetWeaponNames()
         {
-            string[] result = new string[CalculateResultLabels().Result];
-            int i = 0;
-
-            foreach (Label l in Controls.OfType<Label>())
+            return await Task.Run(async() =>
             {
-                if ((l.Name.Contains("Rettributer") || (l.Name.Contains("Caster"))) && (!l.Name.Contains("Result")))
+                string[] result = new string[await CalculateResultLabels()];
+                int i = 0;
+
+                foreach (Label l in Controls.OfType<Label>())
                 {
-                    result[i] = l.Name;
-                    i++;
+                    if ((l.Name.Contains("Rettributer") || (l.Name.Contains("Caster"))) && (!l.Name.Contains("Result")))
+                    {
+                        result[i] = l.Name;
+                        i++;
+                    }
                 }
-            }
-            return result;
+                return result;
+            });
         }
 
         private async Task<string[]> GetResultsLabels()
         {
-            int i = 0;
-            string[] result = new string[CalculateResultLabels().Result];
-            foreach (Label l in Controls.OfType<Label>())
+            return await Task.Run(async() =>
             {
-                if (l.Name.Contains("Result"))
+                int i = 0;
+                string[] result = new string[await CalculateResultLabels()];
+                foreach (Label l in Controls.OfType<Label>())
                 {
-                    result[i] = l.Name;
-                    i++;
+                    if (l.Name.Contains("Result"))
+                    {
+                        result[i] = l.Name;
+                        i++;
+                    }
                 }
-            }
-            return result;
+                return result;
+            });
         }
 
         private async Task<decimal[]> GetResults(string[] weaponNames)                        //returns pairs result and their name
         {
-            try
+            return await Task.Run(async () =>                                           
             {
-                string[] resultFieldsNames = new string[CalculateResultLabels().Result];
-
-                for (int i = 0; i < CalculateResultLabels().Result; i++)
+                try
                 {
-                    resultFieldsNames[i] = GetResultsLabels().Result[i];
-                }                
+                    string[] resultFieldsNames = new string[await CalculateResultLabels()];
 
-                decimal[] result = new decimal[CalculateResultLabels().Result];
+                    resultFieldsNames = await GetResultsLabels();
 
-                for (int i = 0; i < result.Length; i++)
-                {
-                    if (resultFieldsNames[i].Contains(weaponNames[i]))
+                    decimal[] result = new decimal[await CalculateResultLabels()];
+
+                    for (int i = 0; i < result.Length; i++)
                     {
-                        foreach (Label l in Controls.OfType<Label>())
+                        if (resultFieldsNames[i].Contains(weaponNames[i]))
                         {
-                            if (l.Name == resultFieldsNames[i])
+                            foreach (Label l in Controls.OfType<Label>())
                             {
-                                result[i] = ToDecimal(l.Text);
+                                if (l.Name == resultFieldsNames[i])
+                                {
+                                    result[i] = ToDecimal(l.Text);
+                                }
                             }
                         }
                     }
+                    return result;
                 }
-                return result;
-            }
-            catch(Exception)
-            {
-                decimal[] result = new decimal[CalculateResultLabels().Result];
-
-                for (int i = 0; i < result.Length; i++)
+                catch (Exception)
                 {
-                    result[i] = 0;
+                    decimal[] result = new decimal[await CalculateResultLabels()];
+
+                    for (int i = 0; i < result.Length; i++)
+                    {
+                        result[i] = 0;
+                    }
+
+                    await RefreshCalculations();
+
+                    var s = new Saving
+                        (await CalculateButtons(), await CalculateResultLabels(), await GetWeaponNames(), await GetResults(await GetWeaponNames()), await GetBuffNames(), await AreWeaponsBlessed());
+                    s.SaveToHtml();
+
+                    return result;
                 }
-
-                RefreshCalculations();
-
-                var s = new Saving(CalculateButtons().Result, CalculateResultLabels().Result, GetWeaponNames().Result, GetResults(GetWeaponNames().Result).Result, GetBuffNames(),AreWeaponsBlessed().Result);
-                s.SaveToHtml();
-
-                return result;                
-            }
+            });
         }
 
         private async Task<string[]> AreWeaponsBlessed()
         {
-            int j = 0;
-            foreach(CheckBox c in Controls.OfType<CheckBox>())
+            return await Task.Run(() =>
             {
-                ++j;
-            }
-
-            string[] result = new string[j+1];
-
-            int i = 1;
-            foreach (CheckBox cb in Controls.OfType<CheckBox>())
-            {
-                if (cb.Name.Contains("Blessed"))
+                int j = 0;
+                foreach (CheckBox c in Controls.OfType<CheckBox>())
                 {
-                    if(cb.Checked)
-                    {
-                        result[i] = cb.Text;
-                    }
-                    else
-                    {
-                        result[i] = "";
-                    }
-                    ++i;
+                    ++j;
                 }
-            }
-            //result[result.Length - 1] = "";
-            return result;
+
+                string[] result = new string[j + 1];
+
+                int i = 1;
+                foreach (CheckBox cb in Controls.OfType<CheckBox>())
+                {
+                    if (cb.Name.Contains("Blessed"))
+                    {
+                        if (cb.Checked)
+                        {
+                            result[i] = cb.Text;
+                        }
+                        else
+                        {
+                            result[i] = "";
+                        }
+                        ++i;
+                    }
+                }
+                //result[result.Length - 1] = "";
+                return result;
+            });
         }
 
         #endregion
@@ -416,12 +430,12 @@ namespace L2MAtkCalcRemastered
         {
             RunBackgroundWorker();
 
-            int buttonNo = CalculateButtons().Result;
-            int resultsNo = CalculateResultLabels().Result;
-            string[] weapNames = GetWeaponNames().Result;
-            decimal[] results = GetResults(weapNames).Result;
-            string[] buffNames = GetBuffNames();
-            string[] bles = AreWeaponsBlessed().Result;
+            int buttonNo = await CalculateButtons();
+            int resultsNo = await CalculateResultLabels();
+            string[] weapNames = await GetWeaponNames();
+            decimal[] results = await GetResults(weapNames);
+            string[] buffNames = await GetBuffNames();
+            string[] bles = await AreWeaponsBlessed();
 
             var s = new Saving(buttonNo, resultsNo, weapNames, results, buffNames, bles);
             s.SaveToHtml();            
@@ -468,29 +482,31 @@ namespace L2MAtkCalcRemastered
                     }
                 }
 
-
                 return result;
             });
         }
 
-        private string[] GetBuffNames()
+        private async Task<string[]> GetBuffNames()
         {
-            int i = 0;
-            foreach(object item in Buffs.CheckedItems)
+            return await Task.Run(() =>
             {
-                ++i;
-            }
+                int i = 0;
+                foreach (object item in Buffs.CheckedItems)
+                {
+                    ++i;
+                }
 
-            string[] result = new string[i];
+                string[] result = new string[i];
 
-            i = 0;
+                i = 0;
 
-            foreach(object item in Buffs.CheckedItems)
-            {
-                result[i] = (string)item;
-                ++i;
-            }
-            return result;
+                foreach (object item in Buffs.CheckedItems)
+                {
+                    result[i] = (string)item;
+                    ++i;
+                }
+                return result;
+            });
         }
 
         private void Buffs_SelectedIndexChanged(object sender, EventArgs e)
