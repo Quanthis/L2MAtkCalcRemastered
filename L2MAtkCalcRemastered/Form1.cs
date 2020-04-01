@@ -23,7 +23,46 @@ namespace L2MAtkCalcRemastered
         }
 
         #endregion
-                
+
+        #region CheckForErrors
+        private async Task CheckIfErrorOccured()
+        {
+            await Task.Run(() =>
+            {
+                while (true)
+                {
+                    ushort flag = Weapon.ErrorCode;
+                    Weapon.ErrorCode = 0;
+
+                    switch (flag)
+                    {
+                        case 0:
+                            break;
+                        case 1:
+                            MessageBox.Show($"Field 'OwnMAttack' can only contain numbers!", "Error!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            break;
+                        case 2:
+                            MessageBox.Show("I don't think you attack is so low, try inserting it again :)", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                            break;
+                        case 3:
+                            MessageBox.Show($"Field 'OwnMAttack' cannot be empty and can only contain numbers!", "Error!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            break;
+                        case 4:
+                            MessageBox.Show("Have you really become a god among races?", "Error - unexpectedly high value", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            break;
+                        case 5:
+                            MessageBox.Show(@"Unexpected exception! Please report that issue on github: https://github.com/issues. My nickname is: Quanthis, repository: 'L2MAtkCalcRemastered'", "Error!");
+                            break;
+                        default:
+                            break;
+                    }
+
+                    Thread.Sleep(300);
+                }
+            });
+        }
+        #endregion
+
         #region Blessed
         private async Task<bool> IsBlessed(CheckBox isChecked, string wName)        
         {
@@ -128,6 +167,8 @@ namespace L2MAtkCalcRemastered
 
         private void Form1_Load(object sender, EventArgs e)
         {
+            CheckIfErrorOccured();
+
             Saving.CopyCSS();
 
             try

@@ -25,7 +25,7 @@ namespace L2MAtkCalcRemastered
         private bool isBlessed;
         private bool[] buffs;
 
-        public bool alreadyNotified = true;
+        public static ushort ErrorCode = 0;
 
         internal Weapon(decimal weapAttack, string weapName, string OwnAttack, bool sigil, bool blessed, bool[] bufs)
         {
@@ -47,7 +47,8 @@ namespace L2MAtkCalcRemastered
             }
             catch(Exception)
             {
-                MessageBox.Show($"Field 'OwnMAttack' can only contain numbers!", "Error!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                ErrorCode = 1;
+                
             }
             OwnMAttack2 = OwnAttack;
             buffs = bufs;
@@ -120,23 +121,23 @@ namespace L2MAtkCalcRemastered
                 result = ToDecimal(OwnMAttack2);
                 if (result == 0)
                 {
-                    MessageBox.Show("I don't think you attack is so low, try inserting it again :)", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    ErrorCode = 2;
                 }
                 return result;
             }
             catch (FormatException)
             {
-                MessageBox.Show($"Field 'OwnMAttack' cannot be empty and can only contain numbers!", "Error!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                ErrorCode = 3;
                 return 0;
             }
             catch (OverflowException)
             {
-                MessageBox.Show("Have you really become a god among races?", "Error - unexpectedly high value", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                ErrorCode = 4;
                 return 0;
             }
             catch (Exception)
             {
-                MessageBox.Show(@"Unexpected exception! Please report that issue on github: https://github.com/issues. My nickname is: Quanthis, repository: 'L2MAtkCalcRemastered'", "Error!");
+                ErrorCode = 5;
                 return 0;
             }
         }
