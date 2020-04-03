@@ -30,8 +30,7 @@ namespace L2MAtkCalcRemastered
             Blesseds = bless;
         }
         #endregion
-
-
+        
         #region CSS
         public static void CopyCSS()
         {

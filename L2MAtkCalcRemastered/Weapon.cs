@@ -1,12 +1,12 @@
 ﻿using System;
 using System.Threading.Tasks;
-using System.Windows.Forms;
-using static System.Convert;
 using System.Threading;
+using static System.Convert;
+
 
 namespace L2MAtkCalcRemastered
 {
-    class Weapon : IDisposable
+    public class Weapon : IDisposable
     {
         #region ClassPreparations
 
@@ -27,7 +27,7 @@ namespace L2MAtkCalcRemastered
 
         public static ushort ErrorCode = 0;
 
-        internal Weapon(decimal weapAttack, string weapName, string OwnAttack, bool sigil, bool blessed, bool[] bufs)
+        public Weapon(decimal weapAttack, string weapName, string OwnAttack, bool sigil, bool blessed, bool[] bufs)
         {
             weaponAttack = weapAttack;
             weaponName = weapName;
@@ -39,7 +39,7 @@ namespace L2MAtkCalcRemastered
             CheckBuffs();
         }
 
-        internal Weapon(string weapAttack, string OwnAttack, bool[] bufs)
+        public Weapon(string weapAttack, string OwnAttack, bool[] bufs)
         {
             try
             {
@@ -47,8 +47,7 @@ namespace L2MAtkCalcRemastered
             }
             catch(Exception)
             {
-                ErrorCode = 1;
-                
+                ErrorCode = 1;                
             }
             OwnMAttack2 = OwnAttack;
             buffs = bufs;

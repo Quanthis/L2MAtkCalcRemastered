@@ -5,6 +5,8 @@ VisualStudioVersion = 15.0.28307.1000
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "L2MAtkCalcRemastered", "L2MAtkCalcRemastered\L2MAtkCalcRemastered.csproj", "{C8ED1F46-F85F-4FDB-A559-EA5125083687}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tests", "MSTestTrialv1\Tests.csproj", "{08EC5393-F035-4980-B093-8EC7AF94B2F7}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{C8ED1F46-F85F-4FDB-A559-EA5125083687}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C8ED1F46-F85F-4FDB-A559-EA5125083687}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C8ED1F46-F85F-4FDB-A559-EA5125083687}.Release|Any CPU.Build.0 = Release|Any CPU
+		{08EC5393-F035-4980-B093-8EC7AF94B2F7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{08EC5393-F035-4980-B093-8EC7AF94B2F7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{08EC5393-F035-4980-B093-8EC7AF94B2F7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{08EC5393-F035-4980-B093-8EC7AF94B2F7}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
