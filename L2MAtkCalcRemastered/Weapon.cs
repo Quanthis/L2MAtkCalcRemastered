@@ -12,7 +12,7 @@ namespace L2MAtkCalcRemastered
 
         private bool disposed = false;
 
-        protected decimal factor = 31.4735M;
+        protected decimal weaponFactor = 31.4735M;
 
         protected readonly static decimal sigilFactor = 1.04M;
         protected readonly static decimal blessedFactor = 1.29M;
@@ -59,31 +59,31 @@ namespace L2MAtkCalcRemastered
         {
             if (buffs[0])
             {
-                factor = 39.4513M;
+                weaponFactor = 39.4513M;
             }
             if (buffs[1])
             {
-                factor = factor + (factor * essenceOfManaFactor);
+                weaponFactor = weaponFactor + (weaponFactor * essenceOfManaFactor);
             }
             if (buffs[2])
             {
-                factor *= 2;
+                weaponFactor *= 2;
             }
             if (buffs[3])
             {
-                factor *= 1.45M;
+                weaponFactor *= 1.45M;
             }
             if (buffs[4])
             {
-                factor *= 2;
+                weaponFactor *= 2;
             }
             if (buffs[5])
             {
-                factor *= 1.2M;
+                weaponFactor *= 1.2M;
             }
             if (buffs[6])
             {
-                factor *= 1.33M;
+                weaponFactor *= 1.33M;
             }
         }
 
@@ -148,29 +148,29 @@ namespace L2MAtkCalcRemastered
             {
                 if (DoesSigilMatter(weaponName))
                 {
-                    return (OwnAttack + (weaponAttack * blessedFactor) * factor) * sigilFactor;
+                    return (OwnAttack + (weaponAttack * blessedFactor) * weaponFactor) * sigilFactor;
                 }
                 else
                 {
-                    return (OwnAttack + (weaponAttack * blessedFactor) * factor);
+                    return (OwnAttack + (weaponAttack * blessedFactor) * weaponFactor);
                 }
             }
             else
             {
                 if (DoesSigilMatter(weaponName))
                 {
-                    return (OwnAttack + weaponAttack * factor) * sigilFactor;
+                    return (OwnAttack + weaponAttack * weaponFactor) * sigilFactor;
                 }
                 else
                 {
-                    return (OwnAttack + (weaponAttack * factor));
+                    return (OwnAttack + (weaponAttack * weaponFactor));
                 }
             }
         }
 
         private decimal CalculateMAtk(decimal OwnAttack, decimal weaponAttack)
         {
-            return (OwnAttack + weaponAttack * factor);
+            return (OwnAttack + weaponAttack * weaponFactor);
         }
         #endregion
 

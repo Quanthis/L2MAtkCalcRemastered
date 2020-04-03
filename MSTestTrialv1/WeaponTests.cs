@@ -1,12 +1,13 @@
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using L2MAtkCalcRemastered;
+using static System.Convert;
 
 namespace Tests
 {
     [TestClass]
     public class WeaponTests
     {
-        decimal factor = 31.4735M;
+        decimal weapFactor = 31.4735M;
 
         [TestMethod]
         public void CalculateMAtkOverload2()            //no buffs, no blessed, no sigil, 'Clean Case'
@@ -20,29 +21,22 @@ namespace Tests
                 ++i;
             }
 
-            string weapAttackRes = "293";
-            string ownAttackRes = "2390";
-            //var researchDataItem = new Weapon(weapAttackRes, ownAttackRes, buffs);
+            string weapAttack = "293";
+            string ownAttack = "2390";
 
-            decimal weapAttackPro = 293M;
-            decimal ownAttackPro = 2390M;
+            var programDataItem = new Weapon(weapAttack, ownAttack, buffs);
 
-            //var programDataItem = new Weapon(weapAttackPro, ownAttackPro, buffs);
+            var programResult = ToDecimal(programDataItem.ConvertToSendableForm());
 
-            var programResult = CalculateMAtk(ownAttackPro, weapAttackPro);
-            var correctProgramResult = CalculateMAtkTest(ownAttackPro, weapAttackPro);
+            //decimal correctProgramResult = 11611.7355M;
+            decimal correctProgramResult = CalculateMAtkTest(ToDecimal(ownAttack), ToDecimal(weapAttack));
 
             Assert.AreEqual(programResult, correctProgramResult);
         }
 
         private decimal CalculateMAtkTest(decimal OwnAttack, decimal weaponAttack)
         {
-            return (OwnAttack + weaponAttack) * factor;
-        }
-
-        private decimal CalculateMAtk(decimal OwnAttack, decimal weaponAttack)
-        {
-            return (OwnAttack + weaponAttack * factor);
+            return OwnAttack + (weaponAttack * weapFactor);
         }
     }
 }
