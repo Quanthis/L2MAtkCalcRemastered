@@ -56,7 +56,7 @@ namespace L2MAtkCalcRemastered
             var wp = new Weapon
                 (weaponAttack, weapName, OwnAtak, await HaveSigil(), await IsBlessed(Blessed, weapName), await GetActiveBuffs());   
             
-            whereToSend.Text = wp.ConvertToSendableForm();
+            whereToSend.Text = await wp.ConvertToSendableForm();
             //wp.Dispose();
 
             //wp = null;                //this instruction doesn't pay off - it takes up to 300kB of memory more
@@ -68,7 +68,7 @@ namespace L2MAtkCalcRemastered
             var wp = new Weapon
                 (weaponAttack, OwnAtak, await GetActiveBuffs());
 
-            whereToSend.Text = wp.ConvertToSendableForm();
+            whereToSend.Text = await wp.ConvertToSendableForm();
             //wp.Dispose();
 
             //wp = null;

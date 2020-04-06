@@ -1,6 +1,7 @@
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using L2MAtkCalcRemastered;
 using static System.Convert;
+using System.Threading.Tasks;
 
 namespace Tests
 {
@@ -30,13 +31,13 @@ namespace Tests
         #region TestedMethods
         #region NoBuffs
         [TestMethod]
-        public void CalculateMAtkOverloadClean()            //no buffs, no blessed, no sigil, 'Clean Case'
+        public async Task CalculateMAtkOverloadClean()            //no buffs, no blessed, no sigil, 'Clean Case'
         {
             bool[] buffs = InitializeEmptyBuffs();
 
             var programDataItem = new Weapon(apoCasterAttack.ToString(), ownAttack, buffs);
 
-            var programDataResult = ToDecimal(programDataItem.ConvertToSendableForm());
+            var programDataResult = ToDecimal(await programDataItem.ConvertToSendableForm());
 
             decimal correctResult = CalculateMAtkTest_Clean(ToDecimal(ownAttack), ToDecimal(apoCasterAttack));
 
@@ -44,7 +45,7 @@ namespace Tests
         }
 
         [TestMethod]
-        public void CalculateMAtkOverloadBlessed()
+        public async Task CalculateMAtkOverloadBlessed()
         {
             bool[] buffs = InitializeEmptyBuffs();
                                
@@ -53,7 +54,7 @@ namespace Tests
 
             var programDataItem = new Weapon(apoRettriAttack, apoRettributerName, ownAttack, sigil, blessed, buffs);
 
-            var programDataResult = ToDecimal(programDataItem.ConvertToSendableForm());
+            var programDataResult = ToDecimal(await programDataItem.ConvertToSendableForm());
 
             decimal correctResult = CalculateMAtkTests_Blessed(ToDecimal(ownAttack), apoRettriAttack);
 
@@ -61,7 +62,7 @@ namespace Tests
         }
 
         [TestMethod]
-        public void CalculateMAtkOverloadBlessedV2()
+        public async Task CalculateMAtkOverloadBlessedV2()
         {
             bool[] buffs = InitializeEmptyBuffs();
                                 
@@ -70,7 +71,7 @@ namespace Tests
 
             var programDataItem = new Weapon(apoCasterAttack, apoCasterName, ownAttack, sigil, blessed, buffs);
 
-            var programDataResult = ToDecimal(programDataItem.ConvertToSendableForm());
+            var programDataResult = ToDecimal(await programDataItem.ConvertToSendableForm());
 
             decimal correctResult = CalculateMAtkTests_Blessed(ToDecimal(ownAttack), apoCasterAttack);
 
@@ -78,7 +79,7 @@ namespace Tests
         }
 
         [TestMethod]
-        public void CalculateMAtkOverloadSigil()
+        public async Task CalculateMAtkOverloadSigil()
         {
             bool[] buffs = InitializeEmptyBuffs();
 
@@ -87,7 +88,7 @@ namespace Tests
 
             var programDataItem = new Weapon(apoCasterAttack, apoCasterName, ownAttack, sigil, blessed, buffs);
 
-            var programDataResult = ToDecimal(programDataItem.ConvertToSendableForm());
+            var programDataResult = ToDecimal(await programDataItem.ConvertToSendableForm());
 
             decimal correctResult = CalculateMAtkTests_Sigil(ToDecimal(ownAttack), apoCasterAttack);
 
@@ -95,7 +96,7 @@ namespace Tests
         }
 
         [TestMethod]
-        public void CalculateMAtkOverloadSigilV2()              //other weapon type than caster must be checked, because sigil only applies to caster
+        public async Task CalculateMAtkOverloadSigilV2()              //other weapon type than caster must be checked, because sigil only applies to caster
         {
             bool[] buffs = InitializeEmptyBuffs();
 
@@ -104,7 +105,7 @@ namespace Tests
 
             var programDataItem = new Weapon(apoRettriAttack, apoRettributerName, ownAttack, sigil, blessed, buffs);
 
-            var programDataResult = ToDecimal(programDataItem.ConvertToSendableForm());
+            var programDataResult = ToDecimal(await programDataItem.ConvertToSendableForm());
 
             decimal correctResult = CalculateMAtkTests_Sigil(ToDecimal(ownAttack), apoRettriAttack);
 
@@ -112,7 +113,7 @@ namespace Tests
         }
 
         [TestMethod]
-        public void CalculateMAtkOverloadSigilAndBlessed()
+        public async Task CalculateMAtkOverloadSigilAndBlessed()
         {
             bool[] buffs = InitializeEmptyBuffs();
 
@@ -121,7 +122,7 @@ namespace Tests
 
             var programDataItem = new Weapon(apoCasterAttack, apoCasterName, ownAttack, sigil, blessed, buffs);
 
-            var programDataResult = ToDecimal(programDataItem.ConvertToSendableForm());
+            var programDataResult = ToDecimal(await programDataItem.ConvertToSendableForm());
 
             decimal correctResult = CalculateMAtkTests_Sigil_Blessed(ToDecimal(ownAttack), apoCasterAttack);
 
@@ -129,7 +130,7 @@ namespace Tests
         }
 
         [TestMethod]
-        public void CalculateMAtkOverloadSigilAndBlessedV2()
+        public async Task CalculateMAtkOverloadSigilAndBlessedV2()
         {
             bool[] buffs = InitializeEmptyBuffs();
 
@@ -138,7 +139,7 @@ namespace Tests
 
             var programDataItem = new Weapon(apoRettriAttack, apoRettributerName, ownAttack, sigil, blessed, buffs);
 
-            var programDataResult = ToDecimal(programDataItem.ConvertToSendableForm());
+            var programDataResult = ToDecimal(await programDataItem.ConvertToSendableForm());
 
             decimal correctResult = CalculateMAtkTests_Sigil_Blessed(ToDecimal(ownAttack), apoRettriAttack);
 
@@ -148,7 +149,7 @@ namespace Tests
 
         #region Buffs+
         [TestMethod]
-        public void TestEcho()
+        public async Task TestEcho()
         {
             bool[] buffs = { true, false, false, false, false, false, false };
             bool sigil = true;
@@ -156,7 +157,7 @@ namespace Tests
 
             var programDataItem = new Weapon(apoCasterAttack, apoCasterName, ownAttack, sigil, blessed, buffs);
 
-            var programDataResult = ToDecimal(programDataItem.ConvertToSendableForm());
+            var programDataResult = ToDecimal(await programDataItem.ConvertToSendableForm());
 
             decimal correctResult = B_CalculateMAtkTests_Echo(ToDecimal(ownAttack), apoCasterAttack);
 
@@ -164,7 +165,7 @@ namespace Tests
         }
 
         [TestMethod]
-        public void TestEssenceOfMana()
+        public async Task TestEssenceOfMana()
         {
             bool[] buffs = { false, true, false, false, false, false, false };
             bool sigil = true;
@@ -172,7 +173,7 @@ namespace Tests
 
             var programDataItem = new Weapon(apoCasterAttack, apoCasterName, ownAttack, sigil, blessed, buffs);
 
-            var programDataResult = ToDecimal(programDataItem.ConvertToSendableForm());
+            var programDataResult = ToDecimal(await programDataItem.ConvertToSendableForm());
 
             decimal correctResult = B_CalculateMAtkTests_EssenceOfMana(apoCasterAttack);
 
@@ -180,7 +181,7 @@ namespace Tests
         }
 
         [TestMethod]
-        public void TestBattleRhapsody()
+        public async Task TestBattleRhapsody()
         {
             bool[] buffs = { false, false, true, false, false, false, false };
             bool sigil = true;
@@ -188,7 +189,7 @@ namespace Tests
 
             var programDataItem = new Weapon(apoCasterAttack, apoCasterName, ownAttack, sigil, blessed, buffs);
 
-            var programDataResult = ToDecimal(programDataItem.ConvertToSendableForm());
+            var programDataResult = ToDecimal(await programDataItem.ConvertToSendableForm());
 
             decimal correctResult = B_CalculateMAtkTests_BattleRhapsody(apoCasterAttack);
 
@@ -196,7 +197,7 @@ namespace Tests
         }
 
         [TestMethod]
-        public void TestHornMelody()
+        public async Task TestHornMelody()
         {
             bool[] buffs = { false, false, false, true, false, false, false };
             bool sigil = true;
@@ -204,7 +205,7 @@ namespace Tests
 
             var programDataItem = new Weapon(apoCasterAttack, apoCasterName, ownAttack, sigil, blessed, buffs);
 
-            var programDataResult = ToDecimal(programDataItem.ConvertToSendableForm());
+            var programDataResult = ToDecimal(await programDataItem.ConvertToSendableForm());
 
             decimal correctResult = B_CalculateMAtkTests_HornMelody(apoCasterAttack);
 
@@ -212,7 +213,7 @@ namespace Tests
         }
 
         [TestMethod]
-        public void TestFantasiaHarmony()
+        public async Task TestFantasiaHarmony()
         {
             bool[] buffs = { false, false, false, false, true, false, false };
             bool sigil = true;
@@ -220,7 +221,7 @@ namespace Tests
 
             var programDataItem = new Weapon(apoCasterAttack, apoCasterName, ownAttack, sigil, blessed, buffs);
 
-            var programDataResult = ToDecimal(programDataItem.ConvertToSendableForm());
+            var programDataResult = ToDecimal(await programDataItem.ConvertToSendableForm());
 
             decimal correctResult = B_CalculateMAtkTests_FantasiaHarmony(apoCasterAttack);
 
@@ -228,7 +229,7 @@ namespace Tests
         }
 
         [TestMethod]
-        public void TestProphecyOfMight()
+        public async Task TestProphecyOfMight()
         {
             bool[] buffs = { false, false, false, false, false, true, false };
             bool sigil = true;
@@ -236,7 +237,7 @@ namespace Tests
 
             var programDataItem = new Weapon(apoCasterAttack, apoCasterName, ownAttack, sigil, blessed, buffs);
 
-            var programDataResult = ToDecimal(programDataItem.ConvertToSendableForm());
+            var programDataResult = ToDecimal(await programDataItem.ConvertToSendableForm());
 
             decimal correctResult = B_CalculateMAtkTests_ProphecyOfMight(apoCasterAttack);
 
@@ -244,7 +245,7 @@ namespace Tests
         }
 
         [TestMethod]
-        public void TestPrevailingSonata()
+        public async Task TestPrevailingSonata()
         {
             bool[] buffs = { false, false, false, false, false, false, true };
             bool sigil = true;
@@ -252,7 +253,7 @@ namespace Tests
 
             var programDataItem = new Weapon(apoCasterAttack, apoCasterName, ownAttack, sigil, blessed, buffs);
 
-            var programDataResult = ToDecimal(programDataItem.ConvertToSendableForm());
+            var programDataResult = ToDecimal(await programDataItem.ConvertToSendableForm());
 
             decimal correctResult = B_CalculateMAtkTests_PrevailingSonata(apoCasterAttack);
 
@@ -261,8 +262,7 @@ namespace Tests
 
         #endregion
         #endregion
-
-
+        
         #region TestMethods
         #region noBuffsAgain
         private bool[] InitializeEmptyBuffs()

@@ -11,12 +11,22 @@ namespace L2MAtkCalcRemastered
         #region ClassPreparations
 
         private bool disposed = false;
-
-        protected decimal weaponFactor = 31.4735M;
-
+               
         protected readonly static decimal sigilFactor = 1.04M;
         protected readonly static decimal blessedFactor = 1.29M;
-        protected readonly static decimal essenceOfManaFactor = 0.49M;
+
+        private readonly static decimal echoFactor = 1.2534767343956026498482850652136M;
+        private readonly static decimal essenceOfManaFactor = 0.49M;
+        private readonly static decimal battleRhapsodyFactor = 2M;
+        private readonly static decimal hornMelodyFactor = 1.45M;
+        private readonly static decimal fantasiaHarmonyFactor = 2M;
+        private readonly static decimal prophecyOfMightFactor = 1.2M;
+        private readonly static decimal prevailingSonataFactor = 1.33M;
+
+        public static ushort ErrorCode = 0;
+
+        protected decimal weaponFactor = 31.4735M;
+        protected decimal ownAttackFactor = 1M;
 
         private decimal weaponAttack;
         private string weaponName;
@@ -25,7 +35,7 @@ namespace L2MAtkCalcRemastered
         private bool isBlessed;
         private bool[] buffs;
 
-        public static ushort ErrorCode = 0;
+
 
         public Weapon(decimal weapAttack, string weapName, string OwnAttack, bool sigil, bool blessed, bool[] bufs)
         {
@@ -57,33 +67,40 @@ namespace L2MAtkCalcRemastered
 
         private void CheckBuffs()
         {
-            if (buffs[0])
+            if (buffs[0])               
             {
-                weaponFactor *= 1.2534767343956026498482850652136M;
+                weaponFactor *= echoFactor;
+                ownAttackFactor *= echoFactor;
             }
-            if (buffs[1])
+            if (buffs[1])               
             {
-                weaponFactor = weaponFactor + (weaponFactor * essenceOfManaFactor);
+                weaponFactor *= essenceOfManaFactor;
+                ownAttackFactor *= essenceOfManaFactor;
             }
             if (buffs[2])
             {
-                weaponFactor *= 2;
+                weaponFactor *= battleRhapsodyFactor;
+                ownAttackFactor *= battleRhapsodyFactor;
             }
             if (buffs[3])
             {
-                weaponFactor *= 1.45M;
+                weaponFactor *= hornMelodyFactor;
+                ownAttackFactor *= hornMelodyFactor;
             }
             if (buffs[4])
             {
-                weaponFactor *= 2;
+                weaponFactor *= fantasiaHarmonyFactor;
+                ownAttackFactor *= fantasiaHarmonyFactor;
             }
             if (buffs[5])
             {
-                weaponFactor *= 1.2M;
+                weaponFactor *= prophecyOfMightFactor;
+                ownAttackFactor *= prophecyOfMightFactor;
             }
             if (buffs[6])
             {
-                weaponFactor *= 1.33M;
+                weaponFactor *= prevailingSonataFactor;
+                ownAttackFactor *= prevailingSonataFactor;
             }
         }
 
@@ -91,105 +108,119 @@ namespace L2MAtkCalcRemastered
 
         #region ClassMethods
 
-        private bool DoesSigilMatter(string weaponName)
+        private async Task<bool> DoesSigilMatter(string weaponName)
         {
-            if (sigilOn)
+            return await Task.Run(() =>
             {
-                if (weaponName.Contains("Rettributer"))
+                if (sigilOn)
+                {
+                    if (weaponName.Contains("Rettributer"))
+                    {
+                        return false;
+                    }
+                    else
+                    {
+                        return true;
+                    }
+                }
+                else
                 {
                     return false;
                 }
-                else
-                {
-                    return true;
-                }
-            }
-            else
-            {
-                return false;
-            }
+            });
         }
 
-
-        private decimal ConvertOwnAttack()
-        {           
-            decimal result;
-
-            try
-            {
-                result = ToDecimal(OwnMAttack2);
-                if (result == 0)
-                {
-                    ErrorCode = 2;
-                }
-                return result;
-            }
-            catch (FormatException)
-            {
-                ErrorCode = 3;
-                return 0;
-            }
-            catch (OverflowException)
-            {
-                ErrorCode = 4;
-                return 0;
-            }
-            catch (Exception)
-            {
-                ErrorCode = 5;
-                return 0;
-            }
-        }
-
-
-        private decimal CalculateMAtk(decimal OwnAttack, decimal weaponAttack, string weaponName)
+        private async Task<decimal> ConvertOwnAttack()
         {
-            if (isBlessed)
+            return await Task.Run(() =>
             {
-                if (DoesSigilMatter(weaponName))
+                decimal result;
+
+                try
                 {
-                    return (OwnAttack + (weaponAttack * blessedFactor) * weaponFactor) * sigilFactor;
+                    result = ToDecimal(OwnMAttack2);
+                    if (result == 0)
+                    {
+                        ErrorCode = 2;
+                    }
+                    return result;
                 }
-                else
+                catch (FormatException)
                 {
-                    return (OwnAttack + (weaponAttack * blessedFactor) * weaponFactor);
+                    ErrorCode = 3;
+                    return 0;
                 }
-            }
-            else
-            {
-                if (DoesSigilMatter(weaponName))
+                catch (OverflowException)
                 {
-                    return (OwnAttack + weaponAttack * weaponFactor) * sigilFactor;
+                    ErrorCode = 4;
+                    return 0;
                 }
-                else
+                catch (Exception)
                 {
-                    return (OwnAttack + (weaponAttack * weaponFactor));
+                    ErrorCode = 5;
+                    return 0;
                 }
-            }
+            });
         }
 
-        private decimal CalculateMAtk(decimal OwnAttack, decimal weaponAttack)
+
+        private async Task<decimal> CalculateMAtk(decimal OwnAttack, string weaponName)
         {
-            return (OwnAttack + weaponAttack * weaponFactor);
+            return await Task.Run(async() =>
+            {
+                if (isBlessed)
+                {
+                    if (await DoesSigilMatter(weaponName))
+                    {
+                        return (OwnAttack * ownAttackFactor + (weaponAttack * blessedFactor) * weaponFactor) * sigilFactor;
+                    }
+                    else
+                    {
+                        return (OwnAttack * ownAttackFactor + (weaponAttack * blessedFactor) * weaponFactor);
+                    }
+                }
+                else
+                {
+                    if (await DoesSigilMatter(weaponName))
+                    {
+                        return (OwnAttack * ownAttackFactor + weaponAttack * weaponFactor) * sigilFactor;
+                    }
+                    else
+                    {
+                        return (OwnAttack * ownAttackFactor + (weaponAttack * weaponFactor));
+                    }
+                }
+            });
+        }
+
+        private async Task<decimal> CalculateMAtk(decimal OwnAttack)
+        {
+            return await Task.Run(() =>
+            {
+                return (OwnAttack * ownAttackFactor + weaponAttack * weaponFactor);
+            });
         }
         #endregion
 
         #region ReturningValues
 
-        public string ConvertToSendableForm()
+        public async Task <string> ConvertToSendableForm()
         {
-            if (weaponName != null)
+            return await Task.Run(async () =>
             {
-                decimal sentValue = CalculateMAtk(ConvertOwnAttack(), weaponAttack, weaponName);
-                string result = sentValue.ToString();
-                return result;
-            }
-            else
-            {
-                decimal sentValue = CalculateMAtk(ConvertOwnAttack(), weaponAttack);
-                string result = sentValue.ToString();
-                return result;
-            }
+                if (weaponName != null)
+                {
+                    decimal sentValue = await CalculateMAtk(await ConvertOwnAttack(), weaponName);
+                    string result = sentValue.ToString();
+                    return result;
+                }
+                else
+                {
+                    decimal sentValue = await CalculateMAtk(await ConvertOwnAttack());
+                    string result = sentValue.ToString();
+                    return result;
+                }
+            });
         }
 
         #endregion
