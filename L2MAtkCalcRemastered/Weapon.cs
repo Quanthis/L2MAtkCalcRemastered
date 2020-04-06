@@ -59,7 +59,7 @@ namespace L2MAtkCalcRemastered
         {
             if (buffs[0])
             {
-                weaponFactor = 39.4513M;
+                weaponFactor *= 1.2534767343956026498482850652136M;
             }
             if (buffs[1])
             {
