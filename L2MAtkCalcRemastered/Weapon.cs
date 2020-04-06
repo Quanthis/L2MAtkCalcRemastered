@@ -6,7 +6,7 @@ using static System.Convert;
 
 namespace L2MAtkCalcRemastered
 {
-    public class Weapon : IDisposable
+    public class Weapon : IDisposable, SendableAsync
     {
         #region ClassPreparations
 
@@ -35,6 +35,7 @@ namespace L2MAtkCalcRemastered
         private bool isBlessed;
         private bool[] buffs;
 
+        private Character character;
 
 
         public Weapon(decimal weapAttack, string weapName, string OwnAttack, bool sigil, bool blessed, bool[] bufs)
@@ -45,7 +46,7 @@ namespace L2MAtkCalcRemastered
             sigilOn = sigil;
             isBlessed = blessed;
             buffs = bufs;
-
+            
             CheckBuffs();
         }
 
@@ -63,6 +64,20 @@ namespace L2MAtkCalcRemastered
             buffs = bufs;
 
             CheckBuffs();
+        }
+
+        public Weapon(decimal weapAttack, string weapName, string OwnAttack, bool sigil, bool blessed, bool[] bufs, uint intelligence)
+        {
+            weaponAttack = weapAttack;
+            weaponName = weapName;
+            OwnMAttack2 = OwnAttack;
+            sigilOn = sigil;
+            isBlessed = blessed;
+            buffs = bufs;
+
+            CheckBuffs();
+
+            character = new Character(intelligence);
         }
 
         private void CheckBuffs()

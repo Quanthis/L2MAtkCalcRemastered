@@ -43,14 +43,14 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="L2MAtkCalcRemastered.exe" size="18167808">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="L2MAtkCalcRemastered.exe" size="18169344">
       <assemblyIdentity name="L2MAtkCalcRemastered" version="1.0.0.1" language="neutral" processorArchitecture="amd64" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>gQ7kahXq8Yx3tL1zqNQsKQOpPnxeCPX8GiahVI7vsA0=</dsig:DigestValue>
+        <dsig:DigestValue>UMtdLoF7mK8tJEtZbRQHWr0JfI46LluW9Ial6rII13g=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>

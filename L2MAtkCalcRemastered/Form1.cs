@@ -170,6 +170,7 @@ namespace L2MAtkCalcRemastered
         private void Form1_Load(object sender, EventArgs e)
         {
             CheckIfErrorOccured();
+            TestButton.Dispose();
 
             Saving.CopyCSS();
 

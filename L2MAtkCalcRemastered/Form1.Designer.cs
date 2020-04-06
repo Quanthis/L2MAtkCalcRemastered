@@ -44,6 +44,7 @@
             this.CopyrightInfo = new System.Windows.Forms.ToolStripButton();
             this.Contributors = new System.Windows.Forms.ToolStripButton();
             this.ClearAll = new System.Windows.Forms.ToolStripButton();
+            this.TestButton = new System.Windows.Forms.ToolStripButton();
             this.ApoRettributer = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
             this.ApocalypseRettributerResult = new System.Windows.Forms.Label();
@@ -82,7 +83,8 @@
             this.Buffs = new System.Windows.Forms.CheckedListBox();
             this.ProgressBar1 = new System.Windows.Forms.ProgressBar();
             this.T2 = new System.ComponentModel.BackgroundWorker();
-            this.TestButton = new System.Windows.Forms.ToolStripButton();
+            this.Intelligence = new System.Windows.Forms.TextBox();
+            this.IntelligenceInfo = new System.Windows.Forms.Label();
             this.toolStrip1.SuspendLayout();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
@@ -259,6 +261,15 @@
             this.ClearAll.Size = new System.Drawing.Size(38, 22);
             this.ClearAll.Text = "Clear";
             this.ClearAll.Click += new System.EventHandler(this.ClearAll_Click);
+            // 
+            // TestButton
+            // 
+            this.TestButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
+            this.TestButton.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.TestButton.Name = "TestButton";
+            this.TestButton.Size = new System.Drawing.Size(57, 22);
+            this.TestButton.Text = "TestTool";
+            this.TestButton.Click += new System.EventHandler(this.TestButton_Click);
             // 
             // ApoRettributer
             // 
@@ -694,14 +705,24 @@
             this.T2.ProgressChanged += new System.ComponentModel.ProgressChangedEventHandler(this.T2_ProgressChanged);
             this.T2.RunWorkerCompleted += new System.ComponentModel.RunWorkerCompletedEventHandler(this.T2_RunWorkerCompleted);
             // 
-            // TestButton
+            // Intelligence
             // 
-            this.TestButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
-            this.TestButton.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.TestButton.Name = "TestButton";
-            this.TestButton.Size = new System.Drawing.Size(57, 22);
-            this.TestButton.Text = "TestTool";
-            this.TestButton.Click += new System.EventHandler(this.TestButton_Click);
+            this.Intelligence.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.5F);
+            this.Intelligence.Location = new System.Drawing.Point(1589, 900);
+            this.Intelligence.Name = "Intelligence";
+            this.Intelligence.Size = new System.Drawing.Size(100, 22);
+            this.Intelligence.TabIndex = 42;
+            this.Intelligence.Text = "115";
+            // 
+            // IntelligenceInfo
+            // 
+            this.IntelligenceInfo.AutoSize = true;
+            this.IntelligenceInfo.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.5F);
+            this.IntelligenceInfo.Location = new System.Drawing.Point(1589, 863);
+            this.IntelligenceInfo.Name = "IntelligenceInfo";
+            this.IntelligenceInfo.Size = new System.Drawing.Size(136, 16);
+            this.IntelligenceInfo.TabIndex = 43;
+            this.IntelligenceInfo.Text = "Insert your INT below:";
             // 
             // Form1
             // 
@@ -712,6 +733,8 @@
             this.BackgroundImage = global::L2MAtkCalcRemastered.Properties.Resources.Shot00113;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(1904, 1004);
+            this.Controls.Add(this.IntelligenceInfo);
+            this.Controls.Add(this.Intelligence);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.ProgressBar1);
             this.Controls.Add(this.OwnWeaponAttack);
@@ -826,6 +849,8 @@
         private System.Windows.Forms.Label ActiveBuffs;
         private System.Windows.Forms.ToolStripButton ClearAll;
         private System.Windows.Forms.ToolStripButton TestButton;
+        private System.Windows.Forms.TextBox Intelligence;
+        private System.Windows.Forms.Label IntelligenceInfo;
     }
 }
 
