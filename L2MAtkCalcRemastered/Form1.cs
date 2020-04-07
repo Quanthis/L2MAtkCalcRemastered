@@ -135,8 +135,8 @@ namespace L2MAtkCalcRemastered
             {
                 while (true)
                 {
-                    ushort flag = Weapon.ErrorCode;
-                    Weapon.ErrorCode = 0;
+                    ushort flag = Weapon.GetErrorCode();
+                    Weapon.ResetErrorCode();
 
                     switch (flag)
                     {

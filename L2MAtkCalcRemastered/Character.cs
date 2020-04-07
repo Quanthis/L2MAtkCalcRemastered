@@ -7,10 +7,10 @@ namespace L2MAtkCalcRemastered
     {
         private readonly static decimal intelligenceFactor = 163.7612166428M;
         
-        private uint INT = 115;
+        private int INT = 115;
 
 
-        public Character(uint intelligence)
+        public Character(int intelligence)
         {
             INT = intelligence;
         }
@@ -19,8 +19,18 @@ namespace L2MAtkCalcRemastered
         {
             return await Task.Run(() =>
             {
-                return totalMagicalAttack * intelligenceFactor;
+                return (totalMagicalAttack / 12 )  * (intelligenceFactor * INT);
             });
+        }
+
+        private decimal BalanceIntelligence(decimal totalMagicalAttack)
+        {
+            return totalMagicalAttack + intelligenceFactor * GetINTDifference();
+        }
+
+        private int GetINTDifference()
+        {
+            return 115 - INT;
         }
     }
 }

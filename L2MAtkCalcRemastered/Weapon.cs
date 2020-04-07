@@ -23,7 +23,7 @@ namespace L2MAtkCalcRemastered
         private readonly static decimal prophecyOfMightFactor = 1.2M;
         private readonly static decimal prevailingSonataFactor = 1.33M;
 
-        public static ushort ErrorCode = 0;
+        private static ushort ErrorCode = 0;
 
         protected decimal weaponFactor = 31.4735M;
         protected decimal ownAttackFactor = 1M;
@@ -66,7 +66,7 @@ namespace L2MAtkCalcRemastered
             CheckBuffs();
         }
 
-        public Weapon(decimal weapAttack, string weapName, string OwnAttack, bool sigil, bool blessed, bool[] bufs, uint intelligence)
+        public Weapon(decimal weapAttack, string weapName, string OwnAttack, bool sigil, bool blessed, bool[] bufs, int intelligence)
         {
             weaponAttack = weapAttack;
             weaponName = weapName;
@@ -238,6 +238,16 @@ namespace L2MAtkCalcRemastered
             });
         }
 
+        public static ushort GetErrorCode()
+        {
+            return ErrorCode;
+        }
+
+        public static void ResetErrorCode()
+        {
+            ErrorCode = 0;
+        }
+
         #endregion
 
         #region Cleaning
@@ -254,7 +264,7 @@ namespace L2MAtkCalcRemastered
             {
                 if(disposing)
                 {
-                                    //dispose external objects here (there are no external objects here atm)
+                    character = null;           
                 }
 
                 disposed = true;
