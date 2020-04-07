@@ -140,7 +140,7 @@ namespace L2MAtkCalcRemastered
                     switch (flag)
                     {
                         case 1:
-                            MessageBox.Show($"Fields 'OwnMAttack' and 'INT' can only contain numbers!", "Error!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            MessageBox.Show($"Fields 'OwnMAttack', 'Weapon M. Attack' and 'INT' may only contain numbers!", "Error!", MessageBoxButtons.OK, MessageBoxIcon.Error);
                             break;
                         case 2:
                             MessageBox.Show("I don't think you attack is so low, try inserting it again :)", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
@@ -168,6 +168,7 @@ namespace L2MAtkCalcRemastered
         {
             CheckIfErrorOccured();
             TestButton.Dispose();
+            CopyrightInfo.Dispose();
 
             Saving.CopyCSS();
 
@@ -194,12 +195,12 @@ namespace L2MAtkCalcRemastered
                     {
                         using (StreamWriter sw = new StreamWriter(fs, Encoding.Unicode))
                         {
-                            string toSave = OwnMAttack.Text = Microsoft.VisualBasic.Interaction.InputBox("What's your magic attack?", "Need informations from user to proceed...");
+                            string toSave = OwnMAttack.Text = Microsoft.VisualBasic.Interaction.InputBox("What's your magic attack?\n (Without weapon and buffs)", "Need informations from user to proceed...");
                             sw.WriteLine(toSave);
 
                             while (OwnMAttack.Text.Length == 0)
                             {
-                                sw.WriteLine(OwnMAttack.Text = Microsoft.VisualBasic.Interaction.InputBox("What's your magic attack?", "This field cannot be empty!"));
+                                sw.WriteLine(OwnMAttack.Text = Microsoft.VisualBasic.Interaction.InputBox("What's your magic attack?\n (Without weapon and buffs)", "This field cannot be empty!"));
                             }
                         }
                     }
@@ -348,6 +349,7 @@ namespace L2MAtkCalcRemastered
                 return result;
             });
         }
+
         private async Task<string[]> GetWeaponNames()
         {
             return await Task.Run(async() =>
@@ -472,6 +474,7 @@ namespace L2MAtkCalcRemastered
         private async void Save_Click(object sender, EventArgs e)
         {
             RunBackgroundWorker();
+            await RefreshCalculations();
 
             int buttonNo = await CalculateButtons();
             int resultsNo = await CalculateResultLabels();

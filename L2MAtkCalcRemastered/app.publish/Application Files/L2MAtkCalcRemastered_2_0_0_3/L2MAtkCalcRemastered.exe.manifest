@@ -1,0 +1,101 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<asmv1:assembly xsi:schemaLocation="urn:schemas-microsoft-com:asm.v1 assembly.adaptive.xsd" manifestVersion="1.0" xmlns:asmv1="urn:schemas-microsoft-com:asm.v1" xmlns="urn:schemas-microsoft-com:asm.v2" xmlns:asmv2="urn:schemas-microsoft-com:asm.v2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:co.v1="urn:schemas-microsoft-com:clickonce.v1" xmlns:asmv3="urn:schemas-microsoft-com:asm.v3" xmlns:dsig="http://www.w3.org/2000/09/xmldsig#" xmlns:co.v2="urn:schemas-microsoft-com:clickonce.v2">
+  <asmv1:assemblyIdentity name="L2MAtkCalcRemastered.exe" version="2.0.0.3" publicKeyToken="16c85757792835ee" language="en" processorArchitecture="amd64" type="win32" />
+  <description asmv2:iconFile="lineage2.ico" xmlns="urn:schemas-microsoft-com:asm.v1" />
+  <application />
+  <entryPoint>
+    <assemblyIdentity name="L2MAtkCalcRemastered" version="2.0.0.1" language="neutral" processorArchitecture="amd64" />
+    <commandLine file="L2MAtkCalcRemastered.exe" parameters="" />
+  </entryPoint>
+  <trustInfo>
+    <security>
+      <applicationRequestMinimum>
+        <PermissionSet version="1" class="System.Security.NamedPermissionSet" Name="LocalIntranet" Description="Default rights given to applications on the local intranet" Unrestricted="true" ID="Custom" SameSite="site" />
+        <defaultAssemblyRequest permissionSetReference="Custom" />
+      </applicationRequestMinimum>
+      <requestedPrivileges xmlns="urn:schemas-microsoft-com:asm.v3">
+        <!-- Opcje manifestu Kontroli konta użytkownika
+             Jeśli chcesz zmienić poziom Kontroli konta użytkownika systemu Windows, zastąp 
+             węzeł requestedExecutionLevel jednym z następujących.
+
+        <requestedExecutionLevel  level="asInvoker" uiAccess="false" />
+        <requestedExecutionLevel  level="requireAdministrator" uiAccess="false" />
+        <requestedExecutionLevel  level="highestAvailable" uiAccess="false" />
+
+            Określenie elementu requestedExecutionLevel spowoduje wyłączenie wirtualizacji plików i rejestru. 
+            Usuń ten element, jeśli aplikacja wymaga wirtualizacji w celu zachowania
+            zgodności z poprzednimi wersjami.
+        -->
+        <requestedExecutionLevel level="asInvoker" uiAccess="false" />
+      </requestedPrivileges>
+    </security>
+  </trustInfo>
+  <dependency>
+    <dependentOS>
+      <osVersionInfo>
+        <os majorVersion="5" minorVersion="1" buildNumber="2600" servicePackMajor="0" />
+      </osVersionInfo>
+    </dependentOS>
+  </dependency>
+  <dependency>
+    <dependentAssembly dependencyType="preRequisite" allowDelayedBinding="true">
+      <assemblyIdentity name="Microsoft.Windows.CommonLanguageRuntime" version="4.0.30319.0" />
+    </dependentAssembly>
+  </dependency>
+  <dependency>
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="L2MAtkCalcRemastered.exe" size="18172376">
+      <assemblyIdentity name="L2MAtkCalcRemastered" version="2.0.0.1" language="neutral" processorArchitecture="amd64" />
+      <hash>
+        <dsig:Transforms>
+          <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+        </dsig:Transforms>
+        <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+        <dsig:DigestValue>EgGPoVIusytKBOjXJ1U8VsonITErpL8umX6yPPAauHY=</dsig:DigestValue>
+      </hash>
+    </dependentAssembly>
+  </dependency>
+  <file name="ConfigurationFiles\Style.css" size="2038">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+      <dsig:DigestValue>vsCRoLnS8I1gf63E45yZGYVfLYgibC3ozrYPS5uWOm0=</dsig:DigestValue>
+    </hash>
+  </file>
+  <file name="L2MAtkCalcRemastered.exe.config" size="189">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+      <dsig:DigestValue>rl5/qDc7Jz+tB+BIbOv9iMGPlRe6YJwrjmU09dnlPcs=</dsig:DigestValue>
+    </hash>
+  </file>
+  <file name="lineage2.ico" size="7358">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+      <dsig:DigestValue>nTf0irdQP/M22Zf0k2rbi+Fke9DB8hN1qRCv0mI6n2k=</dsig:DigestValue>
+    </hash>
+  </file>
+  <compatibility xmlns="urn:schemas-microsoft-com:compatibility.v1">
+    <application>
+      <!-- Lista wersji systemu Windows, na których ta aplikacja została przetestowana
+           i dla których została zaprojektowana. Odkomentuj odpowiednie elementy, a system Windows
+           automatycznie wybierze najbardziej zgodne środowisko. -->
+      <!-- Windows Vista -->
+      <!--<supportedOS Id="{e2011457-1546-43c5-a5fe-008deee3d3f0}" />-->
+      <!-- Windows 7 -->
+      <!--<supportedOS Id="{35138b9a-5d96-4fbd-8e2d-a2440225f93a}" />-->
+      <!-- Windows 8 -->
+      <!--<supportedOS Id="{4a2f28e3-53b9-4441-ba9c-d69d4a4a6e38}" />-->
+      <!-- Windows 8.1 -->
+      <!--<supportedOS Id="{1f676c76-80e1-4239-95bb-83d0f6d0da78}" />-->
+      <!-- Windows 10 -->
+      <!--<supportedOS Id="{8e0f7a12-bfb3-4fe8-b9a5-48fd50a15a9a}" />-->
+    </application>
+  </compatibility>
+<publisherIdentity name="CN=PC_ST\Stanisław" issuerKeyHash="8df6992e441911437719a074e39c102b8648d38a" /><Signature Id="StrongNameSignature" xmlns="http://www.w3.org/2000/09/xmldsig#"><SignedInfo><CanonicalizationMethod Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#" /><SignatureMethod Algorithm="http://www.w3.org/2000/09/xmldsig#rsa-sha256" /><Reference URI=""><Transforms><Transform Algorithm="http://www.w3.org/2000/09/xmldsig#enveloped-signature" /><Transform Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#" /></Transforms><DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" /><DigestValue>vu4CwOmffZUukX/sPLpIBkLtGhqrIrwAEDZQKCPMq6A=</DigestValue></Reference></SignedInfo><SignatureValue>JnLDNeubSIi9LJAowZPJwAwv8KKHLK6f/OhNm7n+luMV0NspN1WT2Wt7+bx+B08sXXbn6UcxHb3ugEz9EsY+WUJOb63iWdSSpUHV86sQRsJx98FiV0EHktB+7NJO6z/VGSo6Sywewz6oD1ilWUYjnFPiqL+/ploCTXe9VVV4kXQ=</SignatureValue><KeyInfo Id="StrongNameKeyInfo"><KeyValue><RSAKeyValue><Modulus>tvA0QJUSyrwEGkStR+ZLzknFPRBLksxa5c637QQtYsV8LFh0zpn8P7p6raAxEMJRY1iHb9qfVIJcnJuz/Fa7Yb2NW3Dxncly4tXe+ti26ax83/EI+dhIug2c5v5GxM5UHX9SyBHbXZr2J7eSS7YVsoC5bUS4Bt+XgS2XN9YLaO0=</Modulus><Exponent>AQAB</Exponent></RSAKeyValue></KeyValue><msrel:RelData xmlns:msrel="http://schemas.microsoft.com/windows/rel/2005/reldata"><r:license xmlns:r="urn:mpeg:mpeg21:2003:01-REL-R-NS" xmlns:as="http://schemas.microsoft.com/windows/pki/2005/Authenticode"><r:grant><as:ManifestInformation Hash="a0abcc232850361000bc22ab1a1aed420648ba3cec7f912e957d9fe9c002eebe" Description="" Url=""><as:assemblyIdentity name="L2MAtkCalcRemastered.exe" version="2.0.0.3" publicKeyToken="16c85757792835ee" language="en" processorArchitecture="amd64" type="win32" /></as:ManifestInformation><as:SignedBy /><as:AuthenticodePublisher><as:X509SubjectName>CN=PC_ST\Stanisław</as:X509SubjectName></as:AuthenticodePublisher></r:grant><r:issuer><Signature Id="AuthenticodeSignature" xmlns="http://www.w3.org/2000/09/xmldsig#"><SignedInfo><CanonicalizationMethod Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#" /><SignatureMethod Algorithm="http://www.w3.org/2000/09/xmldsig#rsa-sha256" /><Reference URI=""><Transforms><Transform Algorithm="http://www.w3.org/2000/09/xmldsig#enveloped-signature" /><Transform Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#" /></Transforms><DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" /><DigestValue>KWXkHNakvCsazlnezvQWghLUaMu3TeXzNgLqRfQBsFo=</DigestValue></Reference></SignedInfo><SignatureValue>Rl1x/lLZRuW1ayzPUX+nlFiMUa7dFRsD4l0b0CIhIxpEuXW/xUuhnqV1/S9gaYHqhqWBhhrWOXERRG5nWvM66y9PSWoBu9NJTkXBZ0yoLvKQjat3CtsRHQdTXX2EWHOdTlJR1NEMBd8yRuOm1wL0EOS5ikILaZF8lbHfA9AGZUo=</SignatureValue><KeyInfo><KeyValue><RSAKeyValue><Modulus>tvA0QJUSyrwEGkStR+ZLzknFPRBLksxa5c637QQtYsV8LFh0zpn8P7p6raAxEMJRY1iHb9qfVIJcnJuz/Fa7Yb2NW3Dxncly4tXe+ti26ax83/EI+dhIug2c5v5GxM5UHX9SyBHbXZr2J7eSS7YVsoC5bUS4Bt+XgS2XN9YLaO0=</Modulus><Exponent>AQAB</Exponent></RSAKeyValue></KeyValue><X509Data><X509Certificate>MIIB1TCCAT6gAwIBAgIQQogxiw0G77FNweBbPESD8TANBgkqhkiG9w0BAQsFADApMScwJQYDVQQDHh4AUABDAF8AUwBUAFwAUwB0AGEAbgBpAHMBQgBhAHcwHhcNMjAwNDA3MTI0OTEzWhcNMjEwNDA3MTg0OTEzWjApMScwJQYDVQQDHh4AUABDAF8AUwBUAFwAUwB0AGEAbgBpAHMBQgBhAHcwgZ8wDQYJKoZIhvcNAQEBBQADgY0AMIGJAoGBALbwNECVEsq8BBpErUfmS85JxT0QS5LMWuXOt+0ELWLFfCxYdM6Z/D+6eq2gMRDCUWNYh2/an1SCXJybs/xWu2G9jVtw8Z3JcuLV3vrYtumsfN/xCPnYSLoNnOb+RsTOVB1/UsgR212a9ie3kku2FbKAuW1EuAbfl4EtlzfWC2jtAgMBAAEwDQYJKoZIhvcNAQELBQADgYEAAoaoevIs1zugwrkkrc/46B2cpw3QBaya7fiD27i/d+a2Jk3dihiFSOqs5w0siMQ3eeTDZAV9J5ZQGS371wLFyfRVmFNxmXJNiEgAGFwuYYadg1w8Y8SU+Tro5+UyCUhqf3FNIQxb9eIvcMg3p2IRbxMby7+Y+75IKI13u1NUxaU=</X509Certificate></X509Data></KeyInfo></Signature></r:issuer></r:license></msrel:RelData></KeyInfo></Signature></asmv1:assembly>
