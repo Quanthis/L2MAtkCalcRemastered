@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Threading.Tasks;
-using System.Threading;
 using static System.Convert;
 
 
@@ -37,8 +36,21 @@ namespace L2MAtkCalcRemastered
 
         private Character character;
 
-
         public Weapon(decimal weapAttack, string weapName, string OwnAttack, bool sigil, bool blessed, bool[] bufs)
+        {
+            weaponAttack = weapAttack;
+            weaponName = weapName;
+            OwnMAttack2 = OwnAttack;
+            sigilOn = sigil;
+            isBlessed = blessed;
+            buffs = bufs;
+
+            CheckBuffs();
+
+            character = new Character();
+        }
+
+        public Weapon(decimal weapAttack, string weapName, string OwnAttack, bool sigil, bool blessed, bool[] bufs, string inteligence)
         {
             weaponAttack = weapAttack;
             weaponName = weapName;
@@ -48,6 +60,16 @@ namespace L2MAtkCalcRemastered
             buffs = bufs;
             
             CheckBuffs();
+
+            try
+            {
+                character = new Character(ToInt32(inteligence));
+            }
+            catch (Exception)
+            {
+                ErrorCode = 1;
+                character = new Character();
+            }
         }
 
         public Weapon(string weapAttack, string OwnAttack, bool[] bufs)
@@ -56,29 +78,37 @@ namespace L2MAtkCalcRemastered
             {
                 weaponAttack = ToDecimal(weapAttack);
             }
-            catch(Exception)
+            catch (Exception)
             {
-                ErrorCode = 1;                
+                ErrorCode = 1;
             }
             OwnMAttack2 = OwnAttack;
             buffs = bufs;
 
             CheckBuffs();
+
+            character = new Character();
         }
 
-        public Weapon(decimal weapAttack, string weapName, string OwnAttack, bool sigil, bool blessed, bool[] bufs, int intelligence)
+        public Weapon(string weapAttack, string OwnAttack, bool[] bufs, string inteligence)
         {
-            weaponAttack = weapAttack;
-            weaponName = weapName;
+            try
+            {
+                weaponAttack = ToDecimal(weapAttack);
+                character = new Character(ToInt32(inteligence));
+            }
+            catch(Exception)
+            {
+                ErrorCode = 1;
+                character = new Character();
+            }
+
             OwnMAttack2 = OwnAttack;
-            sigilOn = sigil;
-            isBlessed = blessed;
             buffs = bufs;
 
             CheckBuffs();
-
-            character = new Character(intelligence);
         }
+        
 
         private void CheckBuffs()
         {
@@ -226,13 +256,16 @@ namespace L2MAtkCalcRemastered
                 if (weaponName != null)
                 {
                     decimal sentValue = await CalculateMAtk(await ConvertOwnAttack(), weaponName);
-                    string result = sentValue.ToString();
+                    decimal valueWithINT = await character.AddInteligence(sentValue);
+                    System.Diagnostics.Debug.WriteLine(valueWithINT);
+                    string result = valueWithINT.ToString();
                     return result;
                 }
                 else
                 {
                     decimal sentValue = await CalculateMAtk(await ConvertOwnAttack());
-                    string result = sentValue.ToString();
+                    decimal valueWithINT = await character.AddInteligence(sentValue);
+                    string result = valueWithINT.ToString();
                     return result;
                 }
             });

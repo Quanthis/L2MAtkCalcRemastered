@@ -14,7 +14,7 @@ namespace Tests
         {
             bool[] buffs = InitializeEmptyBuffs();
 
-            var weaponObject = new Weapon("293", "2390", buffs);
+            var weaponObject = new Weapon("293", "2390", buffs, "115");
 
             var weaponMethodResult = ToDecimal(await weaponObject.ConvertToSendableForm());
 
@@ -31,7 +31,7 @@ namespace Tests
         {
             bool[] buffs = InitializeEmptyBuffs();
 
-            var weaponObject = new Weapon("293", "2390", buffs);
+            var weaponObject = new Weapon("293", "2390", buffs, "115");
 
             var weaponMethodResult = ToDecimal(await weaponObject.ConvertToSendableForm());
 

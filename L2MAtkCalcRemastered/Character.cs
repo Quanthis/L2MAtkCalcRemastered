@@ -7,7 +7,7 @@ namespace L2MAtkCalcRemastered
     {
         private readonly static decimal intelligenceFactor = 163.7612166428M;
         
-        private int INT = 115;
+        private int INT = 115;                                                              //115 is value I used to have while experimenting
 
 
         public Character(int intelligence)
@@ -15,11 +15,23 @@ namespace L2MAtkCalcRemastered
             INT = intelligence;
         }
 
+        public Character()
+        {
+        }
+
+
         public async Task <decimal> AddInteligence(decimal totalMagicalAttack)
         {
             return await Task.Run(() =>
             {
-                return (totalMagicalAttack / (115 * intelligenceFactor) )  * (intelligenceFactor * INT);
+                if (INT != 115)
+                {
+                    return (totalMagicalAttack / (115 * intelligenceFactor)) * (intelligenceFactor * INT);
+                }
+                else
+                {
+                    return totalMagicalAttack;
+                }
             });
         }
 

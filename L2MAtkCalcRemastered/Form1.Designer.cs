@@ -85,6 +85,7 @@
             this.T2 = new System.ComponentModel.BackgroundWorker();
             this.Intelligence = new System.Windows.Forms.TextBox();
             this.IntelligenceInfo = new System.Windows.Forms.Label();
+            this.CheckAllBuffs = new System.Windows.Forms.Button();
             this.toolStrip1.SuspendLayout();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
@@ -615,8 +616,11 @@
             // 
             // MyCasterResult
             // 
+            this.MyCasterResult.AutoSize = true;
             this.MyCasterResult.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.MyCasterResult.Location = new System.Drawing.Point(1727, 200);
+            this.MyCasterResult.MaximumSize = new System.Drawing.Size(150, 25);
+            this.MyCasterResult.MinimumSize = new System.Drawing.Size(77, 20);
             this.MyCasterResult.Name = "MyCasterResult";
             this.MyCasterResult.Size = new System.Drawing.Size(77, 20);
             this.MyCasterResult.TabIndex = 37;
@@ -647,6 +651,7 @@
             this.panel1.BackColor = System.Drawing.SystemColors.Window;
             this.panel1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.panel1.Controls.Add(this.CheckAllBuffs);
             this.panel1.Controls.Add(this.ActiveBuffs);
             this.panel1.Controls.Add(this.Buffs);
             this.panel1.Location = new System.Drawing.Point(331, 863);
@@ -709,6 +714,7 @@
             // 
             this.Intelligence.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.5F);
             this.Intelligence.Location = new System.Drawing.Point(1589, 900);
+            this.Intelligence.MaxLength = 3;
             this.Intelligence.Name = "Intelligence";
             this.Intelligence.Size = new System.Drawing.Size(100, 22);
             this.Intelligence.TabIndex = 42;
@@ -723,6 +729,16 @@
             this.IntelligenceInfo.Size = new System.Drawing.Size(136, 16);
             this.IntelligenceInfo.TabIndex = 43;
             this.IntelligenceInfo.Text = "Insert your INT below:";
+            // 
+            // CheckAllBuffs
+            // 
+            this.CheckAllBuffs.Location = new System.Drawing.Point(155, 1);
+            this.CheckAllBuffs.Name = "CheckAllBuffs";
+            this.CheckAllBuffs.Size = new System.Drawing.Size(132, 23);
+            this.CheckAllBuffs.TabIndex = 2;
+            this.CheckAllBuffs.Text = "CheckAll";
+            this.CheckAllBuffs.UseVisualStyleBackColor = true;
+            this.CheckAllBuffs.Click += new System.EventHandler(this.CheckAllBuffs_Click);
             // 
             // Form1
             // 
@@ -851,6 +867,7 @@
         private System.Windows.Forms.ToolStripButton TestButton;
         private System.Windows.Forms.TextBox Intelligence;
         private System.Windows.Forms.Label IntelligenceInfo;
+        private System.Windows.Forms.Button CheckAllBuffs;
     }
 }
 

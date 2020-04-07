@@ -8,7 +8,6 @@ using System.IO;
 using System.Text;
 using System.Linq;
 using System.Diagnostics;
-using System.Numerics;
 
 
 namespace L2MAtkCalcRemastered
@@ -54,7 +53,7 @@ namespace L2MAtkCalcRemastered
         {
             string OwnAtak = OwnMAttack.Text;
             var wp = new Weapon
-                (weaponAttack, weapName, OwnAtak, await HaveSigil(), await IsBlessed(Blessed, weapName), await GetActiveBuffs());   
+                (weaponAttack, weapName, OwnAtak, await HaveSigil(), await IsBlessed(Blessed, weapName), await GetActiveBuffs(), Intelligence.Text);   
             
             whereToSend.Text = await wp.ConvertToSendableForm();
             //wp.Dispose();
@@ -66,7 +65,7 @@ namespace L2MAtkCalcRemastered
         {
             string OwnAtak = OwnMAttack.Text;
             var wp = new Weapon
-                (weaponAttack, OwnAtak, await GetActiveBuffs());
+                (weaponAttack, OwnAtak, await GetActiveBuffs(), Intelligence.Text);
 
             whereToSend.Text = await wp.ConvertToSendableForm();
             //wp.Dispose();
@@ -140,10 +139,8 @@ namespace L2MAtkCalcRemastered
 
                     switch (flag)
                     {
-                        case 0:
-                            break;
                         case 1:
-                            MessageBox.Show($"Field 'OwnMAttack' can only contain numbers!", "Error!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            MessageBox.Show($"Fields 'OwnMAttack' and 'INT' can only contain numbers!", "Error!", MessageBoxButtons.OK, MessageBoxIcon.Error);
                             break;
                         case 2:
                             MessageBox.Show("I don't think you attack is so low, try inserting it again :)", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
@@ -161,7 +158,7 @@ namespace L2MAtkCalcRemastered
                             break;
                     }
 
-                    Thread.Sleep(300);
+                    Thread.Sleep(700);
                 }
             });
         }
@@ -555,7 +552,6 @@ namespace L2MAtkCalcRemastered
 
         private void Buffs_SelectedIndexChanged(object sender, EventArgs e)
         {
-            //RefreshCalculations();
         }
 
         #endregion
@@ -807,5 +803,13 @@ namespace L2MAtkCalcRemastered
         }
 
         #endregion
+
+        private void CheckAllBuffs_Click(object sender, EventArgs e)
+        {
+            for (int i = 0; i < Buffs.Items.Count; i++)
+            {
+                Buffs.SetItemChecked(i, true);
+            }
+        }
     }
 }
