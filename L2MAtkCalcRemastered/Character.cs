@@ -19,7 +19,7 @@ namespace L2MAtkCalcRemastered
         {
             return await Task.Run(() =>
             {
-                return (totalMagicalAttack / 12 )  * (intelligenceFactor * INT);
+                return (totalMagicalAttack / (115 * intelligenceFactor) )  * (intelligenceFactor * INT);
             });
         }
 
