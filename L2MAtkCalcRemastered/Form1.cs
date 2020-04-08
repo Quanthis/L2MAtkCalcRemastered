@@ -48,6 +48,13 @@ namespace L2MAtkCalcRemastered
 
 
         #region MakeButtonsWork
+        private void CheckAllBuffs_Click(object sender, EventArgs e)
+        {
+            for (int i = 0; i < Buffs.Items.Count; i++)
+            {
+                Buffs.SetItemChecked(i, true);
+            }
+        }
 
         private async Task Sender(decimal weaponAttack, Label whereToSend, string weapName, CheckBox Blessed)
         {
@@ -56,7 +63,7 @@ namespace L2MAtkCalcRemastered
                 (weaponAttack, weapName, OwnAtak, await HaveSigil(), await IsBlessed(Blessed, weapName), await GetActiveBuffs(), Intelligence.Text);   
             
             whereToSend.Text = await wp.ConvertToSendableForm();
-            //wp.Dispose();
+            wp.Dispose();
 
             //wp = null;                //this instruction doesn't pay off - it takes up to 300kB of memory more
         }
@@ -68,9 +75,7 @@ namespace L2MAtkCalcRemastered
                 (weaponAttack, OwnAtak, await GetActiveBuffs(), Intelligence.Text);
 
             whereToSend.Text = await wp.ConvertToSendableForm();
-            //wp.Dispose();
-
-            //wp = null;
+            wp.Dispose();
         }
 
         private async Task RefreshCalculations()
@@ -167,7 +172,7 @@ namespace L2MAtkCalcRemastered
         private void Form1_Load(object sender, EventArgs e)
         {
             CheckIfErrorOccured();
-            TestButton.Dispose();
+            //TestButton.Dispose();
 
             Saving.CopyCSS();
 
@@ -802,14 +807,6 @@ namespace L2MAtkCalcRemastered
             //await TypedTestForReponsivenessV5();
         }
 
-        #endregion
-
-        private void CheckAllBuffs_Click(object sender, EventArgs e)
-        {
-            for (int i = 0; i < Buffs.Items.Count; i++)
-            {
-                Buffs.SetItemChecked(i, true);
-            }
-        }
+        #endregion        
     }
 }

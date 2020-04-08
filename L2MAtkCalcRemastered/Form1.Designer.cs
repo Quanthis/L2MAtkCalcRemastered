@@ -79,13 +79,13 @@
             this.OwnWeapAttack = new System.Windows.Forms.Label();
             this.OwnWeaponAttack = new System.Windows.Forms.TextBox();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.CheckAllBuffs = new System.Windows.Forms.Button();
             this.ActiveBuffs = new System.Windows.Forms.Label();
             this.Buffs = new System.Windows.Forms.CheckedListBox();
             this.ProgressBar1 = new System.Windows.Forms.ProgressBar();
             this.T2 = new System.ComponentModel.BackgroundWorker();
             this.Intelligence = new System.Windows.Forms.TextBox();
             this.IntelligenceInfo = new System.Windows.Forms.Label();
-            this.CheckAllBuffs = new System.Windows.Forms.Button();
             this.toolStrip1.SuspendLayout();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
@@ -659,6 +659,16 @@
             this.panel1.Size = new System.Drawing.Size(292, 105);
             this.panel1.TabIndex = 40;
             // 
+            // CheckAllBuffs
+            // 
+            this.CheckAllBuffs.Location = new System.Drawing.Point(155, 1);
+            this.CheckAllBuffs.Name = "CheckAllBuffs";
+            this.CheckAllBuffs.Size = new System.Drawing.Size(132, 23);
+            this.CheckAllBuffs.TabIndex = 2;
+            this.CheckAllBuffs.Text = "Check All";
+            this.CheckAllBuffs.UseVisualStyleBackColor = true;
+            this.CheckAllBuffs.Click += new System.EventHandler(this.CheckAllBuffs_Click);
+            // 
             // ActiveBuffs
             // 
             this.ActiveBuffs.AutoSize = true;
@@ -729,16 +739,6 @@
             this.IntelligenceInfo.Size = new System.Drawing.Size(136, 16);
             this.IntelligenceInfo.TabIndex = 43;
             this.IntelligenceInfo.Text = "Insert your INT below:";
-            // 
-            // CheckAllBuffs
-            // 
-            this.CheckAllBuffs.Location = new System.Drawing.Point(155, 1);
-            this.CheckAllBuffs.Name = "CheckAllBuffs";
-            this.CheckAllBuffs.Size = new System.Drawing.Size(132, 23);
-            this.CheckAllBuffs.TabIndex = 2;
-            this.CheckAllBuffs.Text = "CheckAll";
-            this.CheckAllBuffs.UseVisualStyleBackColor = true;
-            this.CheckAllBuffs.Click += new System.EventHandler(this.CheckAllBuffs_Click);
             // 
             // Form1
             // 
