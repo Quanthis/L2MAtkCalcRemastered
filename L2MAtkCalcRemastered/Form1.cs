@@ -7,7 +7,6 @@ using System.ComponentModel;
 using System.IO;
 using System.Text;
 using System.Linq;
-using System.Diagnostics;
 
 
 namespace L2MAtkCalcRemastered
@@ -172,7 +171,8 @@ namespace L2MAtkCalcRemastered
         private void Form1_Load(object sender, EventArgs e)
         {
             CheckIfErrorOccured();
-            //TestButton.Dispose();
+            /*TestButton.Dispose();
+            CopyrightInfo.Dispose();*/
 
             Saving.CopyCSS();
 
@@ -477,6 +477,7 @@ namespace L2MAtkCalcRemastered
         private async void Save_Click(object sender, EventArgs e)
         {
             RunBackgroundWorker();
+            await RefreshCalculations();
 
             int buttonNo = await CalculateButtons();
             int resultsNo = await CalculateResultLabels();
@@ -504,7 +505,7 @@ namespace L2MAtkCalcRemastered
 
         private async void Contributors_Click(object sender, EventArgs e)                 //add yourself here if you also contributted to this project!
         {
-            System.Diagnostics.Process.Start("https://github.com/Quanthis");
+            System.Diagnostics.Process.Start("https://github.com/Quanthis/L2MAtkCalcRemastered/graphs/contributors");
         }
 
         #endregion
@@ -670,7 +671,7 @@ namespace L2MAtkCalcRemastered
 
         #region TestingTools
         
-        public static async Task TestForResponsivenessV1()
+        /*public static async Task TestForResponsivenessV1()
         {
             for(int i = 0; i <= 10; i++)
             {
@@ -762,7 +763,7 @@ namespace L2MAtkCalcRemastered
 
                 return 0;
             });
-        }
+        }*/
 
 
         private async void TestButton_Click(object sender, EventArgs e)
@@ -803,7 +804,7 @@ namespace L2MAtkCalcRemastered
 
             //});
 
-            await TypedTestForResponsivenessV3();
+            //await TypedTestForResponsivenessV3();
             //await TypedTestForReponsivenessV5();
         }
 

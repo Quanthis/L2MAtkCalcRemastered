@@ -7,7 +7,9 @@ namespace L2MAtkCalcRemastered
     {
         private readonly static decimal intelligenceFactor = 163.7612166428M;
         
-        private int INT = 115;                                                              //115 is value I used to have while experimenting
+        private int INT = 115;                                                  //115 is value I used to have while experimenting
+
+        private bool disposed = false;
 
 
         public Character(int intelligence)
@@ -44,5 +46,34 @@ namespace L2MAtkCalcRemastered
         {
             return 115 - INT;
         }
+
+
+        #region Cleaning
+
+        public void Dispose()
+        {
+            Dispose(true);
+            GC.SuppressFinalize(this);
+        }
+
+        protected virtual void Dispose(bool disposing)
+        {
+            if (!this.disposed)
+            {
+                if (disposing)
+                {
+                    //...
+                }
+
+                disposed = true;
+            }
+        }
+
+        ~Character()
+        {
+            Dispose(false);
+        }
+
+        #endregion
     }
 }

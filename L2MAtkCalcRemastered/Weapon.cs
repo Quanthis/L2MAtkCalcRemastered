@@ -257,7 +257,6 @@ namespace L2MAtkCalcRemastered
                 {
                     decimal sentValue = await CalculateMAtk(await ConvertOwnAttack(), weaponName);
                     decimal valueWithINT = await character.AddInteligence(sentValue);
-                    System.Diagnostics.Debug.WriteLine(valueWithINT);
                     string result = valueWithINT.ToString();
                     return result;
                 }
