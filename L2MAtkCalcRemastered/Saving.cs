@@ -38,23 +38,44 @@ namespace L2MAtkCalcRemastered
             {
                 StringBuilder CssBuilder = new StringBuilder("");
                 string path = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + @"\Style.css";
+                bool dontRewrite = false;
 
                 try
-                {
-
+                {                                       
                     using (FileStream fs = new FileStream(@"ConfigurationFiles\Style.css", FileMode.Open))
                     {
-                        using (StreamReader sr = new StreamReader(fs, Encoding.Unicode))
+                        using (StreamReader sr = new StreamReader(fs, Encoding.UTF8))
                         {
                             CssBuilder.Append(sr.ReadToEnd());
                         }
                     }
 
-                    using (FileStream fs = new FileStream(path, FileMode.Create))
+                    try
                     {
-                        using (StreamWriter sw = new StreamWriter(fs, Encoding.Unicode))
+                        using (FileStream fs = new FileStream(path, FileMode.Open))
                         {
-                            sw.WriteLine(CssBuilder);
+                            using (StreamReader sr = new StreamReader(fs, Encoding.UTF8))
+                            {
+                                StringBuilder comparer = new StringBuilder("");
+                                comparer.Append(sr.ReadToEnd());
+                                if(comparer.Equals(CssBuilder))
+                                {
+                                    dontRewrite = true;
+                                }
+                            }
+                        }
+                    }
+                    catch
+                    {
+                        if (!dontRewrite)
+                        {
+                            using (FileStream fs = new FileStream(path, FileMode.Create))
+                            {
+                                using (StreamWriter sw = new StreamWriter(fs, Encoding.UTF8))
+                                {
+                                    sw.WriteLine(CssBuilder);
+                                }
+                            }
                         }
                     }
                 }

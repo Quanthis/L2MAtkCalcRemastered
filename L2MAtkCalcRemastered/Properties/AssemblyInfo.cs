@@ -7,12 +7,12 @@ using System.Runtime.InteropServices;
 // zestaw atrybutów. Zmień wartości tych atrybutów, aby zmodyfikować informacje
 // powiązane z zestawem.
 [assembly: AssemblyTitle("L2MAtkCalcRemastered")]
-[assembly: AssemblyDescription("")]
+[assembly: AssemblyDescription("Simple app made by former L2 lover for those who still enjoy this game")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("")]
+[assembly: AssemblyCompany("Quanthis")]
 [assembly: AssemblyProduct("L2MAtkCalcRemastered")]
 [assembly: AssemblyCopyright("Copyright ©  2020")]
-[assembly: AssemblyTrademark("")]
+[assembly: AssemblyTrademark("Q")]
 [assembly: AssemblyCulture("")]
 
 // Ustawienie elementu ComVisible na wartość false sprawia, że typy w tym zestawie są niewidoczne
@@ -33,7 +33,7 @@ using System.Runtime.InteropServices;
 // Możesz określić wszystkie wartości lub użyć domyślnych numerów kompilacji i poprawki
 // przy użyciu symbolu „*”, tak jak pokazano poniżej:
 // [assembly: AssemblyVersion("1.0.*")]
-[assembly: AssemblyVersion("1.0.0.1")]
+[assembly: AssemblyVersion("2.0.0.1")]
 [assembly: AssemblyFileVersion("1.0.0.1")]
 [assembly: NeutralResourcesLanguage("en")]
 
