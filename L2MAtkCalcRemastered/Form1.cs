@@ -171,8 +171,8 @@ namespace L2MAtkCalcRemastered
         private void Form1_Load(object sender, EventArgs e)
         {
             CheckIfErrorOccured();
-            /*TestButton.Dispose();
-            CopyrightInfo.Dispose();*/
+            TestButton.Dispose();
+            CopyrightInfo.Dispose();
 
             Saving.CopyCSS();
 
@@ -199,12 +199,12 @@ namespace L2MAtkCalcRemastered
                     {
                         using (StreamWriter sw = new StreamWriter(fs, Encoding.Unicode))
                         {
-                            string toSave = OwnMAttack.Text = Microsoft.VisualBasic.Interaction.InputBox("What's your magic attack?", "Need informations from user to proceed...");
+                            string toSave = OwnMAttack.Text = Microsoft.VisualBasic.Interaction.InputBox("What's your magic attack?\n (Without buffs and weapon)", "Need informations from user to proceed...");
                             sw.WriteLine(toSave);
 
                             while (OwnMAttack.Text.Length == 0)
                             {
-                                sw.WriteLine(OwnMAttack.Text = Microsoft.VisualBasic.Interaction.InputBox("What's your magic attack?", "This field cannot be empty!"));
+                                sw.WriteLine(OwnMAttack.Text = Microsoft.VisualBasic.Interaction.InputBox("What's your magic attack?\n(Without buffs and weapon)", "This field cannot be empty!"));
                             }
                         }
                     }
